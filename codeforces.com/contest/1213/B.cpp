@@ -4,33 +4,18 @@
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define q(tag, i) cout << endl \
-					   << tag << "...." << i << "...." << endl;
+#define pr(tag,i) cout << '
+' <<tag<< "....(" << i << ")...." << '
+';
 using namespace std;
 
-int li[150000];
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
+
 void solve()
 {
-	int n;
-	cin>>n;
-	REP(i,n){
-		cin>>li[i];
-	}
-
-	int curMin=li[n-1];
-
-	int count=0;
-
-	for(int i=n-2;i>=0;i--){
-		if(li[i]>curMin){
-			count++;
-		}
-		else {
-			curMin=li[i];
-		}
-	}
-
-	cout<<count<<endl;
 }
 
 int main()
@@ -40,17 +25,20 @@ int main()
 	// freopen("output.txt", "w", stdout);
 	int tt = clock();
 #endif
+
+	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
-	cin >> no_of_test_cases;
-	// no_of_test_cases = 1;
+	//cin >> no_of_test_cases;
+	no_of_test_cases=1;
 	while (no_of_test_cases--)
 	{
 		solve();
-		// pr("");
 	}
+
 #ifdef _DEBUG
 	cerr << "TIME = " << clock() - tt << endl;
 	tt = clock();
 #endif
+
 	return 0;
 }

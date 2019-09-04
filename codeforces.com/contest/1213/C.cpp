@@ -1,48 +1,21 @@
 //https://codeforces.com/contest/1213/problem/C
+#include <bits/stdc++.h>
 #define _DEBUG
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define q(tag, i) cout << endl \
-					   << tag << "...." << i << "...." << endl;
+#define pr(tag,i) cout << '
+' <<tag<< "....(" << i << ")...." << '
+';
 using namespace std;
-ll dig[11];
+
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
 
 void solve()
 {
-	ll n, m, ans, d;
-
-	cin >> n >> m;
-	if (n < m)
-		ans = 0LL;
-	else
-	{
-		d = n / m;
-		int add = 0;
-		m = m % 10;
-		for (int i = 0; i < 10; i++)
-		{
-
-			if (i != 0)
-			{
-				add += m;
-				if (add > 9)
-				{
-					add = add % 10;
-				}
-			}
-
-			dig[i] = add;
-			
-			if (i)
-				dig[i] += dig[i - 1];
-				cout << endl<< "tag "<< "...." << dig[i] << "...." << endl;
-		}
-
-		ans = (d / 10) * dig[9];
-		ans += dig[d % 10];
-	}
-	cout << ans << endl;
 }
 
 int main()
@@ -53,10 +26,10 @@ int main()
 	int tt = clock();
 #endif
 
+	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
-	cin >> no_of_test_cases;
-	// no_of_test_cases = 1;
-
+	//cin >> no_of_test_cases;
+	no_of_test_cases=1;
 	while (no_of_test_cases--)
 	{
 		solve();

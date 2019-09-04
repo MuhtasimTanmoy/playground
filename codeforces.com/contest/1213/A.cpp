@@ -4,38 +4,18 @@
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define q(tag, i) cout << endl \
-					   << tag << "...." << i << "...." << endl;
+#define pr(tag,i) cout << '
+' <<tag<< "....(" << i << ")...." << '
+';
 using namespace std;
+
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b)
+{
+    return (a.second < b.second);
+}
 
 void solve()
 {
-	int n;
-	cin>>n;
-	int holder;
-	int evenCount=0;
-	int oddCount=0;
-	REP(i,n){
-		cin>>holder;
-		if(holder&1){
-			oddCount++;
-		}
-		else{
-			evenCount++;
-		}
-	}
-
-	int res=0;
-
-	if(oddCount>evenCount){
-		res=evenCount;
-	}
-	else{
-		res=oddCount;
-	}
-
-	cout<<res<<endl;
-
 }
 
 int main()
@@ -46,10 +26,10 @@ int main()
 	int tt = clock();
 #endif
 
+	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
-	// cin >> no_of_test_cases;
-	no_of_test_cases = 1;
-
+	//cin >> no_of_test_cases;
+	no_of_test_cases=1;
 	while (no_of_test_cases--)
 	{
 		solve();
