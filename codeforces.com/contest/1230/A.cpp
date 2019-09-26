@@ -1,11 +1,9 @@
-// https://codeforces.com/contest/1220/problem/B
+//https://codeforces.com/contest/1230/problem/A
 #include <bits/stdc++.h>
 #define _DEBUG
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define REP1(i, n) for (int i = 1; i < (int)n; i++)
-
 using namespace std;
 
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
@@ -13,41 +11,31 @@ bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
 	return (a.second < b.second);
 }
 
-ll arr[1010][1010	];
-
 void solve()
 {
-	int n;
-	cin >> n;
-
-	vector<int> res;
-	ll singleRowResult;
-	ll holder;
-
-	REP(i, n)
+	vector<int> li(4);
+	REP(i, 4)
 	{
-		REP(j, n)
+		cin >> li[i];
+	}
+
+	sort(li.begin(), li.end());
+
+	if (li[0] + li[3] == li[2] + li[1])
+	{
+		cout << "YES" << endl;
+	}
+	else
+	{
+		if (li[0] + li[1] + li[2] == li[3])
 		{
-			cin >> arr[i][j];
+			cout << "YES" << endl;
+		}
+		else
+		{
+			cout << "NO" << endl;
 		}
 	}
-
-
-	ll j = sqrt((arr[1][2] *arr[0][1])/arr[0][2]);
-
-	ll first = round(arr[0][1]/j);
-
-	res.push_back(first);
-
-	REP1(i,n){
-		res.push_back((arr[0][i]/first));
-	}
-
-	REP(i,n){
-		cout<<res[i]<<" ";
-	}
-
-
 }
 
 int main()

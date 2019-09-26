@@ -1,11 +1,9 @@
-// https://codeforces.com/contest/1220/problem/B
+//https://codeforces.com/contest/1216/problem/A
 #include <bits/stdc++.h>
 #define _DEBUG
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define REP1(i, n) for (int i = 1; i < (int)n; i++)
-
 using namespace std;
 
 bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
@@ -13,41 +11,35 @@ bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
 	return (a.second < b.second);
 }
 
-ll arr[1010][1010	];
-
 void solve()
 {
 	int n;
 	cin >> n;
 
-	vector<int> res;
-	ll singleRowResult;
-	ll holder;
+	char a, b;
+	int count = 0;
 
-	REP(i, n)
+	string result="";
+
+	REP(i, n / 2)
 	{
-		REP(j, n)
+		cin >> a;
+		cin >> b;
+
+		if (a == b)
 		{
-			cin >> arr[i][j];
+			count++;
+			result+="ab";
 		}
+		else{
+			result+=a;
+			result+=b;
+		}
+
 	}
 
-
-	ll j = sqrt((arr[1][2] *arr[0][1])/arr[0][2]);
-
-	ll first = round(arr[0][1]/j);
-
-	res.push_back(first);
-
-	REP1(i,n){
-		res.push_back((arr[0][i]/first));
-	}
-
-	REP(i,n){
-		cout<<res[i]<<" ";
-	}
-
-
+	cout << count << endl;
+	cout<<result<<endl;
 }
 
 int main()
@@ -60,8 +52,8 @@ int main()
 
 	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
-	//cin >> no_of_test_cases;
-	no_of_test_cases = 1;
+	// cin >> no_of_test_cases;
+	no_of_test_cases=1;
 	while (no_of_test_cases--)
 	{
 		solve();
