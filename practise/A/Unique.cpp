@@ -1,11 +1,10 @@
-// https://practise/problem/A
-// https://codeforces.com/contest/965/problem/D
+//https://practise/problem/A
 #include <bits/stdc++.h>
 #define _DEBUG
 #define ll long long
 #define pb push_back
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
-#define REPI(i, a, b) for (int i = (a); (i <= (b)); ++i)
+#define REPI(i, a, b) for(int i = (a); (i <= (b)); ++i)
 #define x first
 #define y second
 using namespace std;
@@ -32,26 +31,33 @@ T gcd(T x, T y)
 	return gcd(y, x % y);
 }
 
-bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b)
 {
-	return (a.second < b.second);
+    return (a.second < b.second);
+}
+
+bool allUnique(int num){
+	bool mapping[10]={0};
+	while(num){
+		short int check = num%10;
+		if(mapping[check]==1)return false;
+		mapping[check]=1;
+		num/=10;
+	}
+	return true;
 }
 
 void solve()
 {
-	double k, n, s, p;
-
-	cin >> k >> n >> s >> p;
-
-	double needed = 0;
-
-	needed = (n > s) ? ceil(n / s):1;
-
-	needed = k*needed;
-
-	int result = ceil(needed/p);
-
-	cout<<result<<endl;
+	int l,r;
+	cin>>l>>r;
+	for(int i=l;i<=r;i++){
+		if(allUnique(i)){
+			cout<<i<<endl;
+			return;
+		}
+	}
+	cout<<-1<<endl;
 }
 
 int main()
@@ -65,7 +71,7 @@ int main()
 	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
 	//cin >> no_of_test_cases;
-	no_of_test_cases = 1;
+	no_of_test_cases=1;
 	while (no_of_test_cases--)
 	{
 		solve();
