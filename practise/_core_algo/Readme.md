@@ -199,3 +199,59 @@ sorting checking very fast
 ```
 
 
+### Complete Search
+
+
+All subsequnce
+Permutation
+
+Queen problem
+All grid visit
+
+Meet in the middle
+
+
+
+### Greedy Algorithm
+
+In case of coins having multiplication greedy works
+
+In case of duration scheduling always choose that end quick
+
+In case of duration & deadline problem always duration matters deadline dont
+
+Execute as fast as possible
+
+Minimizing Sums
+
+in case of plain absolute median
+
+in case of square avg
+
+Huffman coding
+
+### Dynamic Programming
+
+Correctness of complete search and efficiency of greedy algorithm
+
+- Finding an optimal solution: We want to find a solution that is as large
+as possible or as small as possible.
+- Counting the number of solutions: We want to calculate the total num-
+ber of possible solutions.
+
+- Memoization
+
+DP_MINIMUM_COIN_TO_REACH_TARGET 
+	recursive
+	iterative
+
+DP_ALL_WAYS_TO_REACH_TARGET
+
+DP_MAXIMUM_SUBSEQUENCE
+
+DP_MAX_WEIGHT_SUM_GRID
+
+
+
+
+
