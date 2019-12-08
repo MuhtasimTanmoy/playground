@@ -53,29 +53,29 @@ g(n-1);
 
 - **Comparison Operator** - Sort based on first attribute then second
 
-	```
-		struct P { int x, y;
-		bool operator<(const P &p)
-		{
-		if (x != p.x)
-		return x < p.x;
-		else
-		return y < p.y; }
-		};
-	```
+      	```
+      		struct P { int x, y;
+      		bool operator<(const P &p)
+      		{
+      		if (x != p.x)
+      		return x < p.x;
+      		else
+      		return y < p.y; }
+      		};
+      	```
 
-	- Binary Search
-		```
-			int a = 0, b = n-1;
-			while (a <= b) {
-				int k = (a+b)/2;
-				if (array[k] == x) {
-				// x found at index k
-				}
-				if (array[k] > x) b = k-1;
-				else a = k+1;
-			}
-		```
+      	- Binary Search
+      		```
+      			int a = 0, b = n-1;
+      			while (a <= b) {
+      				int k = (a+b)/2;
+      				if (array[k] == x) {
+      				// x found at index k
+      				}
+      				if (array[k] > x) b = k-1;
+      				else a = k+1;
+      			}
+      		```
 
       	- Built In
 
@@ -100,64 +100,64 @@ g(n-1);
 
 - **Data Structures**
 
-	- Easy Syntax
+      	- Easy Syntax
 
-	```
-		for (auto x : v) {
-			cout << x << "\n";
-			}
-		vector<int> v = {2,4,2,5,1};
+      	```
+      		for (auto x : v) {
+      			cout << x << "\n";
+      			}
+      		vector<int> v = {2,4,2,5,1};
 
-		// size 10, initial va
-		vector<int> v(10);
+      		// size 10, initial va
+      		vector<int> v(10);
 
-		// size 10, initial value 5
-		vector<int> v(10, 5);
-	```
+      		// size 10, initial value 5
+      		vector<int> v(10, 5);
+      	```
 
-	vector and string are just dynamic array
+      	vector and string are just dynamic array
 
-	```
-		set<int> s;
-		unordered_set
-		multiset
-		unordered_multiset
+      	```
+      		set<int> s;
+      		unordered_set
+      		multiset
+      		unordered_multiset
 
-	```
+      	```
 
-	Map
+      	Map
 
-	> Use .count() method
-		Iterators are half open
-			.end() points to element after last elem to indicate null or not found val
+      	> Use .count() method
+      		Iterators are half open
+      			.end() points to element after last elem to indicate null or not found val
 
 
-	```
-	sort(v.begin(), v.end());
-	reverse(v.begin(), v.end());
-	random_shuffle(v.begin(), v.end());
-	```
+    ```
+    sort(v.begin(), v.end());
+    reverse(v.begin(), v.end());
+    random_shuffle(v.begin(), v.end());
+    ```
 
     	lower bound upper bound only on set
 
     	This finds element nearest to x
 
-	**Sample Problem**
+    **Sample Problem**
 
-	```
-	auto it = s.lower_bound(x);
+    ```
+    auto it = s.lower_bound(x);
 
-		if (it == s.begin()) {
-		cout << *it << "\n";
-		} else if (it == s.end()) {
-		it--;
-		cout << *it << "\n";
-		} else {
-		int a = *it; it--;
-		int b = *it;
-		if (x-b < a-x) cout << b << "\n";
-		else cout << a << "\n";
-		}
+    	if (it == s.begin()) {
+    	cout << *it << "\n";
+    	} else if (it == s.end()) {
+    	it--;
+    	cout << *it << "\n";
+    	} else {
+    	int a = *it; it--;
+    	int b = *it;
+    	if (x-b < a-x) cout << b << "\n";
+    	else cout << a << "\n";
+    	}
     ```
 
 **Bitset**
@@ -194,13 +194,11 @@ Two list containing same element
 ```
 ordered set slow
 unordered set sligtyly fast
-sorting checking very fast 
+sorting checking very fast
 
 ```
 
-
 ### Complete Search
-
 
 All subsequnce
 Permutation
@@ -209,8 +207,6 @@ Queen problem
 All grid visit
 
 Meet in the middle
-
-
 
 ### Greedy Algorithm
 
@@ -235,22 +231,94 @@ Huffman coding
 Correctness of complete search and efficiency of greedy algorithm
 
 - Finding an optimal solution: We want to find a solution that is as large
-as possible or as small as possible.
+  as possible or as small as possible.
 - Counting the number of solutions: We want to calculate the total num-
-ber of possible solutions.
+  ber of possible solutions.
 
 - Memoization
 
-DP_MINIMUM_COIN_TO_REACH_TARGET 
-	recursive
-	iterative
+DP_MINIMUM_COIN_TO_REACH_TARGET
+recursive
+iterative
+
+    solve ( x ) = min( solve ( x − 1) + 1,
+    solve ( x − 3) + 1,
+    solve ( x − 4) + 1).
 
 DP_ALL_WAYS_TO_REACH_TARGET
 
+    solve ( x ) = solve ( x − 1) +
+    solve ( x − 3) +
+    solve ( x − 4).
+
 DP_MAXIMUM_SUBSEQUENCE
+
+    Let length ( k ) denote the length of the longest increasing subsequence that
+    ends at position k
 
 DP_MAX_WEIGHT_SUM_GRID
 
+    corners added
+    then populate
+
+KNAPSACK
+The term knapsack refers to problems where a set of objects is given, and
+subsets with some properties have to be found.
+
+### Amortized Analysis
+
+2SUM
+
+Nearest smaller element in left array
+
+sliding window minimum
+
+### Range query
+
+• sum q ( a, b ): calculate the sum of values in range [ a, b ]
+
+# Prefix Sum
+
+• min q ( a, b ): find the minimum value in range [ a, b ]
+
+# Sparse Tree > Perform range queries in 0(1) > others logn
+Must be on immutable arrays > if changes then whole precomputation
+
+• max q ( a, b ): find the maximum value in range [ a, b ]
+
+# Range Update
+# Difference Array
+
+N th polite number > summation of consequtive positive number
+
+fun(n) = n + floor(log2(n+log2(n)))
+
+Any number can be represented in summands its bit represenetation > (1101) > ceil(log2(x))
+
+# Fenwick tree > 
+
+all operations logn 
+update > range sum > 
+
+# segment tree
+
+all operations logn
+update > range sum > min > max
+
+
+
+## Bit Manipulation
+
+5328; // 00000000000000000001010011010000
+__builtin_clz(x) << "\n"; // 19
+__builtin_ctz(x) << "\n"; // 4
+__builtin_popcount(x) << "\n"; // 5
+__builtin_parity(x) << "\n"; // 1
+
+
+
+
+# Z algorithm
 
 
 
