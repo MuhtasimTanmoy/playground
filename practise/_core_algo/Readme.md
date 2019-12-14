@@ -24,6 +24,8 @@ Geometric Progression - ( b \* k - a ) / ( k - 1 )
 
 Binet formula
 
+Finonacci factorial same for nth number
+
 ```
 int fib_formula(int n)
 {
@@ -31,6 +33,26 @@ int fib_formula(int n)
 	return (pow((1 + five), n) + pow((1 - five), n)) / (pow(2, n) * five);
 }
 ```
+
+#### Binomial co efficient > nCr calculate
+
+A binomial coefficient C(n, k) can be defined as the coefficient of X^k in the expansion of (1 + X)^n
+
+C(n, k) also gives the number of ways, disregarding order, that k objects can be chosen from among n objects; more formally, the number of k-element subsets (or k-combinations) of an n-element set.
+
+Co-prime Relatively prime 
+Chinese Remainder
+
+
+(2 , 0.5), (10, 0.1), etc form reciprocals or multiplicative inverses
+
+Modular Multiplicative Inverse of a number is the multiplicative inverse in the ring of integers modulo M, i.e. it is such a number which when multiplied with original number produces a product which modulo M gives unity.
+Formulating, α x ≡ 1 (mod M).
+The ring of integers correspond to the integers ranging [0, M-1]. Also, another point to be noted is that the Modular multiplicative inverse of a modulo M exists if and only if α and M are co-prime. 
+
+
+
+
 
 - **Exponential**
 
@@ -320,6 +342,99 @@ __builtin_parity(x) << "\n"; // 1
 
 # Z algorithm
 
+
+
+
+
+## Advanced
+
+Prime factorization
+
+Perfect number
+
+Each number can be written > as prime factors
+
+84 = 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42 and 84.
+
+84 = 2^2 · 3^1 · 7^1
+
+number of factors > (3 * 2 * 2) > tau 
+
+sum of factors >  2^3 - 1 · 3^2 - 1  · 7^2 -1 > sigma
+
+product of factors > n^ num_0f_factors /2 > sigma
+
+A number n is called a perfect number if n = σ ( n ) − n , i.e., n equals the sum
+of its factors between 1 and n − 1
+
+Density of primes > n/ ln(n)
+
+Conjecture
+
+Goldbach’s conjecture: Each even integer n > 2 can be represented as a
+sum n = a + b so that both a and b are primes.
+
+Twin prime conjecture: There is an infinite number of pairs of the form
+{ p, p + 2}, where both p and p + 2 are primes
+
+Legendre’s conjecture: There is always a prime between numbers n 2
+and ( n + 1) 2 , where n is any positive integer.
+
+
+```
+for (int x = 2; x <= n; x++) {
+if (sieve[x]) continue;
+for (int u = 2*x; u <= n; u += x) {
+sieve[u] = x;
+}
+}
+
+
+o(nlogn)
+
+```
+
+The algorithm builds an array sieve whose positions 2, 3, . . . , n are used. The
+value sieve [ k ] = 0 means that k is prime, and the value sieve [ k ] 6= 0 means that
+k is not a prime and one of its prime factors is sieve [ k ].
+
+
+
+lcb(a,b) = a*b/gcd(a,b)
+
+EUclids GCD
+
+Numbers a and b are coprime if gcd( a, b ) = 1.
+
+Euler’s totient function φ ( n )
+gives the number of coprime numbers to n between 1 and n . For example,
+φ (12) = 4, because 1, 5, 7 and 11 are coprime to 12.
+
+φ (12) = 2^(2-1) · (2 − 1) · 3^(1-1) · (3 − 1) = 4.
+
+In modular arithmetic, the set of numbers is limited so that only numbers
+0, 1, 2, . . . , m − 1 are used, where m is a constant.
+
+# modular Exponenentiation
+
+```
+int modpow(int x, int n, int m) {
+if (n == 0) return 1%m;
+long long u = modpow(x,n/2,m);
+u = (u*u)%m;
+if (n%2 == 1) u = (u*x)%m;
+return u;
+}
+
+```
+
+Fermates theorem
+
+x ^ (m − 1) mod m = 1
+
+Eulers theorem
+
+Modular inverse
 
 
 
