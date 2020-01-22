@@ -4,6 +4,9 @@
         "list": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "memory": "cpp",
+        "regex": "cpp",
+        "utility": "cpp"
     }
 }
