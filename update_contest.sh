@@ -5,7 +5,7 @@ files=( "${@:2}" )
 for i in ${files[*]}; do
     echo "Moving $i.cpp"
     echo "//https://$dir/problem/$i\n$(cat $i.cpp)" > $i".cpp"
-    mkdir -p "$dir/" && cp $i".cpp" "$_"
+    mkdir -p "codeforces.com/contest/$dir/" && cp $i".cpp" "$_"
     echo "Formatting $i.cpp"
     cp template.cpp $i".cpp"
     rm $i

@@ -7,6 +7,10 @@
         "ios": "cpp",
         "memory": "cpp",
         "regex": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "algorithm": "cpp"
+    },
+    "code-runner.executorMap": {
+        "cpp": "g++ $fullFileName && ./a.out"
     }
 }
