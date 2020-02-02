@@ -8,7 +8,8 @@
         "memory": "cpp",
         "regex": "cpp",
         "utility": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "ostream": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"
