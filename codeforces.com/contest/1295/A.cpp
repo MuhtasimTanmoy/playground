@@ -1,4 +1,4 @@
-//https://1217/problem/A
+//https://1295/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,23 +16,25 @@ void solve()
 	int n;
 	cin>>n;
 
-	int holder;
-	int odd_count = 0;
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
-		}
-	}
+	int count = 0;
+	bool odd = n%2;
 
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
+	if(odd){
+		count = n- 3;
+		count = count>>1;
 	}
 	else{
-		cout<<"NO"<<endl;
+		count = n>>1;
 	}
 
-	
+	if(odd){
+		cout<<7;
+	}
+
+	for (int i = 0; i < count; i++){
+		cout<<1;
+	}
+	cout<<endl;
 }
 
 int main()
@@ -48,6 +50,5 @@ int main()
 	{
 		solve();    
 	}
-
 	return 0;
 }

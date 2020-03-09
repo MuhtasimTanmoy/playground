@@ -1,4 +1,4 @@
-//https://1217/problem/A
+//https://1295/problem/D
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,28 +11,29 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+int gcd(int a, int b)
+{
+	if(b==0) return a;
+	else return gcd(b, a % b);
+}
+
 void solve()
 {
-	int n;
-	cin>>n;
+	int a, m;
+	cin >> a >> m;
 
-	int holder;
-	int odd_count = 0;
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
+	int x = 1;
+
+	int gcd_res = gcd(a,m);
+
+	for (int i = 1; i < m; i++)
+	{
+		if(gcd_res == gcd(a+i,m)){
+			x++;
 		}
 	}
 
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
-	}
-
-	
+	cout<<x<<endl;
 }
 
 int main()
@@ -46,7 +47,7 @@ int main()
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
-		solve();    
+		solve();
 	}
 
 	return 0;

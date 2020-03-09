@@ -1,4 +1,5 @@
-//https://1217/problem/A
+//https://reset/problem/C
+// https://codeforces.com/contest/1304/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,26 +14,12 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	int n;
-	cin>>n;
+	int x,y,a,b;
+	cin>>x>>y>>a>>b;
 
-	int holder;
-	int odd_count = 0;
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
-		}
-	}
+	bool impossible = (y-x)%(a+b);
 
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
-	}
-
-	
+	cout<<(impossible?-1:(y-x)/(a+b))<<endl; 
 }
 
 int main()

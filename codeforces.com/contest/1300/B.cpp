@@ -1,4 +1,4 @@
-//https://1217/problem/A
+//https://1300/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,25 +14,18 @@ const int N = 2e5 + 11;
 void solve()
 {
 	int n;
-	cin>>n;
+	cin >> n;
 
-	int holder;
-	int odd_count = 0;
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
-		}
+	vector<int> li(2*n);
+
+	for (int i = 0; i < 2 * n; i++)
+	{
+		cin >> li[i];
 	}
 
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
-	}
+	sort(li.begin(), li.end());
 
-	
+	cout << abs(li[n] - li[n - 1]) << endl;
 }
 
 int main()
@@ -46,7 +39,7 @@ int main()
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
-		solve();    
+		solve();
 	}
 
 	return 0;

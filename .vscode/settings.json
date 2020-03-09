@@ -9,7 +9,12 @@
         "regex": "cpp",
         "utility": "cpp",
         "algorithm": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "set": "cpp",
+        "iomanip": "cpp",
+        "cassert": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"

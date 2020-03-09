@@ -1,74 +1,72 @@
-//https://codeforces.com/contest/1217/problem/C
+//https://1217/problem/C
 #include <bits/stdc++.h>
-#define _DEBUG
-#define ll long long
-#define pb push_back
-#define REP(i, n) for (int i = 0; i < (int)n; i++)
 using namespace std;
 
-bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
-{
-	return (a.second < b.second);
-}
+#define ll long long
+#define ull unsigned long long
+#define ff first
+#define ss second
+#define mp make_pair
+#define pb push_back
 
-const int N = int(3e5) + 99;
-string s;
-int nxt[N];
+const int N = 2e5 + 11;
 
 void solve()
 {
+	int n;
+	string s;
+	cin >> n >> s;
 
-	cin >> s;
+	pair<int, int> coordinate(0,0);
 
-	bitset<18> bi(s);
-	
-	// cout << bi.to_ulong() <<endl; 
-	// return;
-
-
-	for (int i = 0; i < s.size(); ++i)
-		if (s[i] == '1')
-			nxt[i] = i;
-		else
-			nxt[i] = (i == 0 ? -1 : nxt[i - 1]);
-		
-	int res = 0;
-	for (int r = 0; r < s.size(); ++r)
+	for (int j = 0; j < n - 1; j++)
 	{
-		int sum = 0;
-		for (int l = r; l >= 0 && r - l < 20; --l)
+		coordinate.first = 0;
+		coordinate.second = 0;
+
+		for (int i = j; i < n; i++)
 		{
-			if (s[l] == '0')
-				continue;
-			sum += 1 << (r - l);
-			if (sum <= r - (l == 0 ? -1 : nxt[l - 1]))
-				++res;
+			if (s[i] == 'L')
+			{
+				coordinate.first += 1;
+			}
+			else if (s[i] == 'R')
+			{
+				coordinate.first -= 1;
+			}
+			else if (s[i] == 'U')
+			{
+				coordinate.second += 1;
+			}
+			else
+			{
+				coordinate.second -= 1;
+			}
+
+			if (coordinate.first == 0 && coordinate.second == 0)
+			{
+				cout << j + 1 << " " << i + 1 << endl;
+				return;
+			}
 		}
 	}
-	cout << res << endl;
+
+	cout << -1 << endl;
 }
 
 int main()
 {
-#ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
-	// freopen("output.txt", "w", stdout);
-	int tt = clock();
-#endif
-
-	ios_base::sync_with_stdio(false);
-	int no_of_test_cases;
+	cin.tie(0);
+	cout.tie(0);
+	int no_of_test_cases = 0;
 	cin >> no_of_test_cases;
-	// no_of_test_cases=1;
+	if (!no_of_test_cases)
+		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
 		solve();
 	}
-
-#ifdef _DEBUG
-	cerr << "TIME = " << clock() - tt << endl;
-	tt = clock();
-#endif
 
 	return 0;
 }

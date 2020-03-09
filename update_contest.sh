@@ -8,7 +8,7 @@ for i in ${files[*]}; do
     mkdir -p "codeforces.com/contest/$dir/" && cp $i".cpp" "$_"
     echo "Formatting $i.cpp"
     cp template.cpp $i".cpp"
-    rm $i
+    rm "a.out"
 done
 
 echo "Complete"

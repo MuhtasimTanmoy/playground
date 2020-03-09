@@ -1,4 +1,4 @@
-//https://1217/problem/A
+//https://1312/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -10,29 +10,23 @@ using namespace std;
 #define pb push_back
 
 const int N = 2e5 + 11;
+int a[N];
 
 void solve()
 {
 	int n;
 	cin>>n;
-
-	int holder;
-	int odd_count = 0;
 	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
-		}
+		cin>>a[i];
 	}
 
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
+	sort(a, a+n, greater<int>());
+
+	for (int i = 0; i < n; i++){
+		cout<<a[i]<<" ";
 	}
 
-	
+	cout<<endl;
 }
 
 int main()

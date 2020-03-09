@@ -1,4 +1,4 @@
-//https://1217/problem/A
+//https://reset/problem/D
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,24 +13,6 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	int n;
-	cin>>n;
-
-	int holder;
-	int odd_count = 0;
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		if(holder&1){
-			odd_count++;
-		}
-	}
-
-	if((odd_count & 1) || (odd_count!=n && odd_count!=0)){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
-	}
 
 	
 }
@@ -41,7 +23,7 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	int no_of_test_cases = 0;
-	cin >> no_of_test_cases;
+	// cin >> no_of_test_cases;
 	if (!no_of_test_cases)
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
