@@ -1,3 +1,4 @@
+//https://1325/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,8 +13,9 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-
-	
+	int n;
+	cin>>n;
+	cout<<1<<" "<<n-1<<endl;
 }
 
 int main()
@@ -22,7 +24,7 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
+	cin >> no_of_test_cases;
 	if (!no_of_test_cases)
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)

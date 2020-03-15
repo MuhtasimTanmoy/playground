@@ -12,28 +12,8 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	int n;
-	cin >> n;
 
-	set<int> _set;
-	int li;
-
-	int unique_count = 0;
-
-	for (int i = 0; i < n; i++)
-	{
-		cin >> li;
-		if (_set.count(li))
-		{
-		}
-		else
-		{
-			_set.insert(li);
-			unique_count++;
-		}
-	}
-
-	cout<<unique_count<<endl;
+	
 }
 
 int main()
@@ -42,12 +22,12 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	int no_of_test_cases = 0;
-	cin >> no_of_test_cases;
+	// cin >> no_of_test_cases;
 	if (!no_of_test_cases)
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
-		solve();
+		solve();    
 	}
 
 	return 0;
