@@ -12,7 +12,35 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	
+	ll n,s;
+	cin>>n>>s;
+
+	if(n==0 && s==0){
+		cout<<0<<endl;
+		return;
+	}
+	else if(n==s){
+		cout<< 1<<endl;
+		cout<<n;
+		return;
+	}
+	else if(n>s || (s-n)%2){
+		cout<<-1<<endl;
+		return;
+	}
+	else{
+		ll p = (s-n)>>1;
+		ll q = n^p;
+		if(p+q==s){
+			cout<<2<<endl;
+			cout<<p<<" "<<q;
+			return;
+		}
+	}
+
+	cout<<3<<endl;
+	cout<<n<<" "<< (s-n)/2 <<" "<< (s-n)/2 <<endl;
+
 	
 }
 
