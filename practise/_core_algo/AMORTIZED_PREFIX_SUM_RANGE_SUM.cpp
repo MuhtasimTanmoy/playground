@@ -44,7 +44,7 @@ void solve()
 	}
 
 	cout << endl;
-
+ 
 	cout << cumulative[end] - cumulative[start - 1] << endl;
 }
 

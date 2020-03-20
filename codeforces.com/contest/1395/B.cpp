@@ -1,3 +1,4 @@
+//https://1395/problem/B
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,8 +13,17 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	
+	int n;
+	cin>>n;
+	int holder;
 
+	int mx = 0;
+
+	for (int i = 0; i < n; i++){
+		cin>>holder;
+		cout<<holder+ mx <<" ";
+		mx= max(mx,holder + mx);
+	}
 	
 }
 

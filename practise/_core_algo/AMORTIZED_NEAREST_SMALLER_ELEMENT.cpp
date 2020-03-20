@@ -8,6 +8,8 @@ using namespace std;
 #define mp make_pair
 #define pb push_back
 
+// https://www.geeksforgeeks.org/find-the-nearest-smaller-numbers-on-left-side-in-an-array/
+
 const int N = 2e5 + 11;
 
 void solve()
