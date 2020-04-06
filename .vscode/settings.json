@@ -15,7 +15,22 @@
         "set": "cpp",
         "iomanip": "cpp",
         "cassert": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "random": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__tree": "cpp",
+        "array": "cpp",
+        "hash_map": "cpp",
+        "filesystem": "cpp",
+        "forward_list": "cpp",
+        "initializer_list": "cpp",
+        "iterator": "cpp",
+        "map": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "valarray": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"
