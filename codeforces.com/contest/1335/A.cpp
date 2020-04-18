@@ -1,3 +1,4 @@
+//https://1335/problem/A
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -11,12 +12,19 @@ using namespace std;
 const int N = 2e5 + 11;
 
 void solve()
-{
+{	
 	int n;
 	cin>>n;
 
-	
-	
+	int equal = 0;
+	equal = n>>1;
+
+	if(n%2){}
+	else {
+		equal--;
+	}
+
+	cout<<equal<<endl;
 }
 
 int main()
