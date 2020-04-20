@@ -16,7 +16,6 @@ void solve()
 	cin>>n;
 
 	
-	
 }
 
 int main()
