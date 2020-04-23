@@ -1,4 +1,3 @@
-//https://1343/problem/C
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -94,7 +93,7 @@ void solve()
 	cout<<endl;
 }
 
-vector<vector<int>> segments;
+vector< vector<int> > segments;
 vector<int> temp;
 
 int sgn(int x){
@@ -104,6 +103,21 @@ int sgn(int x){
 	else {
 		return 1;
 	}
+}
+
+void printVec(vector<int> v){
+	for (auto x:v){
+		cout<<x<<" ";
+	}
+	cout<<endl;
+}
+
+int maxVec(vector<int> v){
+	int _max = v[0];
+	for (auto x:v){
+		_max = max(_max,x);
+	}
+	return _max;
 }
 
 void solveAlternative(){
@@ -117,43 +131,40 @@ void solveAlternative(){
 		li.push_back(holder);
 	}
 
+	segments.clear();
+	temp.clear();
+
 	for (int i = 0; i < n; i++){
 		if(i>0 && sgn(li[i]) != sgn(li[i-1])){
-
+			segments.push_back(temp);
+			temp.clear();
 		}
 		temp.push_back(li[i]);
 	}
+	segments.push_back(temp);
+
+	long long ans =0;
+	for (int i = 0; i < segments.size(); i++){
+		// printVec(segments[i]);
+		ans+=maxVec(segments[i]);
+	}
+
+	cout<<ans<<endl;
 }
 
- 
-int main() {
-  // freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", sttextdout);
-  ios_base::sync_with_stdio(0);
-  // cin.tie(0);
- 
-  cin>>tests;
-  for (;tests;--tests){
-	  cin>>n;
-	  for (int i=1;i<=n;i++){
-		  cin>>ar[i];
-	  }
-	  V.clear();
-	  temp.clear();
-	  for (int i=1;i<=n;i++){
-		  if (i>1&&sgn(ar[i])!=sgn(ar[i-1])){
-			  V.push_back(temp);
-			  temp.clear();
-		  }
-		  temp.push_back(ar[i]);
-	  }
-	  V.push_back(temp);
-	  long long ans=0;
-	  for (int i=0;i<V.size();i++){
-		  ans+=get_max(V[i]);
-	  }
-	  cout<<ans<<endl;
-  }
-  // cin.get(); cin.get();
-  return 0;
+int main()
+{
+	freopen("input.txt", "r", stdin);
+	cin.tie(0);
+	cout.tie(0);
+	int no_of_test_cases = 0;
+	cin >> no_of_test_cases;
+	if (!no_of_test_cases)
+		no_of_test_cases = 1;
+	while (no_of_test_cases--)
+	{
+		solveAlternative();
+	}
+
+	return 0;
 }
