@@ -1,3 +1,4 @@
+//https://1342/problem/C
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -12,8 +13,23 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	long long a,b,q;
+	cin>>a>>b>>q;
 
-	
+	ll l,r;
+	ll got = 0;
+	while(q--){
+		cin>>l>>r;
+		while(l<=r){
+			if(((l%a)%b)==((l%b)%a)){
+				got = l;
+				break;
+			}
+			l++;
+		}
+
+		
+	}
 }
 
 int main()
@@ -22,7 +38,7 @@ int main()
 	cin.tie(0);
 	cout.tie(0);
 	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
+	cin >> no_of_test_cases;
 	if (!no_of_test_cases)
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
