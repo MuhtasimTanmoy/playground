@@ -30,7 +30,9 @@
         "string_view": "cpp",
         "unordered_map": "cpp",
         "unordered_set": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"
