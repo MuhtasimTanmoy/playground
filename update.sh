@@ -1,14 +1,13 @@
  #!/bin/bash 
 dir=$1
-files=( "${@:2}" )
+name=$2
+to = $3
 
-for i in ${files[*]}; do
-    echo "Moving $i.cpp"
-    echo "//https://$dir/problem/$i\n$(cat $i.cpp)" > $i".cpp"
-    mkdir -p "codeforces.com/$dir/" && cp $i".cpp" "$_"
-    echo "Formatting $i.cpp"
-    cp template.cpp $i".cpp"
-    rm "a.out"
-done
+echo "Moving $2.cpp"
+mkdir -p "codeforces.com/$dir/$name/" && cp $2".cpp" "codeforces.com/"$dir"/"$name"/"$3".cpp"
+echo "Formatting $2.cpp"
+cp template.cpp $2".cpp"
+rm "a.out"
+
 
 echo "Complete"
