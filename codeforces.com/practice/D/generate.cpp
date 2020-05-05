@@ -12,7 +12,19 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int candles, can_regen;
+	cin>>candles>>can_regen;
 
+	int hours =0;
+
+	while((candles-can_regen)>=0){
+		candles-=can_regen;
+		candles+=1;
+		hours+=can_regen;
+	}
+	hours+=candles;
+
+	cout<<hours<<endl;
 	
 }
 

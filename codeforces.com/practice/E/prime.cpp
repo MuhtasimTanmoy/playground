@@ -10,10 +10,29 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+bool isPrime(int n){
+	int root = sqrt(n);
+	for (int i = 2; i <= root; i++){
+		if(n%i==0)return false;
+	}
+	return true;
+}
+
 void solve()
 {
+	int n;
+	cin>>n;
 
-	
+	int l = n>>1;
+	int r = n>>1;
+	if(n%2)r++;
+
+	while((isPrime(l) || isPrime(r))){
+		l--;
+		r++;
+	}
+
+	cout<<l<< " "<<r<<endl;
 }
 
 int main()

@@ -12,8 +12,18 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-
-	
+    int n =5;
+    int curr;
+    int dist = 0;
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < n; j++){
+            cin>>curr;
+            if(curr == 1){
+                dist += abs(2-i)+abs(2-j);
+            }
+        }
+    }
+    cout<<dist<<endl;
 }
 
 int main()

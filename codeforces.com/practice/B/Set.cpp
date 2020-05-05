@@ -12,8 +12,20 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	string s;
+	cin>>s;
+	bitset<26> bset(0);
 
+	for (int i = 0; i < s.size(); i++){
+		bset.set(s[i]-'a');
+	}
 	
+	if(bset.count()%2==0){
+		cout<<"CHAT WITH HER!"<<endl;
+	}
+	else{
+		cout<<"IGNORE HIM!"<<endl;
+	}
 }
 
 int main()

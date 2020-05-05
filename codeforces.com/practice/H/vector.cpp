@@ -12,8 +12,25 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int n;
+	cin>>n;
 
-	
+	int li[3] = {0,0,0};
+	int x,y,z;
+
+	for (int i = 0; i < n; i++){
+		cin>>x>>y>>z;
+		li[0]+=x;
+		li[1]+=y;
+		li[2]+=z;
+	}
+
+	if(li[0]==0 && li[1]==0 && li[2]==0){
+		cout<<"YES"<<endl;
+	}
+	else{
+		cout<<"NO"<<endl;
+	}
 }
 
 int main()

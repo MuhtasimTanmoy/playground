@@ -10,10 +10,34 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+int gcd(int a,int b){
+	if(b==0) return a;
+	return gcd(b,a%b);
+}
+
 void solve()
 {
+	int a,b,n;
+	cin>>a>>b>>n;
 
-	
+	int take = 0;
+	int turn = 0;
+
+	bool simonPass = 1;
+
+	while(n!=0){
+		turn = (simonPass? a:b);
+		take = gcd(turn,n);
+		if(take<=n){
+			n-=take;
+			simonPass = 1 - simonPass;
+		}
+		else{
+			break;
+		}
+	}
+
+	cout<<simonPass<<endl;
 }
 
 int main()

@@ -12,8 +12,19 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int socks,buy;
+	cin>>socks>>buy;
 
-	
+	int count = 0;
+
+	while((socks-buy)>=0){
+		socks-=buy;
+		socks+=1;
+		count+=buy;
+	}
+
+	count+=socks;
+	cout<<count<<endl;
 }
 
 int main()
