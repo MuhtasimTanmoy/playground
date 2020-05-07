@@ -12,8 +12,18 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	
-	
+	int n,a,b;
+	cin>>n>>a>>b;
+
+	string s;
+	cin>>s;
+
+	if(s[a-1]==s[b-1]){
+		cout<<0<<endl;
+	}
+	else{
+		cout<<1<<endl;
+	}
 }
 
 int main()
