@@ -12,8 +12,34 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int n;
+	cin >> n;
 
-	
+	vector<int> v(n);
+	for (int i = 0; i < n; i++)
+	{
+		cin >> v[i];
+	}
+
+	int dis = 0;
+	for (int i = 0; i < n; i++)
+	{
+
+		for (int j = 1; j < n; j++)
+		{
+			if (v[j - 1] > v[j])
+			{
+				dis = abs(v[j - 1] - v[j]);
+				v[j - 1] -= dis;
+				v[j] += dis;
+			}
+		}
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		cout << v[i] << " ";
+	}
 }
 
 int main()
@@ -27,7 +53,7 @@ int main()
 		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
-		solve();    
+		solve();
 	}
 
 	return 0;
