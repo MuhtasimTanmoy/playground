@@ -10,9 +10,36 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+bool greater(const pair<int,int> a, const pair<int,int> b)
+{
+	return a.first<a.second;	
+}
 void solve()
 {
-	
+	int s,n;
+	cin>>s>>n;
+
+	vector< pair<int,int> > li;
+	int curr,bonus;
+
+	bool possible=true;
+	for (int i = 0; i < n; i++){
+		cin>>curr>>bonus;
+		li.push_back(make_pair(curr,bonus));
+	}
+
+	sort(li.begin(),li.end());
+
+	for (int i = 0; i < n; i++){
+		if(s>li[i].first){
+			s+=li[i].second;
+		}
+		else{
+			possible=false;
+		}
+	}
+
+	cout<<(possible?"YES":"NO")<<endl;
 }
 
 int main()

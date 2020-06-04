@@ -12,6 +12,31 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int n,m;
+	cin>>n>>m;
+
+	int li[n];
+	for (int i = 0; i < n; i++){
+		cin>>li[i];
+	}
+
+	// Naive Approach
+	// for (int i = 0; i < (1<<n); i++){
+	// 	int sum = 0;
+	// 	for (int j = 0; j < n; j++){
+	// 		if((1<<j)&i){
+	// 			sum+=li[j];
+	// 		}
+	// 	}
+	// 	if(sum%m==0 && sum!=0){
+	// 		cout<<"Yes"<<endl;
+	// 		return;
+	// 	}
+	// }
+	// cout<<"No"<<endl;
+
+	// DP Approach
+	
 	
 }
 
