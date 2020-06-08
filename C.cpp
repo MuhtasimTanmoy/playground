@@ -12,8 +12,28 @@ const int N = 2e5 + 11;
 
 void solve()
 {
+	int n;
+	cin>>n;
 
-	
+	vector<int> li;
+	int holder;
+	for (int i = 0; i < n; i++){
+		cin>>holder;
+		li.push_back(holder);
+	}
+
+	int _max_non_decrease=1;
+	int count = 1;
+	for (int i = 1; i < n; i++){
+		if(li[i-1]<=li[i]){
+			count++;
+			_max_non_decrease = max(_max_non_decrease,count);
+		}
+		else{
+			count = 1;
+		}
+	}
+	cout<<_max_non_decrease<<endl;
 }
 
 int main()
