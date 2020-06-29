@@ -12,7 +12,12 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	
+	int n,a;
+	cin>>n>>a;
+	cout<< min(n,a)<<" ";
+
+	int leftOut = max(n,a) - min(n,a);
+	cout<< (leftOut>>1);
 }
 
 int main()

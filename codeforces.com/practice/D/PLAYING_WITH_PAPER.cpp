@@ -12,7 +12,22 @@ const int N = 2e5 + 11;
 
 void solve()
 {
-	
+	ll lng,shrt;
+	cin>>lng>>shrt;
+
+	ll count = 0;
+	ll prevLng = 0;
+	while(shrt!=0){
+		if(lng%shrt==0){
+			count+=lng/shrt;
+			break;
+		}
+		count+= lng/shrt;
+		prevLng = lng;
+		lng = shrt;
+		shrt = prevLng%shrt;
+	}
+	cout<<count<<endl;
 }
 
 int main()
