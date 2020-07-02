@@ -1,13 +1,18 @@
  #!/bin/bash 
+# https://codeforces.com/contest/441/problem/A
 dir=$1
-name=$2
-to = $3
+# codeforces.com/contest/441/problem/A
+dir=${dir:8}
+# A
+name=${dir:${#dir}-1}
 
-echo "Moving $2.cpp"
-mkdir -p "codeforces.com/$dir/$name/" && cp $2".cpp" "codeforces.com/"$dir"/"$name"/"$3".cpp"
-echo "Formatting $2.cpp"
-cp template.cpp $2".cpp"
+# codeforces.com/contest/441/problem/
+dir=${dir::${#dir}-9}
+
+echo "Moving $name.cpp"
+mkdir -p "$dir/" && cp $name".cpp" $dir/$name".cpp"
+echo "Formatting $name.cpp"
+cp template.cpp $name".cpp"
 rm "a.out"
-
 
 echo "Complete"

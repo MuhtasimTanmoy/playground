@@ -19,3 +19,5 @@
 18
 19
 20
+
+/update.sh practice A 30_JAN_Flip_A_BIT
