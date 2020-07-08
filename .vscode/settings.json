@@ -32,7 +32,8 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "queue": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "bitset": "cpp"
     },
     "code-runner.executorMap": {
         "cpp": "g++ $fullFileName && ./a.out"
