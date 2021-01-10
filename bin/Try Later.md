@@ -1,5 +1,3 @@
-14 May.
-
 G > Subsequece DP
 
 E > Min Max
