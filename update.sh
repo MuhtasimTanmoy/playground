@@ -16,3 +16,5 @@ cp template.cpp $name".cpp"
 rm "a.out"
 
 echo "Complete"
+
+# Usage /update.sh practice A 30_JAN_Flip_A_BIT
