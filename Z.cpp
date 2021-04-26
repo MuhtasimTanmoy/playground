@@ -1,50 +1,45 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <stdio.h>
 
-// https://www.hackerearth.com/practice/data-structures/queues/basics-of-queues/practice-problems/algorithm/weird-planet-2000a170/editorial/
+struct auth {
+  char name[32];
+  int auth;
+};
 
+struct auth *auth;
+char *service;
 
-// https://www.hackerearth.com/practice/data-structures/queues/basics-of-queues/practice-problems/algorithm/weird-planet-2000a170/editorial/
-
-
-#define ll long long
-#define ull unsigned long long
-#define ff first
-#define ss second
-#define mp make_pair
-#define pb push_back
-
-const int N = 2e5 + 11;
-
-void solve()
+int main(int argc, char **argv)
 {
-    int H,C,Q;
-    cin>>H>>C>>Q;
+  char line[128];
 
-    for (int i = 0; i < C; i++){
-        
+  while(1) {
+    printf("[ auth = %p, service = %p ]\n", auth, service);
+
+    if(fgets(line, sizeof(line), stdin) == NULL) break;
+    
+    if(strncmp(line, "auth ", 5) == 0) {
+      auth = (struct auth *) malloc(sizeof(auth));
+      memset(auth, 0, sizeof(auth));
+      if(strlen(line + 5) < 31) {
+        strcpy(auth->name, line + 5);
+      }
     }
-
-    for (int i = 0; i < Q; i++){
-        
+    if(strncmp(line, "reset", 5) == 0) {
+      free(auth);
     }
-
-	
-}
-
-int main()
-{
-	freopen("input.txt", "r", stdin);
-	cin.tie(0);
-	cout.tie(0);
-	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
-	return 0;
+    if(strncmp(line, "service", 6) == 0) {
+      service = strdup(line + 7);
+    }
+    if(strncmp(line, "login", 5) == 0) {
+      if(auth->auth) {
+        printf("you have logged in already!\n");
+      } else {
+        printf("please enter your password\n");
+      }
+    }
+  }
 }
