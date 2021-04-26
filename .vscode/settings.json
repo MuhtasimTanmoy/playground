@@ -1,41 +1,6 @@
 {
     "files.associations": {
-        "__split_buffer": "cpp",
-        "list": "cpp",
-        "string": "cpp",
-        "vector": "cpp",
-        "ios": "cpp",
-        "memory": "cpp",
-        "regex": "cpp",
-        "utility": "cpp",
-        "algorithm": "cpp",
-        "ostream": "cpp",
         "iostream": "cpp",
-        "iosfwd": "cpp",
-        "set": "cpp",
-        "iomanip": "cpp",
-        "cassert": "cpp",
-        "deque": "cpp",
-        "random": "cpp",
-        "__bit_reference": "cpp",
-        "__hash_table": "cpp",
-        "__tree": "cpp",
-        "array": "cpp",
-        "hash_map": "cpp",
-        "filesystem": "cpp",
-        "forward_list": "cpp",
-        "initializer_list": "cpp",
-        "iterator": "cpp",
-        "map": "cpp",
-        "string_view": "cpp",
-        "unordered_map": "cpp",
-        "unordered_set": "cpp",
-        "valarray": "cpp",
-        "queue": "cpp",
-        "stack": "cpp",
-        "bitset": "cpp"
-    },
-    "code-runner.executorMap": {
-        "cpp": "g++ $fullFileName && ./a.out"
+        "vector": "cpp"
     }
 }
