@@ -1,6 +1,0 @@
-G > Subsequece DP
-
-E > Min Max
-- https://codeforces.com/contest/567/problem/A
-
-
