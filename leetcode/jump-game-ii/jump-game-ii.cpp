@@ -33,3 +33,34 @@ public:
     return stepsNeeded;
 }
 };
+
+
+// faster solution
+class Solution {
+public:
+    int jump(vector<int> &nums) {
+
+    if ( nums.size() == 1 ) { return 0; }
+    int stepsNeeded = 1;
+    int currentIndexToCheck = 1;
+    
+    int nextMostIndex = nums[0];
+    int window = nums[0];
+        
+    while(currentIndexToCheck < nums.size() -1) {
+        
+        if ( currentIndexToCheck + nums[currentIndexToCheck] > nextMostIndex) {
+            nextMostIndex = currentIndexToCheck + nums[currentIndexToCheck];
+        }
+        
+        if( currentIndexToCheck == window ) {
+            window = nextMostIndex;
+            stepsNeeded++;
+        }
+        
+        currentIndexToCheck++;
+    }
+
+    return stepsNeeded;
+}
+};
