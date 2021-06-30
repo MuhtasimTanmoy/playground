@@ -87,5 +87,6 @@
         "utility": "cpp",
         "__functional_03": "cpp",
         "hash_map": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
