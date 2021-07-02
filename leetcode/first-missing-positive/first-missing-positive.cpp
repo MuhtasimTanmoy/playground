@@ -1,4 +1,9 @@
 class Solution {
+    
+    // Traverse the input array and replace all zeroes and negative number by INT_MAX
+    // Traverse the input array again, and during this traversal we will find the correct position of each element by making value at that index negative.
+    // During final traversal, return the (index+1) where "index" is the first index at which element found is positive.
+    
 public:
     int firstMissingPositive(vector<int>& nums) {
        
