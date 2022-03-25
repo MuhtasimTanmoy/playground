@@ -1,6 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define ll long long
+#define ull unsigned long long
+#define ff first
+#define ss second
+#define mp make_pair
+#define pb push_back
+
 const int N = 2e5 + 11;
 
 void solve() {
@@ -24,8 +31,7 @@ void solve() {
 
 	int total_min = INT32_MAX;
 
-	for (int i = _min; i <= _max; i++)
-	{
+	for (int i = _min; i <= _max; i++) {
 		auto it = lower_bound(li, li + n, i);
 		int segment = it - li;
 		cout << endl<< "segment "<<i<< "...." << segment << "...." << endl;
@@ -37,7 +43,7 @@ void solve() {
 	cout << total_min << endl;
 }
 
-// solution is taking median
+// Solution is taking median
 
 int main() {
 	freopen("input.txt", "r", stdin);
