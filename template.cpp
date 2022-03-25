@@ -7,7 +7,7 @@ void execute() {}
 
 int main()
 {
-	iios::sync_with_stdio(false);
+	ios_base::sync_with_stdio(false);
     cin.tie(0);
 	freopen("input.txt", "r", stdin);
     int no_of_test_cases = 1;
@@ -18,5 +18,3 @@ int main()
 	}
 	return 0;
 }
-
-

@@ -86,7 +86,8 @@
         "unordered_set": "cpp",
         "utility": "cpp",
         "__functional_03": "cpp",
-        "hash_map": "cpp"
+        "hash_map": "cpp",
+        "filesystem": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
