@@ -1,28 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define ll long long
-#define ull unsigned long long
-#define ff first
-#define ss second
-#define mp make_pair
-#define pb push_back
-
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n;
 	cin >> n;
 	int li[n];
+
 	ll sum = 0;
 	int _max = INT32_MIN;
 	int _min = INT32_MAX;
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++) {
 		cin >> li[i];
 		sum += li[i];
+
 		_max = max(_max, li[i]);
 		_min = min(_min, li[i]);
 	}
@@ -44,18 +37,15 @@ void solve()
 	cout << total_min << endl;
 }
 
-/// Solution is taking median
+// solution is taking median
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
 	while (no_of_test_cases--)
 	{
 		solve();

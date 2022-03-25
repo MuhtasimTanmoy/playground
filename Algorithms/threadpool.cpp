@@ -1,3 +1,5 @@
+// Queue that is used in threadpool
+
 template<class T>
 struct threadsafe_queue {
   [[nodiscard]] std::optional<T> pop() {
@@ -37,6 +39,8 @@ private:
   std::atomic<bool> aborted{false};
   std::deque<T> data;
 };
+
+// Threadpool
 
 struct threadpool {
   explicit threadpool(std::size_t count)
