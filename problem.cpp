@@ -4,32 +4,7 @@ using namespace std;
 
 #define log(x) cout << #x << " = " << x << endl;
 
-class Entity {
-    int x;
-    int y;
-
-    Entity() {
-        cout<<"Init"<<endl;
-    }
-
-    ~Entity() {
-        cout<<"Deallocate"<<endl;
-    }
-}
-
 void execute() {
-
-    // int col, row,
-    // cin >> col >> row;
-    // vector<vector<int>> matrix(col, vector<int>(row, 0));
-    // for(int i = 0; i < col; i++ ) {
-    //     for(int j = 0; j < row; j++ ) {
-    //         cin>>matrix[col][row];
-    //     }
-    // }
-    
-    unique_ptr<Entity> ptr = make_unique<Entity>();
-    
 
 }
 
