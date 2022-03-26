@@ -1,12 +1,9 @@
 #include <bits/stdc++.h>
-#include<memory>
 using namespace std;
 
 #define log(x) cout << #x << " = " << x << endl;
 
-void execute() {
-
-}
+void execute() {}
 
 int main()
 {

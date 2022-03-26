@@ -88,7 +88,8 @@
         "__functional_03": "cpp",
         "hash_map": "cpp",
         "filesystem": "cpp",
-        "__bits": "cpp"
+        "__bits": "cpp",
+        "__memory": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
