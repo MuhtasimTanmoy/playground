@@ -4,8 +4,8 @@ public:
        int length = s.length();
         int long_pal = 0;
         int start = 0;
-        auto getlength = [&] ( int l, int r){
-            while (  l >= 0 && r < length && s[l] == s[r]  ){
+        auto getlength = [&] (int l, int r) {
+            while ( l >= 0 && r < length && s[l] == s[r] ) {
                 -- l;
                 ++ r;
             }
@@ -21,3 +21,6 @@ public:
         return s.substr( start , long_pal);
     }
 };
+
+
+// DP
