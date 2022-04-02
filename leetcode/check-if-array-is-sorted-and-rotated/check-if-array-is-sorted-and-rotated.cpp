@@ -14,6 +14,9 @@ public:
             increment++;
         }
         
+        // if [1,1,1] then increment <= 1
+        // else increment = 1
+        return increment <= 1;
         return increment <= 1;
     }
 };
