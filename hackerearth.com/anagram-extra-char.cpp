@@ -15,27 +15,22 @@ void solve()
 	cin >> a >> b;
 
 	int char_map[26];
-	for (int i = 0; i < 26; i++)
-	{
+	for (int i = 0; i < 26; i++) {
 		char_map[i] = 0;
 	}
 
-	for (int i = 0; i < a.size(); i++)
-	{
+	for (int i = 0; i < a.size(); i++) {
 		char_map[a[i] - 'a']++;
 	}
 
-	for (int i = 0; i < b.size(); i++)
-	{
+	for (int i = 0; i < b.size(); i++) {
 		char_map[b[i] - 'a']--;
 	}
 
 	int count = 0;
 
-	for (int i = 0; i < 26; i++)
-	{
-		if (char_map[i] != 0)
-		{
+	for (int i = 0; i < 26; i++) {
+		if (char_map[i] != 0) {
 			count+=abs(char_map[i]);
 		}
 	}

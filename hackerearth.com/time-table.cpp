@@ -17,19 +17,17 @@ void solve()
 	bool hour_adjust = false;
 
 	int duration_min = abs(end_min - start_min);
-	if (start_min > end_min)
-	{
+	
+	if (start_min > end_min) {
 		hour_adjust = true;
 		duration_min = 60 - duration_min;
 	}
 
 	int duration_hour = abs(end_hour - start_hour);
-	if (hour_adjust)
-	{
+	if (hour_adjust) {
 		if (start_hour > end_hour)
 			duration_hour++;
-		else
-		{
+		else {
 			duration_hour--;
 		}
 	}

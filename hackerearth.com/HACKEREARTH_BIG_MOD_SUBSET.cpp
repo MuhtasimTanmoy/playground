@@ -23,8 +23,7 @@ void solve()
 	for (int i = 0; i < n; i++)
 	{
 		cin >> holder;
-		if (holder >= subset)
-		{
+		if (holder >= subset) {
 			count += holder;
 			count = count % N;
 		}

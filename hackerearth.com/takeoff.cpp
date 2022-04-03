@@ -21,18 +21,14 @@ void solve()
 
 	int count = 0;
 
-	for (int i = 1; i <= n; i++)
-	{
-		if (i % p == 0 && i % q && i % r)
-		{
+	for (int i = 1; i <= n; i++) {
+		if (i % p == 0 && i % q && i % r) {
 			count++;
 		}
-		else if (i % q == 0 && i % p && i % r)
-		{
+		else if (i % q == 0 && i % p && i % r) {
 			count++;
 		}
-		else if (i % r == 0 && i % q && i % p)
-		{
+		else if (i % r == 0 && i % q && i % p) {
 			count++;
 		}
 	}
