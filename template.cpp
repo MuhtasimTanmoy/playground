@@ -12,8 +12,7 @@ int main()
 	freopen("input.txt", "r", stdin);
     int no_of_test_cases = 1;
 	cin >> no_of_test_cases;
-    while (no_of_test_cases--)
-	{
+    while (no_of_test_cases--) {
 		execute(); 
 	}
 	return 0;

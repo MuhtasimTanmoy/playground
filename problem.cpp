@@ -8,14 +8,11 @@ void debug_out(Head H, Tail... T) {
   cerr << " " << to_string(H);
   debug_out(T...);
 }
+
 #define debug(...) cerr << "Line : " << __LINE__ <<" [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
+void execute() {}
 
-void execute() {
-
-}
-
-int main()
-{
+int main() {
 	ios_base::sync_with_stdio(false);
     cin.tie(0);
 	freopen("input.txt", "r", stdin);

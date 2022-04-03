@@ -17,7 +17,7 @@ void solve()
 
 	int count = 0;
 
-	while((socks-buy)>=0){
+	while( (socks-buy) >= 0 ) {
 		socks-=buy;
 		socks+=1;
 		count+=buy;

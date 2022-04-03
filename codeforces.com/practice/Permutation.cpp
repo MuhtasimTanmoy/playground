@@ -14,10 +14,9 @@ vector<pair<int, int>> li(3);
 void heapPermutation(vector<pair<int, int>> a, int size)
 {
 
-	if (size == 1)
-	{
-		for (pair<int, int> x : li)
-		{
+	if (size == 1) {
+		
+		for (pair<int, int> x : li) {
 			cout << x.first << " " << x.second << endl;
 		}
 
@@ -25,16 +24,13 @@ void heapPermutation(vector<pair<int, int>> a, int size)
 		return;
 	}
 
-	for (int i = 0; i < size; i++)
-	{
+	for (int i = 0; i < size; i++) {
+
 		heapPermutation(a, size - 1);
 
-		if (size % 2 == 1)
-		{
+		if (size % 2 == 1) {
 			swap(a[0], a[size - 1]);
-		}
-
-		else
+		} else
 			swap(a[i], a[size - 1]);
 	}
 }
@@ -44,26 +40,11 @@ void solve()
 	ll n;
 	cin >> n;
 
-
-	REP(i, n)
-	{
+	REP(i, n) {
 		cin >> li[i].first >> li[i].second;
 	}
 
-	// for (pair<int, int> x : li)
-	// {
-	// 	cout << x.first << " " << x.second << endl;
-	// }
-
 	heapPermutation(li,li.size());
-	// do {
-	//     for(pair<int,int> x: li){
-	// 		cout<< x.first << " " << x.second <<endl;
-	// 	}
-
-	// 	cout << endl<< "ds "<< "...." << 4444 << "...." << endl;
-
-	// } while(next_permutation(li.begin(), li.end()));
 }
 
 int main()

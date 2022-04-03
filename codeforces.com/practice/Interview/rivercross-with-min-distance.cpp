@@ -17,8 +17,6 @@ void solve()
 
 	double whenPerpendicular = sqrt(u * u - v * v);
 	double whenStraight = u;
-	
-
 	cout<< abs((d/whenStraight) - (d/whenPerpendicular))<<endl;
 }
 

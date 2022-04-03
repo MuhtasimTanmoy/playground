@@ -10,24 +10,22 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+
+// BUILT IN
 void solve()
 {
 	int n;
 	cin >> n;
 	int li[n];
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++) {
 		cin >> li[i];
 	}
 
-	do
-	{
-		for (auto x : li)
-		{
+	do {
+		for (auto x : li) {
 			cout << x << " ";
 		}
 		cout << endl;
-
 	} while (next_permutation(li, li + n));
 }
 
