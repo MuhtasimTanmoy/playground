@@ -13,12 +13,16 @@ class Solution {
 public:
     TreeNode* result = new TreeNode();
     TreeNode* itr = result;
+    
+    
     TreeNode* increasingBST(TreeNode* root) {
         if ( root == nullptr ) { return nullptr; }
+        
         increasingBST(root->left);
-        itr->right = new TreeNode(root->val);
+        itr->right = root;
+        root->left = nullptr;
+        
         itr = itr->right;
-        // cout<<root->val<<endl;
         increasingBST(root->right);
         return result->right;
     }
