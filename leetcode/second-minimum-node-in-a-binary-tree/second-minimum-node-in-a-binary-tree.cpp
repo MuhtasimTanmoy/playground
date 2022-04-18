@@ -31,3 +31,27 @@ public:
         return vector<int>(bag.begin(), bag.end()).at(1);
     }
 };
+
+// Alternate
+
+class Solution {
+public:
+    void dfs(TreeNode* root,set<int>&s){
+        if(root == NULL)
+            return;
+        
+        s.insert(root->val);
+        dfs(root->left,s);
+        dfs(root->right,s);
+    }
+public:
+    int findSecondMinimumValue(TreeNode* root) {
+        set<int>s;
+        dfs(root,s);
+        auto it = s.begin();
+        it++;
+        if(s.size() == 1)
+            return -1;
+        return *it;
+    }
+};
