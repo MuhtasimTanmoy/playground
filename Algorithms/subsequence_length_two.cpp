@@ -9,26 +9,15 @@ using namespace std;
 #define pb push_back
 
 const int N = 2e5 + 11;
-
 int n;
 int li[10];
 
-void subs(vector<int> v, int k)
-{
-	if (k > n)
-	{
-		return;
-	}
-	else if (v.size() == 2)
-	{
-		for (auto x : v)
-		{
-			cout << x << " ";
-		}
+void subs(vector<int> v, int k) {
+	if (k > n) return;
+	else if (v.size() == 2) {
+		for (auto x : v) cout << x << " ";
 		cout << endl;
-	}
-	else
-	{
+	} else {
 		subs(v, k + 1);
 		v.push_back(li[k]);
 		subs(v, k + 1);
@@ -36,14 +25,9 @@ void subs(vector<int> v, int k)
 	}
 }
 
-void solve()
-{
+void solve() {
 	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> li[i];
-	}
-
+	for (int i = 0; i < n; i++)cin >> li[i];
 	vector<int> sub;
 	subs(sub, 0);
 }
@@ -58,9 +42,7 @@ int main()
 	// cin >> no_of_test_cases;
 	no_of_test_cases = 1;
 	while (no_of_test_cases--)
-	{
 		solve();
-	}
 
 	return 0;
 }

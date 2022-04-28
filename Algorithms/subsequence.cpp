@@ -13,18 +13,11 @@ const int N = 2e5 + 11;
 int n;
 int li[10];
 
-void subs(vector<int> v, int k)
-{
-	if (k == n)
-	{
-		for (auto x : v)
-		{
-			cout << x << " ";
-		}
+void subs(vector<int> v, int k) {
+	if (k == n) {
+		for (auto x : v)cout << x << " ";
 		cout << endl;
-	}
-	else
-	{
+	} else {
 		subs(v, k + 1);
 		v.push_back(li[k]);
 		subs(v, k + 1);
@@ -34,7 +27,6 @@ void subs(vector<int> v, int k)
 
 
 // Itereative
-
 // for (int b = 0; b < (1<<n); b++) {
 // vector<int> subset;
 // for (int i = 0; i < n; i++) {
@@ -42,14 +34,9 @@ void subs(vector<int> v, int k)
 // }
 // }
 
-void solve()
-{
+void solve() {
 	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> li[i];
-	}
-
+	for (int i = 0; i < n; i++)cin >> li[i];
 	vector<int> sub;
 	subs(sub, 0);
 }
@@ -63,10 +50,6 @@ int main()
 	int no_of_test_cases;
 	// cin >> no_of_test_cases;
 	no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	while (no_of_test_cases--) solve();
 	return 0;
 }

@@ -10,120 +10,82 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-class Graph
-{
+class Graph {
 	int vertices;
 	bool isUndirecetd;
 	vector<int> *edge_list;
-
 	queue<int> q;
 
-	void DFS(int i, bool visited[])
-	{
+	void DFS(int i, bool visited[]) {
 		visited[i] = true;
-
 		cout << i << " ";
-
-		for (auto x : edge_list[i])
-		{
-			if (!visited[x])
-			{
-				DFS(x, visited);
-			}
-		}
+		for (auto x : edge_list[i]) 
+			if (!visited[x]) DFS(x, visited);
 	}
 
-	void BFS(int i, bool visted[])
-	{
-
+	void BFS(int i, bool visted[]) {
 		q.push(i);
 		visted[i] = true;
 
-		while (!q.empty())
-		{
+		while (!q.empty()) {
+
 			int elem = q.front();
 			visted[elem] = true;
 			q.pop();
+			
 			cout << elem << endl;
 
-			for (auto x : edge_list[elem])
-			{
-				if (!visted[x])
-				{
-					q.push(x);
-					visted[x] = true;
-				}
-			}
+			for (auto x : edge_list[elem]) 
+				if (!visted[x]) q.push(x);
 		}
 	}
 
 public:
-	Graph(int no_of_vetices, bool isUndirected)
-	{
+	Graph(int no_of_vetices, bool isUndirected) {
 		this->vertices = no_of_vetices;
 		this->isUndirecetd = isUndirecetd;
 		this->edge_list = new vector<int>[no_of_vetices];
 	}
 
-	void addEdge(int from, int to)
-	{
+	void addEdge(int from, int to) {
 		edge_list[from].push_back(to);
-
 		edge_list[to].push_back(from);
 	}
 
-	void start_dfs(int start, bool visited[])
-	{
-		// DFS(start, visited);'
+	void start_bfs(int start, bool visited[]) {
+
+		// DFS(start, visited);
+
 		BFS(start, visited);
-		for (int i = 0; i < vertices; i++)
-		{
-			if (!visited[i])
-			{
-				BFS(i, visited);
-			}
-		}
+		for (int i = 0; i < vertices; i++) 
+			if (!visited[i]) BFS(i, visited);
 	}
 };
 
-void solve()
-{
+void solve() {
 	int n, edge;
 	cin >> n >> edge;
 
-	int from, to;
-
 	Graph *graph = new Graph(n, true);
-
-	for (int i = 0; i < edge; i++)
-	{
+	for (int i = 0; i < edge; i++) {
+		int from, to;
 		cin >> from >> to;
 		graph->addEdge(from, to);
 	}
 
 	bool visited[n];
-	for (int i = 0; i < n; i++)
-	{
-		visited[i] = false;
-	}
-
-	graph->start_dfs(0, visited);
+	for (int i = 0; i < n; i++) visited[i] = false;
+	graph->start_bfs(0, visited);
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
+	while (no_of_test_cases--) 
 		solve();
-	}
-
 	return 0;
 }

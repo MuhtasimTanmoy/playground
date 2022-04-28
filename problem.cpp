@@ -6,27 +6,6 @@ using namespace std;
 #define log(x) cout << #x << " = " << x << endl;
 
 void execute() {
-
-	string s;
-	cin >> s;
-
-	int k;
-	cin >> k;
-
-	int characterMap[26];
-
-	int left = 0;
-	int right = 0;
-	
-	while ( right < size(s) ) {
-		
-		while(characterMap[s[right]]) {
-			characterMap[left]--;
-			left++;
-		}
-
-		right
-	}
 }
 
 int main() {
@@ -38,3 +17,9 @@ int main() {
     while (no_of_test_cases--) execute(); 
 	return 0;
 }
+
+
+      
+                
+
+    
