@@ -49,7 +49,7 @@ public:
 
 	void addEdge(int from, int to) {
 		edge_list[from].push_back(to);
-		edge_list[to].push_back(from);
+		if (isUndirecetd) edge_list[to].push_back(from);
 	}
 
 	void start_bfs(int start, bool visited[]) {
