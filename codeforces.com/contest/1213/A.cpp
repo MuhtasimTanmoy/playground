@@ -8,52 +8,43 @@
 					   << tag << "...." << i << "...." << endl;
 using namespace std;
 
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
 	int holder;
 	int evenCount=0;
 	int oddCount=0;
-	REP(i,n){
+
+	REP(i,n) {
 		cin>>holder;
-		if(holder&1){
+		if( holder&1 ) 
 			oddCount++;
-		}
-		else{
+		else
 			evenCount++;
-		}
 	}
 
-	int res=0;
+	int res = 0;
 
-	if(oddCount>evenCount){
-		res=evenCount;
-	}
-	else{
-		res=oddCount;
-	}
+	if (oddCount>evenCount) 
+		res = evenCount;
+	else
+		res = oddCount;
 
 	cout<<res<<endl;
 
 }
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);
 	int tt = clock();
 #endif
-
 	int no_of_test_cases;
 	// cin >> no_of_test_cases;
 	no_of_test_cases = 1;
 
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
+	while (no_of_test_cases--) solve();
 
 #ifdef _DEBUG
 	cerr << "TIME = " << clock() - tt << endl;

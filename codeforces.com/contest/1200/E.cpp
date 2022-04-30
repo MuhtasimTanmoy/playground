@@ -62,8 +62,7 @@ void solve()
 
 }
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);

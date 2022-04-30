@@ -10,15 +10,13 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-ll gcd(ll a, ll b)
-{
+ll gcd(ll a, ll b) {
 	if (b == 0)
 		return a;
 	return gcd(b, a % b);
 }
 
-void solve()
-{
+void solve() {
 	ll a, b, x, y;
 	cin >> a >> b >> x >> y;
 
@@ -30,19 +28,13 @@ void solve()
 	cout << res << endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }

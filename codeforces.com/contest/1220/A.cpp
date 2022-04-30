@@ -6,42 +6,33 @@
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
 using namespace std;
 
-bool sortbysec(const pair<int,int> &a,const pair<int,int> &b)
-{
+bool sortbysec(const pair<int,int> &a,const pair<int,int> &b) {
     return (a.second < b.second);
 }
 
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
 	
-
 	string s;
 	cin>>s;
 
 	int count=0;
 
-	for(char ch:s){
-		if(ch=='z'){
+	for(char ch: s) 
+		if(ch=='z') 
 			count++;
-		}
-	}
 
 	int remain= (n - 4*count)/3;
 
-	while(remain--){
+	while(remain--)
 		cout<<'1'<<' ';
-	}
 
-	while(count--){
+	while(count--)
 		cout<<'0'<<' ';
-	}
-
 }	
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);
@@ -61,7 +52,6 @@ int main()
 	cerr << "TIME = " << clock() - tt << endl;
 	tt = clock();
 #endif
-
 	return 0;
 }
 

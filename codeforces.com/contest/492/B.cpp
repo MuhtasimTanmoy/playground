@@ -10,10 +10,9 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n, len;
-	cin>>n>>len;
+	cin >> n >> len;
 
 	vector<double> li;
 	double holder;
@@ -26,28 +25,21 @@ void solve()
 	sort( li.begin(), li.end() );
 
  	double max_dis = 0;
-	for (int i = 0; i < li.size()-1; i++){
+	for (int i = 0; i < li.size()-1; i++) 
 		max_dis = max( max_dis, abs(li[i] -li[i+1]));
-	}
+
 	max_dis = max_dis/2;
 	max_dis = max(max_dis,max(abs(li[0]-0),abs(li[n-1]-len)));
-		
 	printf("%.8f\n",max_dis);
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	int no_of_test_cases = 1;
+	cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }

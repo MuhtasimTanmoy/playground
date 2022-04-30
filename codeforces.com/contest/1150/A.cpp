@@ -6,13 +6,11 @@
 #define REP(i, n) for (int i = 0; i < (int)n; i++)
 using namespace std;
 
-bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
-{
+bool sortbysec(const pair<int, int> &a, const pair<int, int> &b) {
 	return (a.second < b.second);
 }
 
-void solve()
-{
+void solve() {
 	int n, m, r;
 	cin >> n >> m >> r;
 

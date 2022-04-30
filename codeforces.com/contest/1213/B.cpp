@@ -9,25 +9,18 @@
 using namespace std;
 
 int li[150000];
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
-	REP(i,n){
+	REP(i,n) 
 		cin>>li[i];
-	}
 
 	int curMin=li[n-1];
-
 	int count=0;
 
-	for(int i=n-2;i>=0;i--){
-		if(li[i]>curMin){
-			count++;
-		}
-		else {
-			curMin=li[i];
-		}
+	for(int i = n-2; i >= 0; i-- ) {
+		if( li[i] > curMin ) count++;
+		else curMin=li[i];
 	}
 
 	cout<<count<<endl;

@@ -15,21 +15,15 @@ int sec = 0;
 int _max = 0;
 
 void check(int num){
-	if(_max == num){
-		_count++;
-	}else{
-		sec = num;
-	}
+	if(_max == num) _count++;
+	else sec = num;
 }
 
-
-
-void solve()
-{
+void solve() {
 	int x,y,z;
-	cin>>x>>y>>z;
+	cin >> x >> y >> z;
 
-	int a,b,c;
+	int a, b, c;
 	// x -> max(a,b)
 	// y -> max(a,c)
 	// z -> max(b,c)
@@ -41,29 +35,20 @@ void solve()
 	check(y);
 	check(z);
 
-	if(_count >= 2){
+	if (_count >= 2) {
 		cout<<"YES"<<endl;
 		cout<< _max <<" "<< sec<<" "<<sec<<endl;
-	}
-	else{
+	} else
 		cout<<"NO"<<endl;
-	}
-
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
-	cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	int no_of_test_cases = 1;
+	// cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }

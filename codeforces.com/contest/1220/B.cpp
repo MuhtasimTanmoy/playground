@@ -46,8 +46,6 @@ void solve()
 	REP(i,n){
 		cout<<res[i]<<" ";
 	}
-
-
 }
 
 int main()

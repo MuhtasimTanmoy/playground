@@ -8,44 +8,38 @@ using namespace std;
 #define mp make_pair
 #define pb push_back
 
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
 
-	int _max = 0;
-	set<int> _set;
-	map<int,int> _map;
+	int maxElem = 0;
+	set<int> bag;
+	map<int,int> mapping;
 	int len_decrease = 0;
 	int holder;
+
 	for (int i = 0; i < n; i++){
 		cin>>holder;
-		if(_set.count(holder)){
+
+		if( bag.count(holder) ) {
 			len_decrease;
-			_map[holder] = _map[holder]+1;
-			_max = max(_max, _map[holder]);
-		}
-		else{
-			_set.insert(holder);
+			mapping[holder]++;
+			maxElem = max(maxElem, mapping[holder]);
+		} else {
+			bag.insert(holder);
 		}
 	}
 
-	cout<<_max<<" "<<n-len_decrease<<endl;
+	cout<<maxElem<<" "<< n-len_decrease <<endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	int no_of_test_cases = 1;
+	cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }

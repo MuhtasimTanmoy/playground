@@ -9,11 +9,9 @@ using namespace std;
 #define pb push_back
 
 const int N = 2e5 + 11;
-
 int dp[100][100];
 
-int coeff(int n, int k)
-{
+int coeff(int n, int k) {
 	if (n == k || k == 0)
 		return 1;
 	else if (dp[n][k])
@@ -23,41 +21,21 @@ int coeff(int n, int k)
 	return dp[n][k];
 }
 
-void solve()
-{
+void solve() {
 	int n, k;
-
 	cin >> n >> k;
-
 	k = min(k, n - k);
-
 	int res = 1;
-
-	// for (int i = 0; i < k; i++)
-	// {
-	// 	res *= (n - i);
-	// 	res /= (i + 1);
-	// }
-
-	// cout << res << endl;
-
 	cout << coeff(n, min(k, n - k)) << endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	int no_of_test_cases = 1;
+	cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }

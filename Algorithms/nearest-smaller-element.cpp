@@ -12,68 +12,38 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n;
 	cin >> n ;
 
 	stack<int> stk;
-
 	int li[n];
 	int less[n];
 
-	for (int i = 0; i < n; i++)
-	{
-		cin >> li[i];
-	}
+	for (int i = 0; i < n; i++) cin >> li[i];
 
-	for (int i = 0; i < n; i++)
-	{
-		if (stk.empty())
-		{
+	for (int i = 0; i < n; i++) {
+		if (stk.empty()) {
 			stk.push(li[i]);
 			less[i] = -1;
-		}
-		else
-		{
-			while (!stk.empty() && stk.top() >= li[i])
-			{
-				stk.pop();
-			}
-
-			if (stk.empty())
-			{
-				less[i] = -1;
-			}
-			else
-			{
-				less[i] = stk.top();
-			}
-
+		} else {
+			while (!stk.empty() && stk.top() >= li[i]) stk.pop();
+			if (stk.empty()) less[i] = -1;
+			else less[i] = stk.top();
 			stk.push(li[i]);
 		}
 	}
 
-	for (int i = 0; i < n; i++)
-	{
-		cout << less[i] << " ";
-	}
+	for (int i = 0; i < n; i++) cout << less[i] << " ";
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
-	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	int no_of_test_cases = 1;
+	cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }

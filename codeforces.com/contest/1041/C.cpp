@@ -18,13 +18,16 @@ int main(){
         cin >> a[i];
         q.insert({a[i], i});
     }
+
     int cnt = 0;
-    while(!q.empty()){
+
+    while(!q.empty()) {
         ++cnt;
         int pos = q.begin()->second;
         ans[pos] = cnt;
         q.erase(q.begin());
-        while(true){
+
+        while(true) {
             auto it = q.lower_bound({a[pos]+1+k, 0});
             if (it == q.end())
                 break;
@@ -33,8 +36,8 @@ int main(){
             ans[pos] = cnt;
         }
     }
-    cout << cnt << "
-";
+    
+    cout << cnt << " ";
     for (int i = 1; i <= n; i++)
         cout << ans[i] << ' ';
 }
