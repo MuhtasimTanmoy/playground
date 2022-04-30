@@ -10,15 +10,15 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {}
 	ll lng,shrt;
 	cin>>lng>>shrt;
 
 	ll count = 0;
 	ll prevLng = 0;
-	while(shrt!=0){
-		if(lng%shrt==0){
+	
+	while(shrt!=0) {
+		if(lng%shrt==0) {
 			count+=lng/shrt;
 			break;
 		}
@@ -30,19 +30,13 @@ void solve()
 	cout<<count<<endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }

@@ -22,31 +22,33 @@ int main() {fio;
 	int n;
 	cin >> n;
 	vector <vector <int> > D(n, vector <int> (n, 1e9));
+
 	for(int i = 0; i < n; i++) {
 		string s;
 		cin >> s;
-		for(int j = 0; j < n; j++) {
-			if(s[j] == '1') {
+		for(int j = 0; j < n; j++) 
+			if(s[j] == '1') 
 				D[i][j] = 1;
-			}
-		}
+
 		D[i][i] = 0;
 	}
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j < n; j++) {
-			for(int k = 0; k < n; k++) {
+
+	for(int i = 0; i < n; i++) 
+		for(int j = 0; j < n; j++) 
+			for(int k = 0; k < n; k++) 
 				D[j][k] = min(D[j][k], D[j][i] + D[i][k]);
-			}
-		}
-	}
+
 	int m;
 	cin >> m;
+
 	vector <int> p(m);
 	for(int &u : p) {
 		cin >> u;
 		u--;
 	}
+
 	vector <int> ans = {p[0], p[1]};
+
 	for(int i = 2; i < m; i++) {
 		int y = ans.size() - 1;
 		while(y > 0 && D[ans[y - 1]][ans[y]] + D[ans[y]][p[i]] == D[ans[y - 1]][p[i]]) {
@@ -57,9 +59,8 @@ int main() {fio;
 		ans.push_back(p[i]);
 	}
 	cout << ans.size() << endl;
-	for(int u : ans) {
+	for(int u : ans) 
 		cout << u + 1 << ' ';
-	}
- 
+		 
     return 0;
 }

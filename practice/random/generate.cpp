@@ -14,7 +14,6 @@ void solve() {
 	
 	int candles, can_regen;
 	cin >> candles >> can_regen;
-
 	int hours = 0;
 
 	while( (candles-can_regen) >= 0 ) {
@@ -22,23 +21,18 @@ void solve() {
 		candles+=1;
 		hours+=can_regen;
 	}
-	hours+=candles;
+
+	hours += candles;
 	cout<<hours<<endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }

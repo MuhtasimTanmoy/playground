@@ -23,32 +23,22 @@ const double EPS = 1e-9;
 const double PI = 3.14159265359;
 
 template <typename T>
-T gcd(T x, T y)
-{
+T gcd(T x, T y) {
 	if (y == 0)
-	{
 		return x;
-	}
 	return gcd(y, x % y);
 }
 
-bool sortbysec(const pair<int, int> &a, const pair<int, int> &b)
-{
-	return (a.second < b.second);
-}
 
-void solve()
-{
+void solve() {
+
 	int n, step;
-
 	cin >> n >> step;
 
 	int li[n];
 
-	REPI(i, 1, n)
-	{
+	REPI(i, 1, n) 
 		cin >> li[i];
-	}
 
 	int lo, hi;
 
@@ -57,24 +47,18 @@ void solve()
 
 	int result = 0;
 
-	while (hi > lo)
-	{
-		if (hi >= n + 1)
-		{
+	while (hi > lo) {
+
+		if (hi >= n + 1) {
 			result++;
 			lo = 0;
 			hi = step;
-		}
-		else if (li[hi])
-		{
+		} else if (li[hi]) {
 			li[hi]--;
 			lo = hi;
 			hi += step;
-		}
-		else
-		{
+		} else 
 			hi--;
-		}
 	}
 
 	cout << result << endl;
@@ -87,15 +71,12 @@ int main()
 	// freopen("output.txt", "w", stdout);
 	int tt = clock();
 #endif
-
 	ios_base::sync_with_stdio(false);
 	int no_of_test_cases;
 	//cin >> no_of_test_cases;
 	no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
+	while (no_of_test_cases--) 
 		solve();
-	}
 
 #ifdef _DEBUG
 	cerr << "TIME = " << clock() - tt << endl;

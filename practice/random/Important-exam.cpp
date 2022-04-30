@@ -26,11 +26,10 @@ void solve() {
 	REP(i, m) {
 		countIndex=1;
 		answers.clear();
-		REP(j,n){
-			if(answers.find(li[j][i])==answers.end()){
+		REP(j,n) {
+			if(answers.find(li[j][i])==answers.end()) 
 				answers[li[j][i]]=1;
-			}
-			else{
+			else {
 				answers[li[j][i]]++;
 				countIndex = max(answers[li[j][i]],countIndex);
 			}
@@ -40,8 +39,7 @@ void solve() {
 	cout<<sum<<"\n";
 }
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);

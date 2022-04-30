@@ -10,8 +10,7 @@
 #define y second
 using namespace std;
 
-ull solve()
-{
+ull solve() {
     ull n;
     cin >> n;
     ull holder;
@@ -19,17 +18,11 @@ ull solve()
     ull max_res = 1;
     ull min_res = INT64_MAX;
 
-
-    if (n == 1)
-    {
+    if (n == 1) {
         cin >> holder;
         return holder * holder;
-    }
-    else
-    {
-
-        REP(i, n)
-        {
+    } else {
+        REP(i, n) {
             cin >> holder;
             max_res = max(max_res, holder);
             min_res = min(min_res, holder);
@@ -38,8 +31,7 @@ ull solve()
     }
 }
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
     freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
@@ -49,8 +41,7 @@ int main()
     ios_base::sync_with_stdio(false);
     int no_of_test_cases;
     cin >> no_of_test_cases;
-    for (int i = 1; i <= no_of_test_cases; i++)
-    {
+    for (int i = 1; i <= no_of_test_cases; i++) {
         cout << "Case " << i << ": " << solve()<<endl;
     }
 

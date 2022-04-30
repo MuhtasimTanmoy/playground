@@ -36,11 +36,9 @@ void execute() {
     // 0 3 2 3 3 3 1 
     // 1 4 3 4 0 4 0 
 
-    for(int i = 0; i < col; i++ ) {
-        for(int j = 0; j < row; j++ ) {
+    for(int i = 0; i < col; i++ ) 
+        for(int j = 0; j < row; j++ ) 
             convertedMatrix[i][j] = process(i, j);
-        }
-    }
 
     vector<vector<int>> left(col, vector<int>(row, 0));
     vector<vector<int>> right(col, vector<int>(row, 0));

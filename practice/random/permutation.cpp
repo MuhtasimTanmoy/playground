@@ -11,44 +11,35 @@ using namespace std;
 
 vector<pair<int, int>> li(3);
 
-void heapPermutation(vector<pair<int, int>> a, int size)
-{
+void heapPermutation(vector<pair<int, int>> a, int size) {
 
 	if (size == 1) {
-		
-		for (pair<int, int> x : li) {
-			cout << x.first << " " << x.second << endl;
-		}
 
+		for (pair<int, int> x : li) 
+			cout << x.first << " " << x.second << endl;
 		cout << endl<< "ds "<< "...." << 34 << "...." << endl;
 		return;
 	}
 
 	for (int i = 0; i < size; i++) {
-
 		heapPermutation(a, size - 1);
-
-		if (size % 2 == 1) {
+		if (size % 2 == 1) 
 			swap(a[0], a[size - 1]);
-		} else
+		else
 			swap(a[i], a[size - 1]);
 	}
 }
 
-void solve()
-{
+void solve() {
 	ll n;
 	cin >> n;
-
-	REP(i, n) {
+	REP(i, n) 
 		cin >> li[i].first >> li[i].second;
-	}
 
 	heapPermutation(li,li.size());
 }
 
-int main()
-{
+int main() {
 #ifdef _DEBUG
 	freopen("input.txt", "r", stdin);
 	// freopen("output.txt", "w", stdout);

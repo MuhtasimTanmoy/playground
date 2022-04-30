@@ -25,14 +25,11 @@ class Graph {
 
 	void BFS(int i, bool visted[]) {
 		q.push(i);
-		visted[i] = true;
 
 		while (!q.empty()) {
-
 			int elem = q.front();
 			visted[elem] = true;
 			q.pop();
-			
 			cout << elem << endl;
 
 			for (auto x : edge_list[elem]) 

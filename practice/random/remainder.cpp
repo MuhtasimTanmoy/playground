@@ -10,11 +10,9 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int socks,buy;
-	cin>>socks>>buy;
-
+	cin >> socks >> buy;
 	int count = 0;
 
 	while( (socks-buy) >= 0 ) {
@@ -27,19 +25,12 @@ void solve()
 	cout<<count<<endl;
 }
 
-int main()
-{
+int main() {
+	ios_base::sync_with_stdio(false);
+    cin.tie(0);
 	freopen("input.txt", "r", stdin);
-	cin.tie(0);
-	cout.tie(0);
-	int no_of_test_cases = 0;
+    int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+    while (no_of_test_cases--) execute(); 
 	return 0;
 }

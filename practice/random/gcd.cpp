@@ -15,24 +15,22 @@ int gcd(int a,int b){
 	return gcd(b,a%b);
 }
 
-void solve()
-{
+void solve() {
 	int a,b,n;
 	cin>>a>>b>>n;
 
 	int take = 0;
 	int turn = 0;
-
 	bool simonPass = 1;
 
-	while(n!=0){
+	while (n != 0) {
 		turn = (simonPass? a:b);
 		take = gcd(turn,n);
-		if(take<=n){
-			n-=take;
+
+		if( take <= n ) {
+			n -= take;
 			simonPass = 1 - simonPass;
-		}
-		else{
+		} else {
 			break;
 		}
 	}
@@ -40,19 +38,13 @@ void solve()
 	cout<<simonPass<<endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();    
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }
