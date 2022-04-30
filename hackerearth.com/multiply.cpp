@@ -1,22 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
-const int N = 2e5 + 11;
+
+const int N = 1e9 + 7;
 
 void solve() {
 	int n;
 	cin >> n;
-	int setbit_count = 0;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
-	}
-	cout << setbit_count << endl;
+	vector<int> li(n);
+	for (int i = 0; i < n; i++) cin >> li[i];
+	ll res = 1;
+
+	for (int i = 0; i < n; i++) res = (res * li[i]) % N;
+	cout << res << endl;
 }
 
 int main() {

@@ -128,14 +128,8 @@ int main()
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }

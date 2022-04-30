@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
@@ -10,13 +12,21 @@ const int N = 2e5 + 11;
 void solve() {
 	int n;
 	cin >> n;
-	int setbit_count = 0;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	unordered_map<string, int> map;
+	string s;
+	int _min = INT32_MAX;
+	bool found = false;
+
+	for (int i = 0; i < n; i++) {
+		cin >> s;
+		if (map.count(s)) {
+			_min = min(_min, (int)(i - map[s]));
+			map[s] = i;
+			found = true;
+		} else map[s] = i;
 	}
-	cout << setbit_count << endl;
+	cout << ((_min == INT32_MAX) ? -1 : _min) << endl;
 }
 
 int main() {

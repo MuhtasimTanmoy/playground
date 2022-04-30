@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
@@ -8,15 +10,17 @@ using namespace std;
 const int N = 2e5 + 11;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	int len;
+	cin >> len;
+	int zero_count = 0;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
-	}
-	cout << setbit_count << endl;
+	string bi_str;
+	cin >> bi_str;
+
+	for (int i = 0; i < bi_str.size(); i++) 
+		if (bi_str[i] == '0')zero_count++;
+
+	cout << zero_count << endl;
 }
 
 int main() {

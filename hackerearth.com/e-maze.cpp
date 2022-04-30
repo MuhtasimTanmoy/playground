@@ -1,22 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
+
 const int N = 2e5 + 11;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	string s;
+	cin >> s;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	int X = 0, Y = 0;
+	for (int i = 0; i < s.size(); i++) {
+		if (s[i] == 'L') 
+			X--;
+		else if (s[i] == 'R')
+			X++;
+		else if (s[i] == 'U')
+			Y++;
+		else
+			Y--;
 	}
-	cout << setbit_count << endl;
+	cout << X << " " << Y << endl;
 }
 
 int main() {

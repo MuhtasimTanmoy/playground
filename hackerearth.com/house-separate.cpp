@@ -1,22 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
+
 const int N = 2e5 + 11;
 
 void solve() {
 	int n;
 	cin >> n;
-	int setbit_count = 0;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	string s;
+	cin >> s;
+
+	for (int i = 0; i < n; i++) 
+		if (s[i] == '.') s[i] = 'B';
+
+	bool possible = true;
+	for (int i = 0; i < n - 1; i++) {
+		if (s[i] == s[i + 1] && s[i] == 'H') {
+			possible = false;
+			break;
+		}
 	}
-	cout << setbit_count << endl;
+
+	cout << (possible ? "YES" : "NO") << endl;
+	if (possible) 
+		cout << s << endl;
 }
 
 int main() {

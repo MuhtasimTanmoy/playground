@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
@@ -10,13 +12,26 @@ const int N = 2e5 + 11;
 void solve() {
 	int n;
 	cin >> n;
-	int setbit_count = 0;
+	int li[n];
+	deque<int> _deque;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	for (int i = 0; i < n; i++) cin >> li[i];
+	sort(li, li + n);
+
+	for (int i = 0; i < n; i++) {
+		if (!_deque.empty() && _deque.front() < li[i])
+			_deque.pop_front();
+
+		_deque.push_back(li[i]);
 	}
-	cout << setbit_count << endl;
+
+	int total_remaining = 0;
+	while (!_deque.empty()) {
+		total_remaining += _deque.front();
+		_deque.pop_front();
+	}
+
+	cout << total_remaining << endl;
 }
 
 int main() {

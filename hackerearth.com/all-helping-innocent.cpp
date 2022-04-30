@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
@@ -8,15 +9,24 @@ using namespace std;
 const int N = 2e5 + 11;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	string s;
+	cin >> s;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	unordered_set<char> vowels = {'A', 'E', 'I', 'O', 'U', 'Y'};
+	vector<int> index = {0, 3, 4, 7};
+
+	if ( vowels.count(s[2]) ) {
+		cout << "invalid" << endl;
+		return;
 	}
-	cout << setbit_count << endl;
+	
+	for (auto x : index) {
+		if ((s[x] + s[x + 1]) % 2) {
+			cout << "invalid" << endl;
+			return;
+		}
+	}
+	cout << "valid" << endl;
 }
 
 int main() {

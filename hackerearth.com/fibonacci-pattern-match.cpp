@@ -1,22 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
+
 const int N = 2e5 + 11;
 
-void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+long long fib[80];
+string fib_s;
+bool valid[700];
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+void generate_fib() {
+	fib[0] = 0;
+	fib[1] = 1;
+	fib_s = "01";
+	valid[0] = valid[1] = true;
+
+	for (int i = 2; i < 80; i++) {
+		fib[i] = fib[i - 1] + fib[i - 2];
+		fib_s += to_string(fib[i]);
+		valid[fib_s.length() - 1] = true;
 	}
-	cout << setbit_count << endl;
+}
+
+void solve() {
+	generate_fib();
+	cout << fib_s << endl;
 }
 
 int main() {

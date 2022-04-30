@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
@@ -10,13 +11,22 @@ const int N = 2e5 + 11;
 void solve() {
 	int n;
 	cin >> n;
-	int setbit_count = 0;
+	int holder;
+	unordered_map<int, int> mapping;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	for (int i = 0; i < n; i++) {
+		cin >> holder;
+		mapping[holder]++;
 	}
-	cout << setbit_count << endl;
+
+	int q;
+	cin >> q;
+
+	for (int i = 0; i < q; i++) {
+		cin >> holder;
+		if (mapping.count(holder)) cout << mapping[holder] << endl;
+		else cout << "NOT PRESENT" << endl;
+	}
 }
 
 int main() {

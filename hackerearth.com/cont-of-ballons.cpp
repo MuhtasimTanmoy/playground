@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
@@ -8,15 +9,22 @@ using namespace std;
 const int N = 2e5 + 11;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	int blue, purple;
+	cin >> blue >> purple;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	int students;
+	cin >> students;
+
+	int count_a = 0, count_b = 0;
+	int holder_a, holder_b;
+
+	for (int i = 0; i < students; i++) {
+		cin >> holder_a >> holder_b;
+		count_a += holder_a;
+		count_b += holder_b;
 	}
-	cout << setbit_count << endl;
+
+	cout << min(count_a, count_b) * max(blue, purple) + max(count_a, count_b) * min(blue, purple) << endl;
 }
 
 int main() {

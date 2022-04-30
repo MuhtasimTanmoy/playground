@@ -1,12 +1,7 @@
-// Find K-Length Substrings With No Repeated Characters
-
 #include <bits/stdc++.h>
 using namespace std;
-
 #define log(x) cout << #x << " = " << x << endl;
-
-void execute() {
-}
+void execute() {}
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -17,9 +12,3 @@ int main() {
     while (no_of_test_cases--) execute(); 
 	return 0;
 }
-
-
-      
-                
-
-    

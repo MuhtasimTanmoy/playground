@@ -1,22 +1,27 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
-const int N = 2e5 + 11;
+
+const int N = 7;
+int current_ground = 0;
+int current_top = 7;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	int called_from;
+	cin >> called_from;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	if (abs(called_from - current_ground) <= abs(current_top - called_from)) {
+		current_ground = called_from;
+		cout << "A" << endl;
+	} else {
+		current_top = called_from;
+		cout << "B" << endl;
 	}
-	cout << setbit_count << endl;
 }
 
 int main() {

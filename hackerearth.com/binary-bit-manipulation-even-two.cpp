@@ -8,25 +8,31 @@ using namespace std;
 #define mp make_pair
 #define pb push_back
 
-const int N = 1e5 + 11;
-bool slots[N] = {true};
+const int N = 1e6 + 7;
+int _map[N];
 
 void solve() {
-	int n, p, q, r;
-	cin >> n >> p >> q >> r;
+	int n;
+	cin >> n;
 
-	int traverse = p;
-	int count = 0;
+	int li[n] = {0};
+	for (int i = 0; i < n; i++) cin >> li[i];
 
-	for (int i = 1; i <= n; i++) {
-		if (i % p == 0 && i % q && i % r) 
-			count++;
-		else if (i % q == 0 && i % p && i % r) 
-			count++;
-		else if (i % r == 0 && i % q && i % p) 
-			count++;
+	int _xor = li[0];
+	for (int i = 1; i < n; i++) _xor = li[i] ^ _xor;
+
+	int last_set_bit = _xor & ~(_xor - 1);
+	
+	int x = 0;
+	int y = 0;
+
+	for (int i = 0; i < n; i++) {
+		if (li[i] & last_set_bit) x ^= li[i];
+		else y ^= li[i];
 	}
-	cout << count << endl;
+
+	if (x < y) swap(x, y);
+	cout << y << " " << x << endl;
 }
 
 int main() {

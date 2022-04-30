@@ -1,22 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
-const int N = 2e5 + 11;
+const int N = 1e9 + 7;
 
 void solve() {
-	int n;
+	ull n;
 	cin >> n;
-	int setbit_count = 0;
+	ull subset = pow(2, n - 1);
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	ull holder = 0;
+	ull count = 0;
+
+	for (int i = 0; i < n; i++) {
+		cin >> holder;
+		if (holder >= subset) {
+			count += holder;
+			count = count % N;
+		}
 	}
-	cout << setbit_count << endl;
+
+	cout << count << endl;
 }
 
 int main() {

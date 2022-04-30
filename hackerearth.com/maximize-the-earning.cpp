@@ -1,22 +1,31 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 #define ll long long
+#define ull unsigned long long
 #define ff first
 #define ss second
 #define mp make_pair
 #define pb push_back
+
 const int N = 2e5 + 11;
 
 void solve() {
-	int n;
-	cin >> n;
-	int setbit_count = 0;
+	ll n, rupee;
+	cin >> n >> rupee;
 
-	while (n) {
-		if (n & 1) setbit_count++;
-		n = n / 2;
+	ll holder;
+	ll max_so_far = INT64_MIN;
+	ll count = 0;
+
+	for (int i = 0; i < n; i++) {
+		cin >> holder;
+		if (holder > max_so_far)
+			count++;
+		max_so_far = max(max_so_far, holder);
 	}
-	cout << setbit_count << endl;
+
+	cout << rupee * count << endl;
 }
 
 int main() {

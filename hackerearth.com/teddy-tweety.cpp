@@ -9,27 +9,19 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n;
 	cin >> n;
-
 	cout << (n % 3 ? "NO" : "YES") << endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases;
-	// cin >> no_of_test_cases;
-	no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	int no_of_test_cases = 1;
+	cin >> no_of_test_cases;
+	while (no_of_test_cases--)solve();
 	return 0;
 }
