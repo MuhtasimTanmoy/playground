@@ -1,23 +1,34 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 const int N = 2e5 + 11;
 
 void solve() {
+	int n;
+	cin>>n;
 
-	double n, m, a, b;
-	cin >> n >> m >> a >> b;
+	if( n >= 0 ) {
+		cout<<n<<endl;
+		return;
+	}
 
-	int count = n / m;
-	int res = 0;
+	n = abs(n);
 
-	if ( b / m <= a ) {
-		res += b * count;
-		n -= m * count;
-		res += min(a * n, b * n);
-	} else res+= a * n;
+	if( n <= 10 ) {
+		cout<<0<<endl;
+		return;
+	}
 
-	cout << res << endl;
+	int one = n % 10;
+	int two = ( n / 10 ) % 10;
+
+	if( one > two ) n = n/10;
+	else {
+		n = n/100;
+		n*=10;
+		n+=one;
+	}
+
+	cout<<-n<<endl;
 }
 
 int main() {

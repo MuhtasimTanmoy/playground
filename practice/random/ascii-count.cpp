@@ -1,23 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 const int N = 2e5 + 11;
 
 void solve() {
+	char c;
+	int li[26] = {0};
 
-	double n, m, a, b;
-	cin >> n >> m >> a >> b;
+	while( cin >> c ) {
+		if(c==' ' || c==',') continue;
+		li[c-'a']=1;
+	}
 
-	int count = n / m;
-	int res = 0;
+	int count = 0;
+	for (int i = 0; i < 26; i++)
+		if( li[i]==1 ) count++;
 
-	if ( b / m <= a ) {
-		res += b * count;
-		n -= m * count;
-		res += min(a * n, b * n);
-	} else res+= a * n;
-
-	cout << res << endl;
+	cout<<count<<endl;
 }
 
 int main() {

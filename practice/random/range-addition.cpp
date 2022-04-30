@@ -10,30 +10,25 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n;
-	cin>>n;
+	cin >> n;
 
-	if(n==1 || n==2) {
-		cout<<n<<endl;
-		return;
+	vector<int> v(n);
+	for (int i = 0; i < n; i++) cin >> v[i];
+
+	int dis = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 1; j < n; j++) {
+			if (v[j - 1] > v[j]) {
+				dis = abs(v[j - 1] - v[j]);
+				v[j - 1] -= dis;
+				v[j] += dis;
+			}
+		}
 	}
 
-	int mat[11][11];
-	for (int i = 0; i < 10; i++)
-		mat[0][i] = 1;
-	for (int i = 0; i < 10; i++)
-		mat[i][0] = 1;
-
-	for (int i = 1; i < n; i++) {
-		mat[i][i] = 2 * mat[i-1][i]; 
-		for (int j = i+1; j < n; j++)
-			mat[i][j] = mat[i-1][j] + mat[i][j-1];
-	}
-
-	mat[n-1][n-1] = 2 * mat[n-2][n-1]; 
-	cout<<mat[n-1][n-1]<<endl;
+	for (int i = 0; i < n; i++) cout << v[i] << " ";
 }
 
 int main() {

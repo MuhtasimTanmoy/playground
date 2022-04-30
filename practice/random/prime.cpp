@@ -10,30 +10,27 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+bool isPrime(int n){
+	int root = sqrt(n);
+	for (int i = 2; i <= root; i++)
+		if(n%i==0) return false;
+	return true;
+}
+
+void solve() {
 	int n;
 	cin>>n;
 
-	if(n==1 || n==2) {
-		cout<<n<<endl;
-		return;
+	int l = n>>1;
+	int r = n>>1;
+	if(n%2) r++;
+
+	while((isPrime(l) || isPrime(r))) {
+		l--;
+		r++;
 	}
 
-	int mat[11][11];
-	for (int i = 0; i < 10; i++)
-		mat[0][i] = 1;
-	for (int i = 0; i < 10; i++)
-		mat[i][0] = 1;
-
-	for (int i = 1; i < n; i++) {
-		mat[i][i] = 2 * mat[i-1][i]; 
-		for (int j = i+1; j < n; j++)
-			mat[i][j] = mat[i-1][j] + mat[i][j-1];
-	}
-
-	mat[n-1][n-1] = 2 * mat[n-2][n-1]; 
-	cout<<mat[n-1][n-1]<<endl;
+	cout<<l<< " "<<r<<endl;
 }
 
 int main() {

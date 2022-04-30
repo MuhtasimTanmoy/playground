@@ -10,30 +10,22 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
-	int n;
-	cin>>n;
+void solve() {
+	ll n, m;
+	cin >> n >> m;
 
-	if(n==1 || n==2) {
-		cout<<n<<endl;
-		return;
+	ll holder;
+	ll curr = 1;
+	ll result = 0;
+
+	for (ll i = 0; i < m; i++) {
+		cin>>holder;
+		if( holder >= curr ) result += holder - curr;
+		else result += n - abs(holder - curr);
+		curr = holder;
 	}
-
-	int mat[11][11];
-	for (int i = 0; i < 10; i++)
-		mat[0][i] = 1;
-	for (int i = 0; i < 10; i++)
-		mat[i][0] = 1;
-
-	for (int i = 1; i < n; i++) {
-		mat[i][i] = 2 * mat[i-1][i]; 
-		for (int j = i+1; j < n; j++)
-			mat[i][j] = mat[i-1][j] + mat[i][j-1];
-	}
-
-	mat[n-1][n-1] = 2 * mat[n-2][n-1]; 
-	cout<<mat[n-1][n-1]<<endl;
+	
+	cout<<result<<endl;
 }
 
 int main() {

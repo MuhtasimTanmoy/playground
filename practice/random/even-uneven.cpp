@@ -10,30 +10,32 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
 
-	if(n==1 || n==2) {
-		cout<<n<<endl;
-		return;
+	int li[n];
+	for (int i = 0; i < n; i++) cin>>li[i];
+
+	int even = 0;
+	int uneven = 0;
+
+	int searchEven = 1;
+	for (int i = 0; i < 3; i++) {
+		if( li[i] % 2 == 0 )  even++;
+		else uneven++;
 	}
 
-	int mat[11][11];
-	for (int i = 0; i < 10; i++)
-		mat[0][i] = 1;
-	for (int i = 0; i < 10; i++)
-		mat[i][0] = 1;
-
-	for (int i = 1; i < n; i++) {
-		mat[i][i] = 2 * mat[i-1][i]; 
-		for (int j = i+1; j < n; j++)
-			mat[i][j] = mat[i-1][j] + mat[i][j-1];
+	if(even >= 2) {} else {
+		searchEven = 0;
 	}
 
-	mat[n-1][n-1] = 2 * mat[n-2][n-1]; 
-	cout<<mat[n-1][n-1]<<endl;
+	for (int i = 0; i < n; i++) {
+		if(li[i]%2==searchEven) {
+			cout<<i+1<<endl;
+			return;
+		}
+	}
 }
 
 int main() {

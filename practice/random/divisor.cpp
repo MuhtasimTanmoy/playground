@@ -10,30 +10,19 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-void solve()
-{
-	int n;
-	cin>>n;
+void solve() {
+	int n, div;
+	cin >> n >> div;
+	int count = 0;
 
-	if(n==1 || n==2) {
-		cout<<n<<endl;
-		return;
+	for (int i = 1; i <= min(n,div); i++) {
+		if( div % i == 0 ) {
+			int num = div/i;
+			if( num <= n) count++;
+		}
 	}
-
-	int mat[11][11];
-	for (int i = 0; i < 10; i++)
-		mat[0][i] = 1;
-	for (int i = 0; i < 10; i++)
-		mat[i][0] = 1;
-
-	for (int i = 1; i < n; i++) {
-		mat[i][i] = 2 * mat[i-1][i]; 
-		for (int j = i+1; j < n; j++)
-			mat[i][j] = mat[i-1][j] + mat[i][j-1];
-	}
-
-	mat[n-1][n-1] = 2 * mat[n-2][n-1]; 
-	cout<<mat[n-1][n-1]<<endl;
+	
+	cout<<count<<endl;
 }
 
 int main() {
