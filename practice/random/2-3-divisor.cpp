@@ -4,25 +4,26 @@ const int N = 2e5 + 11;
 
 void solve() {
 	int n;
-	cin>>n;
+	cin >> n;
+
 	bool once = true;
-	vector<int> v;
+	vector <int> v;
 	int holder;
 
-	for (int i = 0; i < n; i++){
-		cin>>holder;
-		while(holder%2==0) holder/=2;
-		while(holder%3==0) holder/=3;
+	for (int i = 0; i < n; i++) {
+		cin >> holder;
+		while ( holder % 2 == 0 ) holder /= 2;
+		while ( holder % 3 == 0 ) holder /= 3;
 		v.push_back(holder);
 	}
 
-	for (int i = 1; i < n; i++){
-		if(v[i]!=v[i-1]) {
+	for (int i = 1; i < n; i++) {
+		if ( v[i] != v[i-1] ) {
 			once = false;
 			break;
 		}
 	}
-	cout<<(once?"Yes":"No")<<endl;
+	cout<< ( once ? "Yes" : "No" ) << endl;
 }
 
 int main() {
