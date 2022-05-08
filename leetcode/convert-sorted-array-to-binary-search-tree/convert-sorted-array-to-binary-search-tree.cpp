@@ -10,18 +10,18 @@
  * };
  */
 class Solution {
-public:
     
-    TreeNode* dfs(vector<int>& nums, int start, int end) {
-        if ( start > end ) { return nullptr; } 
+    TreeNode* toBST(int start, int end, vector<int>& nums) {
+        if (start > end ) return nullptr;
         int mid = (start+end) >> 1;
         TreeNode* node = new TreeNode(nums[mid]);
-        node->left = dfs(nums, start, mid-1);
-        node->right = dfs(nums, mid+1, end);
+        node->left = toBST(start, mid-1, nums);
+        node->right = toBST(mid+1, end, nums);
         return node;
     }
     
+public:
     TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return dfs(nums, 0, size(nums)-1 );
+        return toBST(0, size(nums)-1, nums);
     }
 };
