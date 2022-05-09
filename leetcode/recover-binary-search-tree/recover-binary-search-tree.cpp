@@ -10,23 +10,22 @@
  * };
  */
 class Solution {
-    TreeNode* first,*second,*pr;
-    void inorder(TreeNode* root) {
-        
-        if(!root) return;
-        inorder(root->left);
-        
-        if(first == nullptr && pr->val > root->val) first=pr;
-        if(first != nullptr && pr->val > root->val) second=root;
-        
-        pr=root;
-        inorder(root->right);
-    }
     
-public:
-    void recoverTree(TreeNode* root) {
-        pr = new TreeNode(INT_MIN); 
-        inorder(root);
-        swap(first->val,second->val); 
-    }
+    TreeNode* firstMistake, *secondMistake, *pre;
+    
+	void inorder(TreeNode* root) {
+		if(root == nullptr) return;
+		inorder(root->left);
+		if (!firstMistake && root->val < pre->val) firstMistake = pre;
+		if (firstMistake && root->val < pre->val) secondMistake = root;
+		pre = root;
+		inorder(root->right);
+	}
+    
+    public:
+	void recoverTree(TreeNode* root) {
+		pre = new TreeNode(INT_MIN);
+		inorder(root);
+		swap(firstMistake->val, secondMistake->val);
+	}
 };
