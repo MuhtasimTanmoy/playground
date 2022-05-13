@@ -1,14 +1,31 @@
 class Solution {
-    bool nextPermutation(vector<int>& s) {
-        int i = size(s) - 1;
-        if (!i) return false;
-        while (s[i-1] >= s[i]) if (--i == 0) return false;
+    
+    // https://stackoverflow.com/questions/11483060/stdnext-permutation-implementation-explanation
 
-        int j = size(s) - 1;
-        while (j > i && s[j] <= s[i-1]) j--;
+    // https://www.techiedelight.com/std_next_permutation-overview-implementation
 
-        std::swap(s[i-1], s[j]);
-        std::reverse (s.begin() + i, s.end());
+    // 1 2 3 4
+    // 1 2 4 3
+    // 1 3 2 4
+    // 1 3 4 2
+    // 1 4 2 3
+    // 1 4 3 2
+    // 2 1 3 4
+    
+    bool nextPermutation(vector<int>& nums) {
+        
+        int lastIndex = size(nums) - 1;
+        if (!lastIndex) return false;
+        
+        while(nums[lastIndex-1] >= nums[lastIndex]) 
+            if(--lastIndex == 0) return false;
+        
+        int toSwapWith = size(nums) - 1;
+        while(toSwapWith >lastIndex 
+              && nums[lastIndex - 1] >= nums[toSwapWith]) toSwapWith--;
+        
+        swap(nums[lastIndex - 1], nums[toSwapWith]);
+        reverse(nums.begin() + lastIndex, nums.end());
         return true;
     }
 public:
