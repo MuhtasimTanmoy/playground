@@ -46,7 +46,6 @@ public:
         };
         
         priority_queue<pair<int,int>, vector<pair<int,int>>, decltype(comp)> que(comp);
-        
         vector<vector<int>> rel(n, vector<int>(n, -1));
         
         for (auto &time: times)
@@ -56,31 +55,25 @@ public:
         que.push({k-1, 0});
         
         int sz = n;
-        
-        while (que.size()) {
-            
+        while (size(que)) {
             auto now = que.top();
-            
             que.pop();
             
-            if (visit[now.first]) 
-                continue;
+            // In this question we can mark the node as visited only after popping from the priority Queue, or we will miss some edge that may lead to a shorter path. 
+            // Ex: [[1,2,1],[2,3,2],[1,3,4]] 3 1
+            // If we add while inserting we will get wrong answer while exploring 1's neighbors what we are doing is , 1->2 queue={2,1} visited={1,2} 1->3 queue{(2,1), (3,4)} since all nodes are now visited, we will never encounter the path 1->2->3 distance=1+2=3.
             
+            if (visit[now.first]) continue;
             visit[now.first] = 1;
-            
-            if (!--sz) 
-                return now.second;
+            if (!--sz) return now.second;
             
             auto id = now.first, val = now.second;
-            
-            for (int i = 0; i < n; ++i) {
-                
-                if (rel[id][i] != -1) 
+            for (int i = 0; i < n; ++i)
+                if (rel[id][i] != -1) {
+                    // visit[id] = 1;
                     que.push({i, val + rel[id][i]});
-                
-            }
+                }
         }
-        
         return -1;
     }
 };
