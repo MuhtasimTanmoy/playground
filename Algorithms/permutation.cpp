@@ -10,6 +10,17 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
+// https://stackoverflow.com/questions/11483060/stdnext-permutation-implementation-explanation
+// https://www.techiedelight.com/std_next_permutation-overview-implementation/
+
+// 1 2 3 4
+// 1 2 4 3
+// 1 3 2 4
+// 1 3 4 2
+// 1 4 2 3
+// 1 4 3 2
+// 2 1 3 4
+
 //  vector<vector<int>> permuteUnique(vector<int>& nums) {
 //         sort(begin(nums), end(nums));
 //         vector<vector<int>> result;
