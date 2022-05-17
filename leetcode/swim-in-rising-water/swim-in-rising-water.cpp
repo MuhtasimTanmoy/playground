@@ -1,17 +1,11 @@
 class Solution {
-    
     struct PosWeight {
         pair<int, int> pos;
         int weight;
-        
         PosWeight(pair<int, int> a, int weight): pos(a), weight(weight){}
-        // bool operator<(const PosWeight& p1, const PosWeight& p2) {
-        //     return p1.height < p2.height;
-        // }
     };
     
     int visited[51][51] = {0};
-    
     int traverse(vector<vector<int>>& grid) {
         int row = size(grid);
         int column = size(grid[0]);
@@ -41,17 +35,20 @@ class Solution {
             auto elem = pq.top();
             pq.pop();
             
-            if (visited[elem.pos.first][elem.pos.second]) continue;
-            visited[elem.pos.first][elem.pos.second] = 1;
+            // if (visited[elem.pos.first][elem.pos.second]) continue;
+            // visited[elem.pos.first][elem.pos.second] = 1;
             
             maxx = max(maxx, elem.weight);
-            if (elem.pos.first == row - 1 && elem.pos.second == column - 1) return maxx;
+            if (elem.pos.first == row - 1 && elem.pos.second == column - 1) 
+                return maxx;
             
             for(auto direction: directions)
                 if (isValidTo(direction, elem.pos)) {
                     pair<int,int> toGo = make_pair( direction.first + elem.pos.first, 
                                   direction.second + elem.pos.second );
                     auto weight = grid[toGo.first][toGo.second];
+                    if (visited[toGo.first][toGo.second]) continue;
+                    visited[toGo.first][toGo.second] = 1;
                     pq.emplace(toGo, weight);
                 }
         }
