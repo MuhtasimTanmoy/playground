@@ -1,43 +1,31 @@
 class Solution {
 public:
-    int maxAreaOfIsland(vector< vector<int> >& grid) {
-
-        int maxArea = 0;
+    int row, col;
+    
+    vector<vector<int>> dirs = {{-1,0}, {1,0}, {0,-1}, {0,1}};
+    
+    int maxAreaOfIsland(vector<vector<int>>& grid) {
+        int res = 0;
+        row = grid.size(), col = grid[0].size();
         
-        // In each traversal reinitiate it
-        int currentlyComputingMaxArea = 0;
-        
-        // four direction
-        
-        std::function< void (int, int)> traverseMark = [&] (int x, int y) {
-            
-            if ( y < 0) { return; }
-            if ( x < 0) { return; }
-			if ( x == grid.size()) { return; }
-			if ( y == grid[0].size() ) { return; }
-
-            if (grid[x][y] == 1) {
-                currentlyComputingMaxArea++;
-                maxArea = max( maxArea, currentlyComputingMaxArea);
-                grid[x][y] = -1;
-                traverseMark(x + 1, y);
-                traverseMark(x, y + 1);
-                traverseMark(x - 1, y);
-                traverseMark(x, y - 1);
-            }
-        };
-                
-        // Traverse
-        
-        for(int i = 0; i < grid.size(); i++) {
-            for(int j = 0; j < grid[i].size(); j++) {
-				// cout<< grid[i][j];
-                currentlyComputingMaxArea = 0;
-                traverseMark(i, j);
-            }
-			// cout<<endl;
+        for (int i = 0; i < row; ++i) 
+            for (int j = 0; j < col; ++j) 
+                if (grid[i][j]) {
+                    int cnt = 0;
+                    dfs(i, j, cnt, grid);
+                    res = max(res, cnt);
+                }
+        return res;
+    }
+    void dfs(int r, int c, int &cnt, vector<vector<int>> &grid) {
+        ++cnt;
+        grid[r][c] = 0;
+        for (auto &dir: dirs) {
+            int nr = r + dir[0];
+            int nc = c + dir[1];
+            if (nr < 0 || nr >= row || nc < 0 || nc >= col || !grid[nr][nc])
+                continue;
+            dfs(nr, nc, cnt, grid);
         }
-                
-        return maxArea;
     }
 };
