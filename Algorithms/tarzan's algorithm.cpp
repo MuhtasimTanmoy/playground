@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections) {
-        
         vector<vector<int>> graph(n);
         vector<int> firstTime(n), minTime(n);
         int visitedCount = 0;
@@ -33,3 +32,25 @@ public:
         return result;
     }
 };
+
+// another approach
+
+//         function<void(int, vector<int>, vector<int>&)> dfs = 
+//             [&](int node, vector<int> ignore, vector<int>& visited) {
+//             visited[node] = true;
+//             visitedCount++;
+//             for(auto edge: graph[node]) {
+//                 if(visited[edge]) continue;
+//                 if (ignore[0] == node && ignore[1] == edge) continue;
+//                 if (ignore[1] == node && ignore[0] == edge) continue;
+//                 dfs(edge, ignore, visited);
+//             }
+//         };
+        
+//         vector<vector<int>> result;
+//         for(int i = 0 ; i < size(connections); i++) {
+//             visitedCount = 0;
+//             vector<int> visited(n, 0);
+//             dfs(0, connections[i], visited);
+//             if (visitedCount < n) result.push_back(connections[i]);
+//         }

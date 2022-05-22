@@ -1,18 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define log(x) cout << #x << " = " << x << endl;
 void execute() {
-	int count;
-	string s;
+	int antCount, stickLen;
+	cin >> antCount >> stickLen;
 
-	cin>>count;
-	cin>>s;
-
+	vector<int> placement;
+	for(int i = 0; i < antCount; i++) 
+		cin >> placement[i];
+	
+	
 	
 }
 
-int main() {
+int main()
+{
 	ios_base::sync_with_stdio(false);
     cin.tie(0);
 	freopen("input.txt", "r", stdin);
