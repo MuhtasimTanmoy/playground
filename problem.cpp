@@ -2,14 +2,8 @@
 using namespace std;
 
 #define log(x) cout << #x << " = " << x << endl;
+
 void execute() {
-	int count;
-	string s;
-
-	cin>>count;
-	cin>>s;
-
-	
 }
 
 int main() {
