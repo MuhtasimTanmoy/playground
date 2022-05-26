@@ -5,6 +5,7 @@ public:
         char res;
         
         for (int i = 0; i < keysPressed.size(); ++i) {
+            
             int diff = releaseTimes[i] - last;
             
             if (maxv < diff) {
@@ -14,6 +15,7 @@ public:
                 res = keysPressed[i];
             
             last = releaseTimes[i];
+            
         }
         return res;
     }
