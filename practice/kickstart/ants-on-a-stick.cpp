@@ -8,9 +8,6 @@ void execute() {
 	vector<int> placement;
 	for(int i = 0; i < antCount; i++) 
 		cin >> placement[i];
-	
-	
-	
 }
 
 int main()
