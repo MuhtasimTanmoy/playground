@@ -1,27 +1,10 @@
 class Solution {
 public:
     uint32_t reverseBits(uint32_t n) {
-        
-        int l = 0;
-        int r = 31;
-        
-        int store = 0;
-        
-        while( l < r ) {
-            
-            if ( (n >> l & 1) == (n >> r & 1) ) {
-                l++;
-                r--;
-                continue;
-            }
-            
-            n = n ^ ( 1 << l );
-            n = n ^ ( 1 << r );
-            
-            l++;
-            r--;
-        }
-        
-        return n;
+        uint32_t result = 0;
+        for(int i = 0; i < 32; i++) 
+            if ( (n >> i) & 1) 
+                result |= (1 << ( 31 - i));
+        return result;
     }
 };
