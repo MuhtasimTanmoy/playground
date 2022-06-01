@@ -1,12 +1,8 @@
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
-        
-        int target = 0;
-        
-        for(int i: nums){
-            target^=i;
-        }
-        return target;
+        int a = 0;
+        for(auto &num: nums) a ^= num;
+        return a;
     }
 };
