@@ -1,16 +1,14 @@
 class Solution {
 public:
     void reverseString(vector<char>& s) {
-        int l = 0;
-        int r = size(s) - 1;
-        
-        char temp = ' ';
-        while(l < r) {
-            temp = s[l];
-            s[l] = s[r];
-            s[r] = temp;
-            l++;
-            r--;
+        int left = 0;
+        int right = size(s) - 1;
+        while(left < right) {
+            s[left] = s[left] ^ s[right];
+            s[right] = s[left] ^ s[right];
+            s[left] = s[left] ^ s[right];
+            left++;
+            right--;
         }
     }
 };
