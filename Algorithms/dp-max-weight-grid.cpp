@@ -12,59 +12,40 @@ const int N = 100;
 int mat[N][N];
 int dp[N][N];
 
-void solve()
-{
+void solve() {
 	int n, m;
 	cin >> n >> m;
 
 	for (int i = 0; i < n; i++)
-	{
 		for (int j = 0; j < m; j++)
-		{
 			cin >> mat[i][j];
-		}
-	}
 
-	// for (int i = 0; i < n; i++)
-	// {
-	// 	for (int j = 0; j < m; j++)
-	// 	{
+	// for (int i = 0; i < n; i++) {
+	// 	for (int j = 0; j < m; j++) {
 	// 		cout << mat[i][j] << " ";
 	// 	}
 	// 	cout << endl;
 	// }
 
-	for (int i = 0; i < n; i++)
-	{
+	for (int i = 0; i < n; i++) {
 		dp[i][0] = mat[i][0];
 		dp[0][i] = mat[0][i];
 	}
 
 	for (int i = 1; i < n; i++)
-	{
 		for (int j = 1; j < m; j++)
-		{
 			dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]) + mat[i][j];
-		}
-	}
 
 	cout << dp[n - 1][m - 1] + dp[0][0] << endl;
 }
 
-int main()
-{
+int main() {
 	freopen("input.txt", "r", stdin);
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	int no_of_test_cases = 0;
+	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	if (!no_of_test_cases)
-		no_of_test_cases = 1;
-	while (no_of_test_cases--)
-	{
-		solve();
-	}
-
+	while (no_of_test_cases--)solve();
 	return 0;
 }

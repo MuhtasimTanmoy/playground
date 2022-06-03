@@ -27,6 +27,7 @@ int main()
 }
 
 
+using s = std;
 
 #include <bits/stdc++.h>
 using namespace std;
