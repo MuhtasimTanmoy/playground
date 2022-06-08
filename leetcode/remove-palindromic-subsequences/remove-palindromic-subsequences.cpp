@@ -1,18 +1,12 @@
 class Solution {
+    bool isPalindrome(string& s) {
+        int left = 0;
+        int right = size(s) - 1;
+        while(left < right) if (s[left++] != s[right--]) return false;
+        return true;
+    }
 public:
     int removePalindromeSub(string s) {
-        
-        auto isPalindrome = [&]() -> bool {
-            int left = 0;
-            int right = size(s) - 1;
-            
-            while( left < right ) {
-                if ( s[left++] != s[right--] ) return false;
-            }
-            
-            return true;
-        };
-        
-        return isPalindrome() ? 1 : 2;
+        return isPalindrome(s) ? 1 : 2;
     }
 };
