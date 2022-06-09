@@ -6,7 +6,8 @@ public:
         
         while(left < right) {
             int calculated = numbers[left] + numbers[right];
-            if (calculated == target) return { left + 1, right + 1 };
+            if (calculated == target) 
+                return { left + 1, right + 1 };
             else if (calculated > target) right--;
             else left++;
         }
