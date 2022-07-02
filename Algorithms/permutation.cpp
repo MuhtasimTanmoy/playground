@@ -31,12 +31,10 @@ const int N = 2e5 + 11;
 //     }
 
 bool nextPermutation(vector<int>& s) {
-	
 	int i = size(s) - 1;
 	if (!i) return false;
 	
 	while (s[i-1] >= s[i]) if (--i == 0) return false;
-
 	int j = size(s) - 1;
 	while (j > i && s[j] <= s[i-1]) j--;
 
