@@ -39,12 +39,29 @@
 //     }
 // };
 
+// bottom up
+// class Solution {
+// public:
+//     int minCostClimbingStairs(vector<int>& cost) {
+//         int n = size(cost);
+//         vector<int> bag(n+2, 0);
+//         for(int i = n - 1; i >= 0; i--) bag[i] = cost[i] + min(bag[i+1], bag[i+2]);
+//         return min(bag[0], bag[1]);
+//     }
+// };
+
+// Bottom up less variable
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
         int n = size(cost);
-        vector<int> bag(n+2, 0);
-        for(int i = n - 1; i >= 0; i--) bag[i] = cost[i] + min(bag[i+1], bag[i+2]);
-        return min(bag[0], bag[1]);
+        int left = 0;
+        int right = 0;
+        for(int i = n - 1; i >= 0; i--) {
+            auto now = cost[i] + min(left, right);
+            left = right;
+            right = now;
+        }
+        return min(left, right);
     }
 };
