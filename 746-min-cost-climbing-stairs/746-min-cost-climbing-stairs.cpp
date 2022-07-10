@@ -25,24 +25,26 @@
 // };
 
 // Memo
+// class Solution {
+// public:
+//     int minCostClimbingStairs(vector<int>& cost) {
+//         int n = size(cost);
+//         unordered_map<int, int> bag;
+//         function<int(int)> go = [&](int i) {
+//             if (i >= n) return 0;
+//             if (bag.count(i)) return bag[i];
+//             return bag[i] = cost[i] + min(go(i+1), go(i+2));
+//         };
+//         return min(go(0), go(1));
+//     }
+// };
+
 class Solution {
 public:
     int minCostClimbingStairs(vector<int>& cost) {
         int n = size(cost);
-        unordered_map<int, int> bag;
-
-        function<int(int)> go = [&](int i) {
-            if (i >= n) return 0;
-            if (bag.count(i)) return bag[i];
-            return bag[i] = cost[i] + min(go(i+1), go(i+2));
-        };
-        return min(go(0), go(1));
+        vector<int> bag(n+2, 0);
+        for(int i = n - 1; i >= 0; i--) bag[i] = cost[i] + min(bag[i+1], bag[i+2]);
+        return min(bag[0], bag[1]);
     }
 };
-
-// class Solution {
-// public:
-//     int minCostClimbingStairs(vector<int>& cost) {
-        
-//     }
-// };
