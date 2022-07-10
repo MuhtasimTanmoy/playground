@@ -13,8 +13,7 @@ void debug_out(Head H, Tail... T) {
 #define debug(...) cerr << "Line : " << __LINE__ <<" [" << #__VA_ARGS__ << "]:", debug_out(__VA_ARGS__)
 void execute() {}
 
-int main()
-{
+int main() {
 	ios_base::sync_with_stdio(false);
     cin.tie(0);
 	freopen("input.txt", "r", stdin);
@@ -26,21 +25,20 @@ int main()
 	return 0;
 }
 
+// Template
 
-using s = std;
-
-#include <bits/stdc++.h>
+#include<iostream>
 using namespace std;
-
 #define log(x) cout << #x << " = " << x << endl;
+
 void execute() {}
 
 int main() {
 	ios_base::sync_with_stdio(false);
-    cin.tie(0);
+	cin.tie(0);
 	freopen("input.txt", "r", stdin);
-    int no_of_test_cases = 1;
+	int no_of_test_cases = 1;
 	cin >> no_of_test_cases;
-    while (no_of_test_cases--) execute(); 
+	while (no_of_test_cases--) execute();
 	return 0;
 }
