@@ -13,3 +13,7 @@ for i in ${files[*]}; do
 done
 
 echo "Complete"
+
+
+# Delete redundent Notes file
+# find . -name "NOTES.md" -delete
