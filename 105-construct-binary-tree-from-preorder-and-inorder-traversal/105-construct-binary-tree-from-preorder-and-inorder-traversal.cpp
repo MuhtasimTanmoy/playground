@@ -10,19 +10,22 @@
  * };
  */
 class Solution {
-    int idx = 0;
-    TreeNode* traverse(int left, int right, vector<int>& preorder, unordered_map<int, int>& map) {
-        if (left > right) return NULL;
-        auto root = new TreeNode(preorder[idx++]);
-        auto boundary = map[root->val];
-        root->left = traverse(left, boundary - 1, preorder, map);
-        root->right = traverse(boundary + 1, right, preorder, map);
-        return root;
-    }
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         unordered_map<int, int> inorderMapping;
         for(int i = 0; i < size(inorder); i++) inorderMapping[inorder[i]] = i;
-        return traverse(0, size(preorder) - 1, preorder, inorderMapping);
+        
+        int idx = 0;
+        function<TreeNode*(int, int)> traverse = [&](int left, int right) -> TreeNode* {
+            if (left > right) return NULL;
+            
+            auto root = new TreeNode(preorder[idx++]);
+            auto boundary = inorderMapping[root->val];
+            
+            root->left = traverse(left, boundary - 1);
+            root->right = traverse(boundary + 1, right);
+            return root;
+        };
+        return traverse(0, size(preorder) - 1);
     }
 };
