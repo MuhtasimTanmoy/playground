@@ -57,7 +57,6 @@ public:
     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
         vector<vector<int>> res;
         int n = intervals.size(), i = 0; bool available = true;
-        
         while (i < n || available) {
             vector<int> cur;
             if (available && (i == n || newInterval[0] < intervals[i][0])) {
@@ -65,7 +64,7 @@ public:
                 available = false;
             } else cur = intervals[i++];
             
-            if (res.empty() || res.back()[1] < cur[0]) res.push_back(cur);
+            if (!res.size() || res.back()[1] < cur[0]) res.push_back(cur);
             else res.back()[1] = max(res.back()[1], cur[1]);
         }
         return res;

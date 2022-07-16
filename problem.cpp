@@ -1,4 +1,6 @@
 #include<iostream>
+#include <cstdio>
+#include <vector>
 using namespace std;
 #define log(x) cout << #x << " = " << x << endl;
 void execute() {}
