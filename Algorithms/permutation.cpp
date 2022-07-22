@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 #define ll long long
 #define ull unsigned long long
 #define ff first
@@ -37,7 +36,7 @@ bool nextPermutation(vector<int>& s) {
 	while (s[i-1] >= s[i]) if (--i == 0) return false;
 	int j = size(s) - 1;
 	while (j > i && s[j] <= s[i-1]) j--;
-
+	
 	std::swap(s[i-1], s[j]);
 	std::reverse (s.begin() + i, s.end());
 	return true;
@@ -48,12 +47,9 @@ void solve() {
 	int n;
 	cin >> n;
 	int li[n];
-	for (int i = 0; i < n; i++) 
-		cin >> li[i];
-
+	for (int i = 0; i < n; i++) cin >> li[i];
 	do {
-		for (auto x : li) 
-			cout << x << " ";
+		for (auto x : li) cout << x << " ";
 		cout << endl;
 	} while (next_permutation(li, li + n));
 }
@@ -65,8 +61,6 @@ int main() {
 	cout.tie(0);
 	int no_of_test_cases = 1;
 	// cin >> no_of_test_cases;
-	while (no_of_test_cases--) 
-		solve();
-
+	while (no_of_test_cases--)  solve();
 	return 0;
 }
