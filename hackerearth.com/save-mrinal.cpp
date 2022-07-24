@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int main()
-{
+int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	int n;
@@ -9,15 +8,13 @@ int main()
 	int a[n + 1];
 	for (int i = 1; i <= n; ++i)
 		cin >> a[i];
-
 	int t;
 	cin >> t;
 	for (int id = 0; id < t; ++id) {
 		int i, j;
 		cin >> i >> j;
 		set<int> s;
-		for (int x = i; x <= j; x++)
-			s.insert(a[x]);
+		for (int x = i; x <= j; x++) s.insert(a[x]);
 		cout << s.size() << '\n';
 		s.clear();
 	}

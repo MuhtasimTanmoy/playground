@@ -14,17 +14,12 @@ bool slots[N] = {true};
 void solve() {
 	int n, p, q, r;
 	cin >> n >> p >> q >> r;
-
 	int traverse = p;
 	int count = 0;
-
 	for (int i = 1; i <= n; i++) {
-		if (i % p == 0 && i % q && i % r) 
-			count++;
-		else if (i % q == 0 && i % p && i % r) 
-			count++;
-		else if (i % r == 0 && i % q && i % p) 
-			count++;
+		if (i % p == 0 && i % q && i % r) count++;
+		else if (i % q == 0 && i % p && i % r) count++;
+		else if (i % r == 0 && i % q && i % p) count++;
 	}
 	cout << count << endl;
 }

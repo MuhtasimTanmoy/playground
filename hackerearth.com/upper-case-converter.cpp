@@ -13,10 +13,8 @@ const int DISTANCE = 32;
 void solve() {
 	string s;
 	cin >> s;
-
 	for (int i = 0; i < s.size(); i++)
 		s[i] += (s[i] - DISTANCE < 65 ? DISTANCE : -DISTANCE);
-		
 	cout << s << endl;
 }
 

@@ -12,26 +12,19 @@ const int N = 2e5 + 11;
 void solve() {
 	int start_hour, start_min, end_hour, end_min;
 	cin >> start_hour >> start_min >> end_hour >> end_min;
-
 	bool hour_adjust = false;
 	int duration_min = abs(end_min - start_min);
-	
 	if (start_min > end_min) {
 		hour_adjust = true;
 		duration_min = 60 - duration_min;
 	}
-
 	int duration_hour = abs(end_hour - start_hour);
 	if (hour_adjust) {
-		if (start_hour > end_hour)
-			duration_hour++;
-		else 
-			duration_hour--;
+		if (start_hour > end_hour) duration_hour++;
+		else duration_hour--;
 	}
-	
 	if (start_hour > end_hour)
 		duration_hour = 12 - duration_hour;
-
 	cout << duration_hour << " " << duration_min << endl;
 }
 
