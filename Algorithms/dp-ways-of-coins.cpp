@@ -25,12 +25,10 @@ void solve() {
 	int n, target;
 	cin >> n >> target;
 	int holder;
-	
 	for (int i = 0; i < n; i++) {
 		cin >> holder;
 		li.push_back(holder);
 	}
-
 	cout << ways_to_target(target) << endl;
 }
 
