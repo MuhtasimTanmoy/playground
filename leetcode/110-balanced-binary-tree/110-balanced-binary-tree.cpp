@@ -25,3 +25,19 @@ public:
         return isValid;
     }
 };
+
+class Solution {
+    bool isValid = true;
+    int traverse(TreeNode* root) {
+        if (!root->left && !root->right) return 1;
+        auto leftHeight = root->left ? traverse(root->left) : 0;
+        auto rightHeight = root->right ? traverse(root->right) : 0;
+        if (abs(rightHeight-leftHeight) > 1) isValid = false;
+        return max(leftHeight, rightHeight) + 1;
+    }
+public:
+    bool isBalanced(TreeNode* root) {
+        if (root) traverse(root);
+        return isValid;
+    }
+};

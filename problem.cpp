@@ -2,7 +2,7 @@
 using namespace std;
 #define log(x) cout << #x << " = " << x << endl;
 
-void execute() { cout<<"Hello"<<endl; }
+void execute() { }
 int main() {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
