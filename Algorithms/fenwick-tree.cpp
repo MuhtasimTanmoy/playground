@@ -1,8 +1,6 @@
 class FenWickTree{
     vector<int> cnt;
-    int lowbit(int x) {
-		return (x) & (-x);
-	}
+    int lowbit(int x) { return (x) & (-x); }
     
 	public:
 	FenWickTree(int n): cnt(n+1, 0) {}
