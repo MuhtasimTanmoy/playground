@@ -1,17 +1,13 @@
 class MyCalendar {
 public:
-    MyCalendar() {
-        
-    }
+    map<int, int> mp;
+    MyCalendar() {}
     
     bool book(int start, int end) {
-        for (auto &date: calendar) {
-            if (max(date.first, start) < min(date.second, end)) {
-                return false;
-            }
-        }
-        calendar.push_back({start, end});
-        return true;
+        auto it = mp.upper_bound(start);
+        if (it == mp.end() || it->second >= end) {
+            mp[end] = start;
+            return true;
+        } else return false;
     }
-    vector<pair<int,int>> calendar;
 };
