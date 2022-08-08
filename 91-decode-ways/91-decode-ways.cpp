@@ -16,20 +16,22 @@
 //     }
 // };
 
-
-// iterative DP
+// Iterative DP
 class Solution {
 public:
     int numDecodings(string s) {
         int len = s.size();
         auto ok = [](auto x) { return 1 <= x && x <= 26; };
-        vector<int> dp(len + 1); dp[len] = 1;
+        int first = 1, second = 0;
         for (int i {len - 1}; i >= 0; i--) {
             auto one = s[i] - '0';
-            auto two = one && i + 1 < len ? stoi(s.substr(i, 2)) : 0;
-            if (ok(one)) dp[i] += dp[i+1];
-            if (ok(two)) dp[i] += dp[i+2];
+            auto two = one && i + 1 < len ? stoi(s.substr(i, 2)): 0;
+            int sum = 0;
+            if (ok(one)) sum = first;
+            if (ok(two)) sum += second;
+            second = first;
+            first = sum;
         }
-        return dp[0];
+        return first;
     }
 };
