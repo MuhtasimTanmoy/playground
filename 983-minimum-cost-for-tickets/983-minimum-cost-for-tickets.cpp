@@ -22,18 +22,16 @@
 
 class Solution {
 public:
-    using VI = vector<int>;
-    using fun = function<int(int, int)>;
-    using Map = unordered_map<int, int>;
-    int mincostTickets(VI& A, VI& cost, VI days = VI{1, 7, 30}, Map m = {}) {
+    int mincostTickets(vector<int>& A, 
+                       vector<int>& cost, 
+                       vector<int> days = vector<int>{1, 7, 30}, 
+                       unordered_map<int, int> m = {}) {
+        
         int N = A.size();
-        fun go = [&](auto i, auto day) {
-            while (i < N && A[i] < day)
-                ++i;
-            if (i == N)
-                return 0;             // \U0001f6d1 base case
-            if (m[i])
-                return m[i];          // \U0001f914 memo
+        function<int(int, int)> go = [&](auto i, auto day) {
+            while (i < N && A[i] < day) ++i;
+            if (i == N) return 0;
+            if (m[i]) return m[i];
             m[i] = int(1e9 + 7);
             for (auto k{ 0 }; k < 3; ++k)
                 m[i] = std::min(m[i], cost[k] + go(i, A[i] + days[k]));   // \U0001f3af min cost
