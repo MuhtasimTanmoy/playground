@@ -70,7 +70,7 @@ public:
         
         vector<long long> hash(max(size(sequence), size(word)));
         hash[0] = 1;
-        for ( int i = 1; i < size(hash); i++)
+        for (int i = 1; i < size(hash); i++)
             hash[i] = ( hash[i-1] * p ) % q;
         
         // for(int i = 0; i < size(hash); i++)
@@ -79,7 +79,7 @@ public:
         
         long long wordHash = 0;
         for(int i = 0; i < size(word); i++)
-            wordHash = (wordHash + ( word[i] - 'a' + 1) * hash[i]) % q;
+            wordHash = (wordHash + (word[i] - 'a' + 1) * hash[i]) % q;
         
         // cout<<wordHash<<endl;
         // cout<<endl;
@@ -92,12 +92,11 @@ public:
         //     cout<<longHash[i]<<endl;
         // cout<<endl;
         
-        int result = 0;
-        int count = 0;
+        int result = 0, count = 0;
         for (int i = 0; i + size(word) - 1 < size(sequence); ) {
             int currentHash = ( longHash[i + size(word)] + q - longHash[i] ) % q;
             // cout<<currentHash<<endl;
-            if (currentHash == ( ( wordHash * hash[i]) % q) ) {
+            if (currentHash == ( wordHash * hash[i]) % q ) {
                 // cout<<"Found: "<<i<<endl;
                 i += size(word);
                 count++;
