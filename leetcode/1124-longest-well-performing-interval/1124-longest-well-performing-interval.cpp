@@ -42,12 +42,13 @@ public:
 		unordered_map<int, int> m;
 		for (int i = 0; i < n; ++i) {
 			if (hours[i] > 8) ct++; else ct--;
+            
+            // in case we have strctly greater tiring days
 			if (ct > 0) ans = max(ans, i + 1);
-			else {
-                cout<<ct<<endl;
-				if (!m.count(ct)) m[ct] = i;
-				if (m.count(ct - 1)) ans = max(ans, i - m[ct - 1]);
-			}
+			else if (!m.count(ct)) m[ct] = i;
+            
+            // in case we go from -2 to -1 tiring days, still valid
+			if (m.count(ct - 1)) ans = max(ans, i - m[ct - 1]);
 		}
 		return ans;
 	}
