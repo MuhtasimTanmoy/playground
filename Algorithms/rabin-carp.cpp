@@ -110,3 +110,33 @@ public:
         return result;
     }
 };
+
+Zolodia Inc. is a USA based game development and metaverse company rooted 
+in web3 and blockchain with a targeted approach to fully develop an 
+ecosystem of technologies that gives control back to the users and 
+creators. These technologies ranges from gaming, social media, 
+entertainment, and more. 
+
+This is an opportunity for those who want to excel their career and want to 
+work with next gen technology stacks. We have several open positions to 
+join our existing team. You'll be working under the supervision of senior 
+devs.
+
+We are looking for self motivated individuals who are flexible to learn 
+new technologies and love to take challenges. Freshers, mid, and senior 
+level individuals are welcome to apply and requested to send their CV 
+to hello@zolodia.com
+
+We have these open positions:
+
+1. Mobile (Flutter)
+2. Front-end/Full stack (ReactJS, NodeJS, Tailwind CSS, WebAssembly)
+3. Back-end/Full stack (Go, Rust, C++, NodeJS, Python 3, WebAssembly)
+4. Game dev/artist/animator (Unreal Engine 5, C++, Blender)
+5. Blockchain and smart contract developer(Go, Rust, Solidity) 
+
+Mode of work : Physical office and Remote
+Time: Flexible
+Salary: Monthly Bdt 30k-200k ( + 2 festival bonus)
+Multiple jobs: Not allowed, you've to exclusively work only for us.
+Future opportunity: Relocate to our Silicon Slopes, Utah, USA office.
