@@ -2,9 +2,7 @@
 using namespace std;
 #define log(x) cout << #x << " = " << x << endl;
 
-void execute() { 
-	
-}
+void execute() {}
 
 int main() {
 	ios_base::sync_with_stdio(false);
