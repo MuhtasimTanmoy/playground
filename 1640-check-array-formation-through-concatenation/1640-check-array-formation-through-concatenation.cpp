@@ -4,22 +4,17 @@ public:
         int n = arr.size();
         unordered_map<int, vector<int>> mapping;
         // initialize hashmap
-        for (auto p: pieces){
+        for (auto p: pieces)
             mapping[p[0]] = p;
-        }
 
         int i = 0;
         while (i < n) {
-            // find target piece
-            if (mapping.count(arr[i])==0) {
+            if (!mapping.count(arr[i])) 
                 return false;
-            }
-            // check target piece
             auto targetPiece = mapping[arr[i]];
             for (int x : targetPiece) {
-                if (x != arr[i]) {
+                if (x != arr[i]) 
                     return false;
-                }
                 i++;
             }
         }
