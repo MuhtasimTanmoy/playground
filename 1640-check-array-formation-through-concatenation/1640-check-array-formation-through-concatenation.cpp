@@ -9,12 +9,10 @@ public:
 
         int i = 0;
         while (i < n) {
-            if (!mapping.count(arr[i])) 
-                return false;
+            if (!mapping.count(arr[i]))  return false;
             auto targetPiece = mapping[arr[i]];
             for (int x : targetPiece) {
-                if (x != arr[i]) 
-                    return false;
+                if (x != arr[i])  return false;
                 i++;
             }
         }
