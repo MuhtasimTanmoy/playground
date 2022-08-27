@@ -3,7 +3,7 @@ class FenWickTree{
     int lowbit(int x) { return (x) & (-x); }
     
 	public:
-	FenWickTree(int n): cnt(n+1, 0) {}
+	FenWickTree(int n): cnt(n + 1, 0) {}
 
 	void update(int i, int delt) {
 		while (i < cnt.size()) {
