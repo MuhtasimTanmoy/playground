@@ -29,7 +29,7 @@ public:
         return counter;
     }
 };
-*/
+
 
 class Solution {
     int traverse(TreeNode* root, int maxSoFar) {
@@ -46,5 +46,27 @@ class Solution {
 public:
     int goodNodes(TreeNode* root) {
         return traverse(root, INT_MIN);
+    }
+};
+*/
+
+class Solution {
+public:
+    int goodNodes(TreeNode* root) {
+        stack<pair<TreeNode*, int>> stk;
+        stk.push(make_pair(root, root->val));
+        
+        int res = 0;
+        while (!stk.empty()) {
+            auto top = stk.top(); stk.pop();
+            int maxSoFar = top.second;
+            if (top.first->val >= maxSoFar) {
+                res++;
+                maxSoFar = top.first->val;
+            }
+            if (top.first->right) stk.push(make_pair(top.first->right, maxSoFar));
+            if (top.first->left) stk.push(make_pair(top.first->left, maxSoFar));
+        }
+        return res;
     }
 };
