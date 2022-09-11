@@ -1,22 +1,18 @@
 class Solution {
 public:
     int totalHammingDistance(vector<int>& nums) {
-        if (nums.empty()) return 0;
-        int ans = 0, n = nums.size();
-        vector<int> cnt(32, 0);
-        for (auto num : nums) {
-            int i = 0;
-            while (num > 0) {
-                cnt[i] += (num & 0x1);
+        int res = 0;
+        for (int i = 0; i < 32; ++i) {
+            int ones = 0;
+            for (auto &num: nums) {
+                ones += ( num & 1);
                 num >>= 1;
-                i++;
             }
+            res += ones*(nums.size()-ones);
         }
-        for (auto&& k : cnt) ans += k * (n - k);
-        return ans;
+        return res;
     }
 };
-
 // int totalHammingDistance(vector<int>& nums) {
 //     int ans = 0;
 //     if (nums.empty()) return ans;
