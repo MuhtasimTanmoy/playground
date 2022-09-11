@@ -30,8 +30,7 @@ public:
                 matrix[bottom][right - i] = matrix[top + i][right];
                 matrix[top + i][right] = cache;
             }
-            left++;
-            right--;
+            left++; right--;
         }
     }
 };

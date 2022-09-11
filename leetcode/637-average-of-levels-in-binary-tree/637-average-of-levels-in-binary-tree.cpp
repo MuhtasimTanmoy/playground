@@ -10,26 +10,20 @@
  * };
  */
 class Solution {
-     bool traverse(TreeNode* root, vector<double>& res) {
+    void traverse(TreeNode* root, vector<double>& li) {
         queue<TreeNode*> q;
-        if(root) q.push(root);
-         
+        q.push(root);
         while(!q.empty()) {
-            int qSize = size(q);
-            double addition = 0;
-            double count = 0;
-            for(int i = 0; i < qSize; i++) {
-                auto elem = q.front();
-                addition += elem->val;
-                count++;
-                q.pop();
-                
-                if (elem->left) q.push(elem->left);
-                if (elem->right) q.push(elem->right);
+            auto qSize = q.size();
+            double movingAvg = 0;
+            for (int i = 0; i < qSize; i++) {
+                auto item = q.front(); q.pop();
+                if (item->left) q.push(item->left);
+                if (item->right) q.push(item->right);
+                movingAvg = ( movingAvg * i + item->val ) / (i + 1);
             }
-            res.push_back(addition/count);
+            li.push_back(movingAvg);
         }
-        return false;
     }
 public:
     vector<double> averageOfLevels(TreeNode* root) {

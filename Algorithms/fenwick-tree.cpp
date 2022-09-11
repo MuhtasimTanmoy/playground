@@ -1,4 +1,4 @@
-class FenWickTree{
+class FenWickTree {
     vector<int> cnt;
     int lowbit(int x) { return (x) & (-x); }
     
@@ -21,6 +21,7 @@ class FenWickTree{
 		return sum;
 	}
 };
+
 
 
 class NumArray {
