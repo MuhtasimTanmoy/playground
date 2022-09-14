@@ -12,11 +12,9 @@
 class Solution {
     bool isPalindrome(vector<int>& li) {
         int oddCount = 0, len = 0;
-        for (auto count: li) {
+        for (auto count: li)
             if (count & 1) oddCount++;
-            len += count;
-        }
-        return oddCount == ((len & 1) ? 1: 0);
+        return oddCount <= 1;
     }
     
     int countPseudoPalindromicPaths(TreeNode* root, vector<int>& path) {
