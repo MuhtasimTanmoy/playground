@@ -1,7 +1,6 @@
 #include<iostream>
 using namespace std;
 #define log(x) cout << #x << " = " << x << endl;
-
 void execute() {}
 
 int main() {
