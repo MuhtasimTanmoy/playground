@@ -27,22 +27,18 @@ private:
 class UnionFind {
 public:
     UnionFind(int sz) : root(sz) {
-        for (int i = 0; i < sz; i++) 
-            root[i] = i;
+        for (int i = 0; i < sz; i++) root[i] = i;
     }
-
 
     // normal
     int find(int x) {
-        while (x != root[x]) 
-            x = root[x];
+        while (x != root[x]) x = root[x];
         return x;
     }
 
     // path compression
     int find(int x) {
-        if (x == root[x]) 
-            return x;
+        if (x == root[x]) return x;
         return root[x] = find(root[x]);
     }
 
@@ -58,17 +54,14 @@ public:
         int rootX = find(x);
         int rootY = find(y);
         if (rootX != rootY) {
-            if (rank[rootX] > rank[rootY])
-                root[rootY] = rootX;
-            else if (rank[rootX] < rank[rootY])
-                root[rootX] = rootY;
+            if (rank[rootX] > rank[rootY]) root[rootY] = rootX;
+            else if (rank[rootX] < rank[rootY]) root[rootX] = rootY;
             else {
                 root[rootY] = rootX;
                 rank[rootX] += 1;
             }
         }
     }
-
 
     bool connected(int x, int y) {
         return find(x) == find(y);

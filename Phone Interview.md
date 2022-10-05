@@ -1,12 +1,17 @@
 # Phone Interview
+
+- I can say about my philosphy behind the career output you are seeing.
+- I started my career working on front end, as I was curious about how browser work
+- Then I got intrested in backend that the data I am having in front. Then iOS, the most mature and fast paced system I have worked on so far.
+
 - Logical maintainable extensible code output
 - My experinece with backend was give api interface, call orm, review the query the orm generated, make improvements in it, cache it if needed, with proper serialization deserialization send it
 
 
 # LP
-
 Customer Obsession
     - Fixing crash reports
+    - My way of customer obsession is improving quality of my code and stack.
 Ownership
     - XMPP module fully maintained by me. So, SwiftUI long term. 
 Invent and Simplify
@@ -83,3 +88,22 @@ Deliver Results
     - Device limit did save lots of time for developers and users
 
 ## Question
+- Please describe what would be my day to day job?
+- What part of my background or areas do you think it’s the most important for this job?
+- Which criteria you look in candidate to see if he is a good fit.
+    - I want to hire someone I enjoy working with
+
+
+## Interest
+- Rust
+- Linker 
+    - gold, lld
+- Async runtime
+- sqlite
+- raft, paxos
+- solidity, evm
+- erlang runtime to rust
+
+
+
+snt@amazon.com

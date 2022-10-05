@@ -79,10 +79,7 @@
 - game
 - callerTune
 
-
 - Notification extension, another app which is short lived, we needed to show callkit, to show native call interface
-
-
 
 case remove
 case call(String)
