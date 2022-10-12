@@ -37,7 +37,6 @@ Have Backbone; Disagree and Commit
 Deliver Results
     - webRTC, XMPP, signal
 
-
 - Critical feedback
     - I once got feed negative feedback from my direct reporting manager, that though I was fully working on optimizing performance, pixel perfect ui, but I overlooked the text content. Actually we have figma design and we copy text from there, so I got text from it, used it and done but the problem is that I ignored full stop, or other things and he said use my best judgement there as well and to have attention to detail for the overall project and everything as the whole module app is my responsibility.
 
