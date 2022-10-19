@@ -7,16 +7,28 @@ public:
             return val;
         };
         
+//         priority_queue<pair<double, vector<int>>> pq;
+//         for (auto point: points) {
+//             auto dis = distance(point);
+//             pq.push(make_pair(-dis, point));
+//         }
+        
+//         vector<vector<int>> res;
+//         while(k--) {
+//             auto item = pq.top(); pq.pop();
+//             res.push_back(item.second);
+//         }
+        
         priority_queue<pair<double, vector<int>>> pq;
         for (auto point: points) {
             auto dis = distance(point);
-            pq.push(make_pair(-dis, point));
+            pq.push(make_pair(dis, point));
+            if (pq.size() > k) pq.pop();
         }
-        
         vector<vector<int>> res;
-        while(k--) {
-            auto item = pq.top(); pq.pop();
-            res.push_back(item.second);
+        while(pq.size()) {
+            auto elem = pq.top(); pq.pop();
+            res.push_back(elem.second);
         }
         return res;
     }
