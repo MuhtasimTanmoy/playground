@@ -1,4 +1,5 @@
 class Logger {
+    const int LIMIT = 10;
     unordered_map<string, int> bag;
 public:
     Logger() { }
@@ -9,8 +10,12 @@ public:
             return true;
         }
         
-        auto prevTime = bag[message];
-        if (timestamp - prevTime >= 10) {
+        auto shouldPrint = [&] {
+            auto prevTime = bag[message];
+            return timestamp - prevTime >= LIMIT;
+        };
+        
+        if (shouldPrint()) {
             bag[message] = timestamp;
             return true;
         } 
