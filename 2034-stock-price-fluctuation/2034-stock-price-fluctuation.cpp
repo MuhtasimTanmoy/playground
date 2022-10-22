@@ -27,7 +27,7 @@ public:
         return minPrice;
     }
 };
-*/
+
 
 class StockPrice {
     int latestTime;
@@ -78,4 +78,22 @@ public:
         
         return top.first;
     }
+};
+*/
+
+class StockPrice {
+    map<int, int> m;
+    multiset<int> prices;
+public:
+    void update(int timestamp, int price) {
+        if (m.count(timestamp)) {
+            auto prevPrice = m[timestamp];
+            prices.erase(prices.find(prevPrice));
+        }
+        prices.insert(price);
+        m[timestamp] = price;
+    }
+    int current() { return rbegin(m)->second; }
+    int maximum() { return *rbegin(prices); }
+    int minimum() { return *begin(prices); }
 };
