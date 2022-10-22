@@ -64,11 +64,11 @@ private:
     int partition(vector<int>& nums, int l, int r) {
         if (l == r) return l;
         int idx = l;
-        // int randpivot = rand() % (r-l) +l; // make the pivot random
-        // swap(nums[randpivot],nums[r]);
+        int randpivot = rand() % (r-l) +l; // make the pivot random
+        swap(nums[randpivot], nums[r]);
         
-        for (int i=l; i<r; i++) {
-            if (nums[i]>nums[r]) {
+        for (int i = l; i < r; i++) {
+            if (nums[i] > nums[r]) {
                 swap(nums[idx],nums[i]);
                 idx++;
             }
