@@ -1,15 +1,25 @@
-// 3000, 0 - > 2
+// log(n)
+// class RecentCounter {
+//     vector<int> pingTimeline;
+// public:
+//     RecentCounter() {  }
+//     int ping(int t) {
+//         pingTimeline.push_back(t);
+//         auto notIn = lower_bound(pingTimeline.begin(), 
+//                                  pingTimeline.end(), 
+//                                  t - 3000) - pingTimeline.begin();
+//         return pingTimeline.size() - notIn;
+//     }
+// };
 
 class RecentCounter {
-    vector<int> pingTimeline;
+    queue<int> q;
 public:
-    RecentCounter() {  }
+    RecentCounter() { }
     int ping(int t) {
-        pingTimeline.push_back(t);
-        auto notIn = lower_bound(pingTimeline.begin(), 
-                                 pingTimeline.end(), 
-                                 t - 3000) - pingTimeline.begin();
-        return pingTimeline.size() - notIn;
+        q.push(t);
+        while(q.front() < t - 3000) q.pop();
+        return q.size();
     }
 };
 
