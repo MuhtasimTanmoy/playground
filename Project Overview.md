@@ -63,47 +63,21 @@
 - missCall
 - reply
 - attributedText // mention someone
-- contact = 25
-- themeChange = 118
-- roomInfoChange = 120
-- onFnFAddComplete = 121
-- addFnF = 122
-- congratsOnFnF = 123
-- groupImageChange = 124
-- nickNameChange = 125
-- poll = 126
-- pollVoteCast = 127
-- userInfoChange = 200
+- contact
+- themeChange
+- roomInfoChange
+- onFnFAddComplete
+- addFnF
+- congratsOnFnF
+- groupImageChange
+- nickNameChange
+- poll
+- pollVoteCast
+- userInfoChange
 - introductory
 - spinLoader
 - game
 - callerTune
 
 - Notification extension, another app which is short lived, we needed to show callkit, to show native call interface
-
-case remove
-case call(String)
-case misscall(String)
-case reply(Reply)
-case linkPreview(LinkPreviewContent)
-case feed(FeedMessage)
-case story(FeedMessage)
-case packet(Packet)
-case packetCollected(Packet.Collected)
-case sticker(StickerContent)
-case attributedText(MessageAttributedString)
-case gif(GIFModel.GIF)
-case file(FileContent)
-case roomMemberChangeInfo(RoomMemberChangeInfo)
-case roomImageChangeInfo(RoomImageChangeInfo)
-case nickNameChangeInfo(NickNameChangeInfo)
-case theme(ThemeMeta)
-case poll(Poll)
-case pollUpdate(PollUpdate)
-case onFnFAddComplete
-case addFnF // In memory only
-case congratsOnFnF(Int)
-case invalid
-case introductory
-case spinLoader
     
