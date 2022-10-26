@@ -14,32 +14,24 @@ public:
         root = new TrieNode();
     }
     
-
-    vector<string> getStrs(string &path) {
-        vector<string> ans;
-        int i = 1, j = 1;
-        while (j <= path.length()) {
-            if (i != j && (j == path.length() || path[j] == '/')) {
-                ans.push_back(path.substr(i, j - i));
-                i = j + 1;
-            }
-            ++j;
-        }
-        return ans;
+    vector<string> getStrs (const string &s, char delim = '/') {
+        vector<string> result;
+        stringstream ss (s);
+        string item;
+        while (getline (ss, item, delim)) 
+            if (item.size()) 
+                result.push_back (item);
+        return result;
     }
     
     vector<string> ls(string path) {
         vector<string> strs = getStrs(path);
         TrieNode *curr = root;
-        for (string &str : strs)
-            curr = curr->children[str];
-        
-        if (curr->isFile)
-            return {strs.back()};
+        for (string &str : strs) curr = curr->children[str];
+        if (curr->isFile) return {strs.back()};
         
         vector<string> ans;
-        for (auto &p : curr->children)
-            ans.push_back(p.first);
+        for (auto &p: curr->children) ans.push_back(p.first);
         sort(ans.begin(), ans.end());
         return ans;
     }
@@ -69,8 +61,7 @@ public:
     string readContentFromFile(string filePath) {
         vector<string> strs = getStrs(filePath);
         TrieNode *curr = root;
-        for (string &str : strs)
-            curr = curr->children[str];
+        for (string &str : strs) curr = curr->children[str];
         return curr->content;
     }
 };
