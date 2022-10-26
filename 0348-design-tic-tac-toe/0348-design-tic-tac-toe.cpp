@@ -15,7 +15,7 @@
  * int param_1 = obj->move(row,col,player);
  */
 
-
+/*
 class TicTacToe {
 public:
     TicTacToe(int n): n(n) {
@@ -61,4 +61,33 @@ private:
         for(int i = 0; i < n; i++) if (grid[i][n-i-1] != player) return false;
         return true;
     }
+};
+*/
+
+class TicTacToe {
+public:
+    TicTacToe(int n): n(n) {
+        rows = vector<int>(n, 0);
+        cols = vector<int>(n, 0);
+        diag = 0;
+        antiDiag = 0;
+    }
+    
+    int move(int row, int col, int player) {
+        auto marker = (player == 1) ? 1: -1;
+        rows[row] += marker;
+        cols[col] += marker;
+        if (row == col) diag += marker;
+        if (row == n - col - 1) antiDiag += marker;
+        
+        auto c = [&](int num) { return abs(num) == n; };
+        if (c(rows[row]) || c(cols[col]) || c(diag) || c(antiDiag)) 
+            return player;
+        return 0;
+    }
+private:
+    vector<int> rows, cols;
+    int diag;
+    int antiDiag;
+    int n;
 };
