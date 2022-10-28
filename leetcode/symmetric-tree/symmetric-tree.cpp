@@ -10,26 +10,16 @@
  * };
  */
 class Solution {
-public:
-    
-    bool isSame(TreeNode* left, TreeNode* right) {
-        
-        if ( !left && !right ) { 
-            return true;
-        }
-        
-        if ( !left || !right ) { 
-            return false;
-        }
-        
-        if ( left->val != right->val ) { 
-            return false;
-        }
-        
-        return isSame(left->left, right->right) && isSame(right->left, left->right);
+    bool checkSym(TreeNode* root1, TreeNode* root2) {
+        if (!root1 && !root2) return true;
+        if (!root1 || !root2) return false;
+        return root1->val == root2->val 
+            && checkSym(root1->left, root2->right)
+            && checkSym(root1->right, root2->left);
     }
-    
+public:
     bool isSymmetric(TreeNode* root) {
-        return isSame(root->left, root->right);
+        if (!root) return true;
+        return checkSym(root, root);
     }
 };
