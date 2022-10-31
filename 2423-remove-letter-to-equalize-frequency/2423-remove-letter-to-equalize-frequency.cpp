@@ -25,12 +25,9 @@ public:
         for (int i = 0; i < word.size(); i++) {
           map<char,int> mp;
 
-          for(int j = 0; j < word.size(); j++) {
-              if (j == i)
-                  continue;
-              else
+          for(int j = 0; j < word.size(); j++)
+              if (j != i) 
                   mp[word[j]]++;
-          }
 
           set<int> s;
           for(auto it:mp)
