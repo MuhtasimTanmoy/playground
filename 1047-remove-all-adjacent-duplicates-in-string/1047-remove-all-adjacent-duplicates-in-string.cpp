@@ -1,13 +1,10 @@
 class Solution {
 public:
-    string removeDuplicates(string s) {
-        vector<char> stack;
-        for (auto c: s) {
-            if (stack.size() && stack.back() == c) stack.pop_back();
-            else stack.push_back(c);
-        }
+    string removeDuplicates(string S) {
         string res = "";
-        for (auto c: stack) res += c;
+        for (char& c : S)
+            if (res.size() && c == res.back()) res.pop_back();
+            else res.push_back(c);
         return res;
     }
 };
