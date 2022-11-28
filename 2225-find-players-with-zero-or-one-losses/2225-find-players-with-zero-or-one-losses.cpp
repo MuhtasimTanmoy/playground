@@ -1,3 +1,4 @@
+/*
 class Solution {
 public:
     vector<vector<int>> findWinners(vector<vector<int>>& matches) {
@@ -18,6 +19,29 @@ public:
         for (auto [key, val]: lostTracker) 
             if (val == 1) 
                 onceLost.push_back(key);
+        
+        return {noLoser, onceLost};
+    }
+};
+*/
+
+class Solution {
+public:
+    vector<vector<int>> findWinners(vector<vector<int>>& matches) {
+        map<int, int> lostTracker;
+        for (auto match: matches) {
+            auto winner = match[0], loser = match[1];
+            if (lostTracker.count(winner) == 0)
+                lostTracker[winner] = 0;
+            lostTracker[loser]++;
+        }
+        
+        vector<int> noLoser, onceLost;
+        for (auto [key, val]: lostTracker) 
+            if (val == 1) 
+                onceLost.push_back(key);
+            else if (val == 0)
+                noLoser.push_back(key);
         
         return {noLoser, onceLost};
     }
