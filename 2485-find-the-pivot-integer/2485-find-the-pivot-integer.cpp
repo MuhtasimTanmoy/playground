@@ -5,7 +5,7 @@ public:
         int sum = 0, index = 1;
         while (sum <= allsum) {
             sum += index;
-            if (sum == (allsum - sum + index)) return index;
+            if (2 * sum == (allsum + index)) return index;
             index++;
         }
         return -1;
