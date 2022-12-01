@@ -1,4 +1,4 @@
-/*
+/* Not working
 class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {        
@@ -25,7 +25,6 @@ public:
         return res;
     }
 };
-*/
 
 class Solution {
 public:
@@ -40,5 +39,34 @@ public:
             else if (index == 4) frog--;
         }
         return frog == 0 ? maxFrog: -1;
+    }
+};
+*/
+
+class Solution {
+public:
+    int minNumberOfFrogs(string croakOfFrogs) {
+        if (croakOfFrogs.size() % 5 != 0) return -1;
+        int frog = 0, maxFrog = 0;
+        unordered_map<char, int> mp;
+        for (auto &c: croakOfFrogs) {
+            mp[c]++;
+            switch (c) {
+                case 'c': break;
+                case 'r': if (mp[c] > mp['c']) return -1; break;
+                case 'o': if (mp[c] > mp['r']) return -1; break;
+                case 'a': if (mp[c] > mp['o']) return -1; break;
+                case 'k':
+                    maxFrog = max(maxFrog, mp['c']--);
+                    mp['r']--;
+                    mp['o']--;
+                    mp['a']--;
+                    mp['k']--;
+                    break;
+                default:
+                    return -1;
+            }
+        }
+        return (mp['c'] || mp['r'] || mp['o'] || mp['a'] || mp['k']) ? -1: maxFrog;
     }
 };
