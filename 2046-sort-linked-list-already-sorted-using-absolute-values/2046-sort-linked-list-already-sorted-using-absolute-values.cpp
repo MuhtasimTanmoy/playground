@@ -10,33 +10,32 @@
  */
 class Solution {
 public:
-    // ListNode* sortLinkedList(ListNode* head) {
-//         ListNode* prev = NULL, *ans = head;
-//         for (auto itr = head; itr;  ) {
-//             auto next = itr->next;
-//             if (prev && itr->val < 0) {
-//                 prev->next = itr->next;
-//                 itr->next = ans;
-//                 ans = itr;
-//             }
-//             prev = itr;
-//             itr = next;
-//         }
-//         return ans;
-//     }
     ListNode* sortLinkedList(ListNode* head) {
-        for (ListNode * p = head, 
-             *pp = nullptr; 
-             p != nullptr; 
-             p = p->next) {
-                if (p->val < 0 && pp != nullptr) {
-                    pp->next = p->next;
-                    p->next = head;
-                    head = p;
-                    p = pp;
-                }
-                pp = p;
+        ListNode* prev = NULL, *ans = head;
+        for (auto itr = head; itr; itr = itr->next) {
+            if (prev && itr->val < 0) {
+                prev->next = itr->next;
+                itr->next = ans;
+                ans = itr;
+                itr = prev;
+            }
+            prev = itr;
         }
-        return head;
+        return ans;
     }
+    // ListNode* sortLinkedList(ListNode* head) {
+    //     for (ListNode * p = head, 
+    //          *pp = nullptr; 
+    //          p != nullptr; 
+    //          p = p->next) {
+    //             if (p->val < 0 && pp != nullptr) {
+    //                 pp->next = p->next;
+    //                 p->next = head;
+    //                 head = p;
+    //                 p = pp;
+    //             }
+    //             pp = p;
+    //     }
+    //     return head;
+    // }
 };
