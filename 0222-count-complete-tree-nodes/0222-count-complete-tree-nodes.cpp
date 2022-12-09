@@ -19,10 +19,10 @@ class Solution {
         int nodes = 0, h = height(root);
         while (root) {
             if (height(root->right) == h - 1) {
-                nodes += (1 << h);
+                nodes += 1 << h;
                 root = root->right;
             } else {
-                nodes += (1 << (h-1));
+                nodes += 1 << (h-1);
                 root = root->left;
             }
             h--;
