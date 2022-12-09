@@ -8,7 +8,8 @@
  *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
- */
+
+
 class Solution {
     double diffMin = 10000;
     int res = 0;
@@ -25,5 +26,19 @@ public:
         closestValue(root->left, target);
         closestValue(root->right, target);
         return res;
+    }
+};
+ */
+
+class Solution {
+public:
+    int closestValue(TreeNode* root, double target) {
+        double closest = root-> val;
+        while (root) {
+            auto val = root-> val;
+            closest = abs(val - target) < abs(closest - target) ? val: closest;
+            root = target > val ? root->right: root->left;
+        }
+        return closest;
     }
 };
