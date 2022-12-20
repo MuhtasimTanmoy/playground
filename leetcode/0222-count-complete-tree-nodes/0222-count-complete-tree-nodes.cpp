@@ -10,16 +10,23 @@
  * };
  */
 class Solution {
-public:
+    int height(TreeNode* root) {
+        return root == NULL ? -1: 1 + height(root->left);
+    }
+    
+    public:
     int countNodes(TreeNode* root) {
-        int count = 0;
-        function<int(TreeNode*)> traverse;
-        traverse = [&](TreeNode* root) -> int {
-            if (!root) return 0;
-            auto left = traverse(root->left);
-            auto right = traverse(root->right);
-            return left + right + 1;
-        };
-        return traverse(root);
+        int nodes = 0, h = height(root);
+        while (root) {
+            if (height(root->right) == h - 1) {
+                nodes += 1 << h;
+                root = root->right;
+            } else {
+                nodes += 1 << (h-1);
+                root = root->left;
+            }
+            h--;
+        }
+        return nodes;
     }
 };
