@@ -12,7 +12,8 @@ public:
         int rootY = find(y);
         if (rootX != rootY)
             for (int i = 0; i < root.size(); i++) 
-                if (root[i] == rootY) root[i] = rootX;
+                if (root[i] == rootY) 
+                    root[i] = rootX;
     }
 
     bool connected(int x, int y) {
