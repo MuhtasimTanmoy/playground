@@ -4,8 +4,10 @@ public:
         pair<int, int> pos;
         for (int i = 0; i < board.size(); i++)
             for (int j = 0; j < board[0].size(); j++)
-                if (board[i][j] == 'R')
+                if (board[i][j] == 'R') {
                     pos.first = i, pos.second = j;
+                    break;
+                }
         
         int res = 0;
         for (int i = pos.second + 1; i < board[0].size(); i++) {
