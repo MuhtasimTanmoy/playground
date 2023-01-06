@@ -4,11 +4,9 @@ public:
         string res = ""; int pending = 0;
         for (auto c: s) 
             if (c == '(') {
-                if (pending) res += c;
-                pending++;
+                if (pending++) res += c;
             } else {
-                if (pending > 1) res += c;
-                pending--;
+                if (pending-- > 1) res += c;
             }
         return res; 
     }
