@@ -9,10 +9,9 @@ class Solution {
 public:
     int maximumTastiness(vector<int>& price, int k) {
         sort(price.begin(), price.end());
-        auto left = 0, right = (int) 1e9;
+        auto left = 0, right = (int) price.back() - price.front() + 1;
         while (left < right) {
             auto mid = left + (right - left) / 2;
-            // cout<<mid<<endl;
             if (check(mid, price, k)) left = mid + 1; 
             else right = mid;
         }
