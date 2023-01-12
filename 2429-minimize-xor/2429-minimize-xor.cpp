@@ -8,16 +8,13 @@ public:
         int traverse = 0;
         while (toAddInX != 0) {
             auto isOne = x & (1 << traverse);
-            if (toAddInX > 0) {
-                if (!isOne) {
-                    x |= 1 << traverse;
-                    toAddInX--;
-                }
-            } else {
-                if (isOne) {
-                    x ^= 1 << traverse;
-                    toAddInX++;
-                }
+            if (toAddInX > 0 && !isOne) {
+                x |= 1 << traverse;
+                toAddInX--;
+            }
+            if (toAddInX < 0 && isOne) {
+                x ^= 1 << traverse;
+                toAddInX++;
             }
             traverse++;
         }
