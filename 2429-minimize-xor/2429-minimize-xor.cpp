@@ -1,15 +1,13 @@
 class Solution {
 public:
-    int minimizeXor(int num1, int num2) {
-        auto x = num1;
-        auto toAddInX = __builtin_popcount(num2) - __builtin_popcount(x);
-        int traverse = 0;
+    int minimizeXor(int num1, int num2, int traverse = 0) {
+        auto toAddInX = __builtin_popcount(num2) - __builtin_popcount(num1);
         while (toAddInX != 0) {
-            auto isOne = x & (1 << traverse);
-            if (toAddInX > 0 && !isOne) x |= 1 << traverse, toAddInX--;
-            if (toAddInX < 0 && isOne) x ^= 1 << traverse, toAddInX++;
+            auto isOne = num1 & (1 << traverse);
+            if (toAddInX > 0 && !isOne) num1 |= 1 << traverse, toAddInX--;
+            if (toAddInX < 0 && isOne) num1 ^= 1 << traverse, toAddInX++;
             traverse++;
         }
-        return x;
+        return num1;
     }
 };
