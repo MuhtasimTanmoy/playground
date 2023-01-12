@@ -7,11 +7,9 @@ public:
             auto curr = nums[i];
             while (bag.count(curr) || bag.size() == k) {
                 auto toErase = nums[j++];
-                bag.erase(toErase);
-                countingSum -= toErase;
+                bag.erase(toErase), countingSum -= toErase;
             }
-            bag.insert(curr);
-            countingSum += curr;
+            bag.insert(curr), countingSum += curr;
             if (bag.size() == k) res = max(res, countingSum);
         }
         return res;
