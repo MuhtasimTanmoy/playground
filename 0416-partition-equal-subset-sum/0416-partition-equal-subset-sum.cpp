@@ -13,26 +13,43 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     using VI = vector<int>;
+//     using fun = function<bool(int, int)>;
+//     using Map = unordered_map<string, bool>;
+//     bool canPartition(VI& A, Map m = {}) {
+//         auto total = accumulate(A.begin(), A.end(), 0);
+//         if (total & 1)                                                  
+//             return false;
+//         auto target = total / 2;
+//         fun go = [&](auto i, auto t) {
+//             stringstream key; key << i << ',' << t;
+//             if (m.find(key.str()) != m.end())                           
+//                 return m[key.str()];
+//             if (i == A.size() || target < t)                          
+//                 return m[key.str()] = false;
+//             if (t == target)                                            
+//                 return m[key.str()] = true;
+//             return m[key.str()] = go(i + 1, t + A[i]) || go(i + 1, t);
+//         };
+//         return go(0, 0);
+//     }
+// };
+
 class Solution {
 public:
-    using VI = vector<int>;
-    using fun = function<bool(int, int)>;
-    using Map = unordered_map<string, bool>;
-    bool canPartition(VI& A, Map m = {}) {
-        auto total = accumulate(A.begin(), A.end(), 0);
-        if (total & 1)                                                  
-            return false;
-        auto target = total / 2;
-        fun go = [&](auto i, auto t) {
-            stringstream key; key << i << ',' << t;
-            if (m.find(key.str()) != m.end())                           
-                return m[key.str()];
-            if (i == A.size() || target < t)                          
-                return m[key.str()] = false;
-            if (t == target)                                            
-                return m[key.str()] = true;
-            return m[key.str()] = go(i + 1, t + A[i]) || go(i + 1, t);
-        };
-        return go(0, 0);
+    bool canPartition(vector<int>& nums) {
+        auto sum = accumulate(nums.begin(), nums.end(), 0);
+        if (sum & 1) return false;
+        
+        unordered_set<int> pre {0};
+        auto target = sum >> 1;
+        for (auto num: nums) {
+            unordered_set<int> c = pre;
+            for (auto key: pre) c.insert(key + num);
+            swap(pre, c);
+        }
+        return pre.count(target);
     }
 };
