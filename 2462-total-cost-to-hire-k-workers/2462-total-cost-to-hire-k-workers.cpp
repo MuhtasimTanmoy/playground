@@ -35,7 +35,7 @@ public:
     long long totalCost(vector<int>& cst, int k, int c) {
         int n = cst.size();
         long long res = 0;
-        int l = min(c, n/2), r = max(n-c, n/2);
+        int l = min(c, n / 2), r = max(n-c, n / 2);
         
         priority_queue<idxnum,vector<idxnum>,greater<idxnum>> pq;
         for (int i = 0; i < l; ++i) pq.emplace(cst[i], i);
