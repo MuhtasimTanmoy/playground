@@ -14,7 +14,7 @@ public:
     int minimumOperations(TreeNode* root) {
         int res = 0;
         vector<TreeNode*> q{root};
-        while(!q.empty()) {
+        while(q.size()) {
             vector<TreeNode*> q1;
             vector<int> vals, ids(q.size());
             for (auto n: q) {
@@ -25,7 +25,7 @@ public:
             
             iota(begin(ids), end(ids), 0);
             sort(begin(ids), end(ids), [&](int i, int j) { return vals[i] < vals[j]; });
-            for (int i = 0; i < ids.size(); ++i)
+            for (int i = 0; i < ids.size(); ++i) 
                 for (; ids[i] != i; ++res)
                     swap(ids[i], ids[ids[i]]);
             swap(q, q1);
