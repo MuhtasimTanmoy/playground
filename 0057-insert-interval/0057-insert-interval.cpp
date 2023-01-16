@@ -52,22 +52,39 @@
 //     }
 // };
 
+// class Solution {
+// public:
+//     vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+//         vector<vector<int>> res;
+//         int n = intervals.size(), i = 0; bool available = true;
+//         while (i < n || available) {
+//             vector<int> cur;
+//             if (available && (i == n || newInterval[0] < intervals[i][0])) {
+//                 cur = newInterval;
+//                 available = false;
+//             } else cur = intervals[i++];
+            
+//             if (res.empty() || res.back()[1] < cur[0]) res.push_back(cur);
+//             else res.back()[1] = max(res.back()[1], cur[1]);
+//         }
+//         return res;
+//     }
+// };
+
 class Solution {
 public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& newInterval) {
+    vector<vector<int>> insert(vector<vector<int>>& intervals, 
+                               vector<int>& newI, 
+                               int i = 0) {
         vector<vector<int>> res;
-        int n = intervals.size(), i = 0; bool available = true;
-        
-        while (i < n || available) {
-            vector<int> cur;
-            if (available && (i == n || newInterval[0] < intervals[i][0])) {
-                cur = newInterval;
-                available = false;
-            } else cur = intervals[i++];
-            
-            if (res.empty() || res.back()[1] < cur[0]) res.push_back(cur);
-            else res.back()[1] = max(res.back()[1], cur[1]);
-        }
+        for (; i < intervals.size() && intervals[i][0] <= newI[1]; i++) 
+            if (intervals[i][1] < newI[0]) res.push_back(intervals[i]);
+            else {
+                newI[0] = min(intervals[i][0], newI[0]);
+                newI[1] = max(intervals[i][1], newI[1]);
+            }
+        res.push_back(newI);
+        res.insert(res.end(), intervals.begin() + i, intervals.end());
         return res;
     }
 };
