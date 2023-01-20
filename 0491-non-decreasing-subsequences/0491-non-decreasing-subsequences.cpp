@@ -21,8 +21,7 @@ public:
     vector<vector<int>> findSubsequences(vector<int>& nums) {
         set<vector<int>> result;
         vector<int> sequence;
-        function<void(int)> backtrack;
-        backtrack = [&nums, &sequence, &result, &backtrack](int index) -> void {
+        function<void(int)> backtrack = [&](auto index) {
             if (index == nums.size()) {
                 if (sequence.size() >= 2) result.insert(sequence);
                 return;
