@@ -1,3 +1,4 @@
+/*
 class Solution {
 public:
     int maxCount(int m, int n, vector<vector<int>>& ops, int res = 0) {
@@ -18,6 +19,20 @@ public:
             calc += cols[i];
             res = max(res, calc);
             if (res == calc) inCol++;
+        }
+        return inRow * inCol;
+    }
+};
+*/
+
+class Solution {
+public:
+    int maxCount(int m, int n, vector<vector<int>>& ops) {
+        int inRow = n, inCol = m;
+        for (auto op: ops) {
+            auto x = op[0], y = op[1];
+            inRow = min(inRow, y);
+            inCol = min(inCol, x);
         }
         return inRow * inCol;
     }
