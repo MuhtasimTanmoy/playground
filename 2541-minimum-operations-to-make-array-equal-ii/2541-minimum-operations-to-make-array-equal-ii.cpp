@@ -28,6 +28,6 @@ public:
                 absSum += abs(diff) / k;
             } else if (diff) return -1;
         }
-        return sum == 0 ? absSum / 2 : -1;
+        return sum ? -1: absSum >> 1;
     }
 };
