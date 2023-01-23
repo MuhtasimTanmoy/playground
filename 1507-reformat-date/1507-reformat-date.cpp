@@ -1,8 +1,8 @@
 class Solution {
+    vector<string> months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
+                             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 public:
     string reformatDate(string date, string res = "") {
-        auto months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", 
-                       "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         stringstream ss(date); string token;
         
         ss >> token;
