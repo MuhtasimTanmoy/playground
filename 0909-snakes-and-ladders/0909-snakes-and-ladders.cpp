@@ -5,6 +5,13 @@ public:
         vector<vector<bool>> visited(n, vector<bool>(n, false));
         queue<int> q; q.push(1);
         visited[n - 1][0] = true;
+        
+        auto converter = [&](int next) {
+            auto r = n - (next - 1) / n - 1, c = (next - 1) % n;
+            if (r % 2 == n % 2) c = n - c - 1;
+            return make_pair(r, c);
+        };
+        
         while (q.size()) {
             auto sz = q.size();
             while (sz--) {
@@ -13,8 +20,7 @@ public:
                 for (auto i = 1; i <= 6; i++) {
                     auto next = curr + i;
                     if (next > n * n) break;
-                    auto r = n - (next - 1) / n - 1, c = (next - 1) % n;
-                    if (r % 2 == n % 2) c = n - c - 1;
+                    auto [r, c] = converter(next);
                     if (!visited[r][c]) {
                         visited[r][c] = true;
                         auto toBeNext = ( board[r][c] == -1 ? next: board[r][c] );
