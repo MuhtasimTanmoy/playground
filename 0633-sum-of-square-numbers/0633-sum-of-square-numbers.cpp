@@ -4,8 +4,7 @@ public:
         if (!c) return true;
         for (long long i = 1; i * i <= c; i++) {
             double otherSq = sqrt(c - i * i);
-            int toInt = otherSq;
-            if ( toInt == otherSq ) return true;
+            if ( (int) otherSq == otherSq ) return true;
         }
         return false;
     }
