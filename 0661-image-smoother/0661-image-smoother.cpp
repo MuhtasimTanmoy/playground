@@ -2,8 +2,7 @@ class Solution {
 public:
     vector<vector<int>> imageSmoother(vector<vector<int>>& img) {
         auto shouldGo = [&](int p, int q) {
-            if (p < 0 || p >= img.size()) return false;
-            if (q < 0 || q >= img[p].size()) return false;
+            if (p < 0 || p >= img.size() || q < 0 || q >= img[p].size()) return false;
             return true;
         };
         for (auto i = 0; i < img.size(); i++) 
