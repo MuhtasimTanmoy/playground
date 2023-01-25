@@ -16,7 +16,7 @@ public:
     int minimizeSet(int d1, int d2, int cnt1, int cnt2) {
         long long ans = INT_MAX;
         long long low = 1, high = INT_MAX;
-        auto common = (long long) d1 * d2 / __gcd(d1,d2);
+        auto common = lcm((long long) d1, d2);
         
         while (low <= high) {
             auto mid = ( low + high ) / 2;
