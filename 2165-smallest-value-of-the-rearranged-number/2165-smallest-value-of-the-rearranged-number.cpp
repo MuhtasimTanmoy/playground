@@ -5,14 +5,11 @@ public:
         if (num > 0) {
             auto numStr = to_string(num);
             sort(numStr.begin(), numStr.end());
-            int index = 0;
-            while (index < numStr.size()) {
+            for (int index = 0; index < numStr.size(); index++)
                 if (numStr[index] - '0') {
                     swap(numStr[0], numStr[index]);
                     break;
                 }
-                index++;
-            }
             return stoll(numStr);
         } else{
             auto numStr = to_string(abs(num));
