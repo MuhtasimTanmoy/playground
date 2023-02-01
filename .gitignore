@@ -9,4 +9,5 @@ update.sh
 A.dsym
 Pending
 trash.cpp
-documentation/
+interview/
+learning/
