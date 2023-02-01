@@ -5,7 +5,7 @@
 <p>Given <code>n</code>, return the value of T<sub>n</sub>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> n = 4
 <strong>Output:</strong> 4
@@ -14,7 +14,7 @@ T_3 = 0 + 1 + 1 = 2
 T_4 = 1 + 1 + 2 = 4
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> n = 25
 <strong>Output:</strong> 1389537
