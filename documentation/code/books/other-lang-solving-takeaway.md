@@ -1,1 +1,0 @@
-- [Swift Solve Takeaway](https://github.com/diwu/LeetCode-Solutions-in-Swift)
