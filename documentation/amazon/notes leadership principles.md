@@ -1,0 +1,56 @@
+- No quite
+- Adapt
+- Be fully present
+- The approach matters, the answer dont
+- Make stories
+- Star method
+- You can reschedule
+- Spend time organizing your CV, so you dont need to remember
+- Focus on strength
+- What you have done
+- You have to be consistent
+- Show curiosirty in CV
+- 50 interview, no hire
+- Detest employment gap
+- Storytelling, no spelling mistake
+- Associate stories to personal genuine stories
+- Write down your stories
+- Use keywords
+- Star mentod, think of situation, example
+- Make story then start method
+- No anxious. most reason
+- Take leadership
+- Prepare question
+- Question like how prioritize between customer, ans developer, share
+- Understand question
+- Give metrics
+- Greate listener, what they say next, make them feel better, talk less
+- Journey
+- Maximize your learning empahsize
+- No irrevalent
+- Glassdoor
+- Metrics
+- Builder
+- Group goals vs Own goals
+- It's all about long term
+- Most deciosons are reversible, make quick
+- It's always day one
+- How you prioritize customers
+- Failed to meet client expectation
+- You really want this job
+- https: stackoverflow.com/questions/53184835/how-to-add-a-column-to-mnesia-table
+- 6 page narrative, read all before presentation
+- Team communnication channel, 6 - 15, 2 - 4
+- Take risk
+- type 1 type 2 decision, no confusion in between
+- High quality High velocity decision
+- Decisions are made with 70% of data, if await more then late
+- Last time you had to apologize to someone
+- https://www.youtube.com/watch?v=dse8OTDlRcMs
+
+
+Customer obsession
+- Total commitment
+- Anticipating
+- Coaching
+- Championing
