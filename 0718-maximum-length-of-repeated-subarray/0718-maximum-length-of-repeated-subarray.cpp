@@ -57,42 +57,41 @@ public:
 */
 
 
+// class Solution {
+// public:
+//     using VI = vector<int>;
+//     using VVI = vector<VI>;
+//     int findLength(VI& A, VI& B, int best = 0) {
+//         int res = 0;
+//         int M = A.size(),
+//             N = B.size();
+//         VVI dp(M + 1, VI(N + 1));
+//         for (auto i{ 1 }; i <= M; ++i)
+//             for (auto j{ 1 }; j <= N; ++j)
+//                 if (A[i - 1] == B[j - 1]) {
+//                     dp[i][j] = max(dp[i][j], 1 + dp[i - 1][j - 1]);
+//                     res = max(res, dp[i][j]);
+//                 }
+//         return res;
+//     }
+// };
+
+
 class Solution {
 public:
-    using VI = vector<int>;
-    using VVI = vector<VI>;
-    int findLength(VI& A, VI& B, int best = 0) {
+    int findLength(vector<int>& A, vector<int>& B, int best = 0) {
         int res = 0;
-        int M = A.size(),
-            N = B.size();
-        VVI dp(M + 1, VI(N + 1));
-        for (auto i{ 1 }; i <= M; ++i)
+        int M = A.size(), N = B.size();
+        vector<int> dp(N + 1);
+        for (auto i{ 1 }; i <= M; ++i) {
+            vector<int> temp(N + 1);
             for (auto j{ 1 }; j <= N; ++j)
                 if (A[i - 1] == B[j - 1]) {
-                    dp[i][j] = max(dp[i][j], 1 + dp[i - 1][j - 1]);
-                    res = max(res, dp[i][j]);
+                    temp[j] = max(temp[j], 1 + dp[j-1]);
+                    res = max(res, temp[j]);
                 }
-        
-        // for (auto& row: dp)
-        //     best = max(best, *max_element(row.begin(), row.end()));
-        
+            swap(temp, dp);
+        }
         return res;
     }
 };
-
-
-// class Solution {
-// public:
-//     int findLength(vector<int>& A, vector<int>& B, int best = 0) {
-//         int M = A.size(), N = B.size();
-//         vector<int> dp(N + 1);
-//         for (auto i{ 1 }; i <= M; ++i) {
-//             vector<int> temp(N + 1);
-//             for (auto j{ 1 }; j <= N; ++j)
-//                 if (A[i - 1] == B[j - 1])
-//                     temp[j] = max(temp[j], 1 + dp[j-1]);
-//             swap(temp, dp);
-//         }
-//         return *max_element(dp.begin(), dp.end());
-//     }
-// };
