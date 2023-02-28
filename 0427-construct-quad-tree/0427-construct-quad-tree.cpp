@@ -43,18 +43,18 @@ public:
     Node* construct(vector<vector<int>>& grid) {
         function<Node*(int, int, int)> go = [&](auto x, auto y, auto len) {
             auto val = grid[x][y];
-            for (int i = x; i < x + len; i++)
-                 for (int j = y; j < y + len; j++) 
-                     if (grid[i][j] != val) {
-                         auto half = len >> 1;
-                         auto topLeft = go(x, y, half);
-                         auto topRight = go(x , y + half, half);
-                         auto bottomLeft = go(x + half, y, half);
-                         auto bottomRight = go(x + half, y + half, half);
-                         return new Node(val, false,
-                                         topLeft, topRight,
-                                         bottomLeft, bottomRight);
-                     }
+            auto isDiff = [&]() {
+                for (int i = x; i < x + len; i++)
+                    for (int j = y; j < y + len; j++) 
+                        if (grid[i][j] != val) return true;
+                return false;
+            };
+            if (isDiff()) {
+                 auto l = len >> 1;
+                 auto tl = go(x, y, l), tr = go(x , y + l, l);
+                 auto bl = go(x + l, y, l), br = go(x + l, y + l, l);
+                 return new Node(val, false, tl, tr, bl, br);
+            }
             return new Node(val, true);
         };
         return go(0, 0, grid.size());
