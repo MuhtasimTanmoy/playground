@@ -11,17 +11,18 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        auto res = new ListNode(0, head);
-        auto traverse = head;
-        ListNode* prev = res;
-        while (traverse && traverse->next) {
-            prev->next = traverse->next;
-            auto sec = traverse->next->next;
-            traverse->next->next = traverse;
-            traverse->next = sec;
-            prev = traverse;
-            traverse = sec;
+        auto itr = new ListNode(-1, head);
+        auto prev = itr;
+        while (head && head->next) {
+            auto first = head, second = head->next;
+            
+            prev->next = second;
+            first->next = second->next;
+            second->next = first;
+            
+            prev = first;
+            head = first->next;
         }
-        return res->next;
+        return itr->next;
     }
 };

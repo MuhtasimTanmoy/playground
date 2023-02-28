@@ -1,3 +1,4 @@
+/*
 class Solution {
 public:
     int shipWithinDays(vector<int>& weights, int days) {
@@ -15,9 +16,6 @@ public:
             
             int capacity = left + (right-left) / 2;
             auto daysNeededWithCapacity = daysNeeded(capacity, weights);
-        
-            cout<<left<<"-"<<right<<"::"<<capacity<<endl;
-            cout<<daysNeededWithCapacity<<endl;
             
             if (daysNeededWithCapacity > days) {
                 left = capacity + 1;
@@ -44,5 +42,31 @@ private:
         }
         
         return daysNeeded;
+    }
+};*/
+
+
+
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        auto count = [&](int targetCap) {
+            int needed = 1, sum = 0;
+            for (auto w: weights) {
+                sum += w;
+                if (sum > targetCap) needed++, sum = w;
+            }
+            return needed;
+        };
+        
+        int l = 0, r = 0;
+        for (auto &w: weights) l = max(l, w), r += w;
+        while (l < r) {
+            auto m = l + (r - l) / 2;
+            auto dneed = count(m);
+            if (dneed > days) l = m + 1;
+            else r = m;
+        }
+        return r;
     }
 };
