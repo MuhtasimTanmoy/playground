@@ -26,49 +26,29 @@
 
 class Solution {
 public:
-
-void merge(vector<int>&A, int l, int m, int r) {
-    int i = l;
-    int j = m+1;
-    int k = 0;
-    vector<int>ans(r-l+1, 0);
-    while(i<=m && j<=r) {
-        if(A[i] <= A[j]) {
-            ans[k] = A[i];
-            i++;
-        } else {
-            ans[k] = A[j];
-            j++;
+    void merge(vector<int>&A, int l, int m, int r) {
+        int i = l, j = m + 1, k = 0;
+        vector<int>ans(r - l + 1, 0);
+        while (i <= m && j <= r) {
+            if (A[i] <= A[j]) ans[k] = A[i], i++;
+            else ans[k] = A[j], j++;
+            k++;
         }
-        k++;
-    }
-    while(i <= m) {
-        ans[k++] = A[i++];
-    }
-
-    while(j <= r) {
-        ans[k++] = A[j++];
+        while(i <= m) ans[k++] = A[i++];
+        while(j <= r) ans[k++] = A[j++];
+        for (int i = 0; i < r - l + 1; ++i)  A[l+i] = ans[i];
     }
 
-    for(int i=0; i<r-l+1; ++i) {
-        A[l+i] = ans[i];
+    void mergeSort(int left, int right, vector<int>&vec) {
+        if (right <= left) return;
+        int mid = (left + right) / 2;
+        mergeSort(left, mid, vec);
+        mergeSort(mid+1, right, vec);
+        merge(vec, left, mid, right);
     }
-}
 
-void mergeSort(int left, int right, vector<int>&vec) {
-    if(right <= left) {
-        return;
-    }
-    int mid = (left + right)/2;
-    mergeSort(left, mid, vec);
-    mergeSort(mid+1, right, vec);
-    merge(vec, left, mid, right);
-}
-
-
-
-vector<int> sortArray(vector<int>& nums) {
-    mergeSort(0, nums.size()-1, nums);
-    return nums;
+    vector<int> sortArray(vector<int>& nums) {
+        mergeSort(0, nums.size()-1, nums);
+        return nums;
     }
 };
