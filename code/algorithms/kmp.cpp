@@ -1,6 +1,5 @@
 #include <vector>
 #include<iostream>
-
 using namespace std;
 
 // AAACAAAAAC
@@ -10,7 +9,7 @@ vector<int> pre_kmp(string pattern) {
 	vector<int> suffixPrefixLen(size, 0);
 	int upto = 0;
 	for (int i = 1; i < size; i++) {
-		while (upto > 0 && pattern[upto] != pattern[i]) upto = suffixPrefixLen[upto - 1];
+		while (upto && pattern[upto] != pattern[i]) upto = suffixPrefixLen[upto - 1];
 		if (pattern[upto] == pattern[i]) upto++;
 		suffixPrefixLen[i] = upto;
 	}
