@@ -6,7 +6,7 @@ public:
         for (int i = 0; i < nums.size() - 1; i++) {
             sum += nums[i];
             back_sum -= nums[i];
-            if (sum >= back_sum) res++;
+            res += sum >= back_sum;
         }
         return res;
     }
