@@ -10,12 +10,12 @@
  * };
  */
 class Solution {
-    int res = 0;
 public:
-    int sumNumbers(TreeNode* root, int prev = 0) {
-        if (!root->left && !root->right) res += prev + root->val;
-        if (root->left) sumNumbers(root->left, (prev + root->val) * 10);
-        if (root->right) sumNumbers(root->right, (prev + root->val) * 10);
-        return res;
+    int sumNumbers(TreeNode* r, int prev = 0) {
+        if (!r) return 0;
+        auto val = prev + r->val;
+        if (!r->left && !r->right) return val;
+        return sumNumbers(r->left, val * 10) 
+             + sumNumbers(r->right, val * 10);
     }
 };
