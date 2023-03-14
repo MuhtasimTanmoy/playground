@@ -11,8 +11,7 @@
  */
 class Solution {
     string traverse(TreeNode* r, string prev = "") {
-        char key = 'a' + r->val;
-        auto node_str = key + prev;
+        auto node_str = (char)('a' + r->val) + prev;
         if (!r->left && !r->right) return node_str;
         
         if (!r->left) return traverse(r->right, node_str);
