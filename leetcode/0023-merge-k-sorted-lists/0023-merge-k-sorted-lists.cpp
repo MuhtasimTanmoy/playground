@@ -11,17 +11,18 @@
 class Solution {
 public:
     ListNode* mergeKLists(vector<ListNode*>& lists) {
-        auto comp = [](ListNode* a, ListNode* b) { return a->val > b->val; };
-        priority_queue<ListNode*, vector<ListNode*>, decltype(comp)> q(comp);
-        ListNode* dummy = new ListNode(), * traverse = dummy;
-        for (auto list: lists) if (list) q.push(list);
-        while(q.size()) {
-            auto item = q.top();
-            q.pop();
-            if (item->next) q.push(item->next);
-            traverse->next = item;
-            traverse = traverse->next;
+        auto comp = [](const ListNode* a, const ListNode* b) { return a->val > b->val; };
+        priority_queue<ListNode*, 
+                       vector<ListNode*>, 
+                       decltype(comp)> frontier(comp);
+        
+        for (auto list: lists) if (list) frontier.push(list);
+        auto head = new ListNode(), itr = head;
+        while (frontier.size()) {
+            auto top_node = frontier.top(); frontier.pop();
+            itr = itr->next = new ListNode(top_node->val);
+            if (top_node->next) frontier.push({top_node->next});
         }
-        return dummy->next;
+        return head->next;
     }
 };
