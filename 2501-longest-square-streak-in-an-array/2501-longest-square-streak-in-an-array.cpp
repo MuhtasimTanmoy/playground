@@ -31,15 +31,14 @@ public:
 
 class Solution {
 public:
-    int longestSquareStreak(vector<int>& nums, long long res = 0) {
+    int longestSquareStreak(vector<int>& nums, int res = 0) {
         sort(nums.begin(), nums.end());
-        unordered_map<long long, long long> dp;
+        unordered_map<long long, int> dp;
         for (int i = nums.size() - 1; i >= 0; i--) {
-            long long curr = nums[i];
-            long long next = curr * curr;
+            long long curr = nums[i], next = curr * curr;
             dp[curr] = dp.count(next) ? dp[next] + 1: 0;
             res = max(res, dp[curr]);
         }
-        return (int) res ? res + 1: -1;
+        return res ? res + 1: -1;
     }
 };
