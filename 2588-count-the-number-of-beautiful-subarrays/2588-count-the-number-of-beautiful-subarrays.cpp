@@ -14,13 +14,9 @@ public:
 
 class Solution {
 public:
-    long long beautifulSubarrays(vector<int>& nums, long long res = 0) {
+    long long beautifulSubarrays(vector<int>& nums, long long res = 0, int calc = 0) {
         unordered_map<int, int> cache; cache[0] = 1;
-        int calc = 0;
-        for (auto num: nums) {
-            calc ^= num;
-            res += cache[calc]++;
-        }
+        for (auto num: nums) calc ^= num, res += cache[calc]++;
         return res;
     }
 };
