@@ -5,8 +5,7 @@ public:
         for (auto num: nums) x_or ^= num;
         vector<int> res;        
         for (int i = nums.size() - 1; i >= 0; i--) {
-            auto now = x_or ^ max_num;
-            res.push_back(now);
+            res.push_back(x_or ^ max_num);
             x_or ^= nums[i];
         }
         return res;
