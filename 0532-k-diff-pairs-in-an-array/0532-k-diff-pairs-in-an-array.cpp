@@ -7,10 +7,10 @@ public:
         tracker.insert(to_str);
     }
     
-    bool has(int a, int b) {
+    bool has_no(int a, int b) {
         if (a > b) swap(a, b);
         auto to_str = to_string(a) + "-" + to_string(b);
-        return tracker.count(to_str);
+        return !tracker.count(to_str);
     }
 };
 
@@ -20,14 +20,11 @@ public:
     int findPairs(vector<int>& nums, int k, int res = 0) {        
         unordered_set<int> tracker;
         for (auto num: nums) {
-            if (tracker.count(num + k) && pair_cache.has(num, num + k) == false) {
-                pair_cache.insert(num, num + k);
-                res++;
-            }
-            if (tracker.count(num - k) && pair_cache.has(num, num - k) == false) {
-                pair_cache.insert(num, num - k);
-                res++;
-            }
+            for (auto can_be: {num + k, num - k}) 
+                 if (tracker.count(can_be) && pair_cache.has_no(num, can_be)) {
+                    pair_cache.insert(num, can_be);
+                    res++;
+                }
             tracker.insert(num);
         }
         return res;
