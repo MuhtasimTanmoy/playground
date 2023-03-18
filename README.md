@@ -1,52 +1,15 @@
 # Playground
 
+> In this repository, you can find a collection of templates, problem solutions, algorithms, and data structures that have been implemented and gathered during solving problems.
+
 # Table of Contents
-1. [Algorithms](#algorithms)
-2. [Leetcode Solutions](#leetcode_solutions)
-3. [Leetcode Premium Solutions](#leetcode_premium_solutions)
+1. [Leetcode Solutions](#leetcode_solutions)
+2. [Leetcode Premium Solutions](#leetcode_premium_solutions)
+3. [Algorithms](#algorithms)
 4. [HackerEarth](#hackerearth)
 5. [Design Pattern](#design_pattern)
 6. [Random Practice](#random_practice)
 7. [Other](#other)
-
-
-## Algorithms <a name="algorithms"></a>
-- [backtrack-queen-problem.cpp](./algorithms/backtrack-queen-problem.cpp)
-- [bfs-dfs-path-reference.cpp](./algorithms/bfs-dfs-path-reference.cpp)
-- [bfs.cpp](./algorithms/bfs.cpp)
-- [binary-exponentiation.cpp](./algorithms/binary-exponentiation.cpp)
-- [binary-search-firstindex-lastinde.cpp](./algorithms/binary-search-firstindex-lastinde.cpp)
-- [binary-search-leftmost-rightmost.cpp](./algorithms/binary-search-leftmost-rightmost.cpp)
-- [bst-to-doubly-link-list.cpp](./algorithms/bst-to-doubly-link-list.cpp)
-- [bubblesort.cpp](./algorithms/bubblesort.cpp)
-- [dp-max-weight-grid.cpp](./algorithms/dp-max-weight-grid.cpp)
-- [dp-maximium-subsequence.cpp](./algorithms/dp-maximium-subsequence.cpp)
-- [dp-ways-of-coins.cpp](./algorithms/dp-ways-of-coins.cpp)
-- [fenwick-tree.cpp](./algorithms/fenwick-tree.cpp)
-- [fibonacci.cpp](./algorithms/fibonacci.cpp)
-- [floyd-warshell.cpp](./algorithms/floyd-warshell.cpp)
-- [kmp.cpp](./algorithms/kmp.cpp)
-- [max-subarray-sum-kadane.cpp](./algorithms/max-subarray-sum-kadane.cpp)
-- [minimum-coin.cpp](./algorithms/minimum-coin.cpp)
-- [morris-traversal.cpp](./algorithms/morris-traversal.cpp)
-- [nearest-smaller-element.cpp](./algorithms/nearest-smaller-element.cpp)
-- [nick-calculate.cpp](./algorithms/nick-calculate.cpp)
-- [permutation.cpp](./algorithms/permutation.cpp)
-- [prefix-sum-range-sum.cpp](./algorithms/prefix-sum-range-sum.cpp)
-- [prime-factorization.cpp](./algorithms/prime-factorization.cpp)
-- [rabin-carp.cpp](./algorithms/rabin-carp.cpp)
-- [rmq-k-length.cpp](./algorithms/rmq-k-length.cpp)
-- [segment-tree.cpp](./algorithms/segment-tree.cpp)
-- [sieve.cpp](./algorithms/sieve.cpp)
-- [sliding-window-minimum.cpp](./algorithms/sliding-window-minimum.cpp)
-- [sparse-table.cpp](./algorithms/sparse-table.cpp)
-- [subsequence.cpp](./algorithms/subsequence.cpp)
-- [subsequence_length_two.cpp](./algorithms/subsequence_length_two.cpp)
-- [sum-minimization.cpp](./algorithms/sum-minimization.cpp)
-- [tarzan-algorithm.cpp](./algorithms/tarzan-algorithm.cpp)
-- [threadpool.cpp](./algorithms/threadpool.cpp)
-- [topological.cpp](./algorithms/topological.cpp)
-- [union-find.cpp](./algorithms/union-find.cpp)
 
 ## Leetcode Solutions <a name="leetcode_solutions"></a>
 - [0003-longest-substring-without-repeating-characters](./leetcode/0003-longest-substring-without-repeating-characters)
@@ -1246,6 +1209,43 @@
 - [510-inorder-successor-in-bst-ii](./leetcode/510-inorder-successor-in-bst-ii)
 - [545-boundary-of-binary-tree](./leetcode/545-boundary-of-binary-tree)
 
+## Algorithms <a name="algorithms"></a>
+- [backtrack-queen-problem.cpp](./algorithms/backtrack-queen-problem.cpp)
+- [bfs-dfs-path-reference.cpp](./algorithms/bfs-dfs-path-reference.cpp)
+- [bfs.cpp](./algorithms/bfs.cpp)
+- [binary-exponentiation.cpp](./algorithms/binary-exponentiation.cpp)
+- [binary-search-firstindex-lastinde.cpp](./algorithms/binary-search-firstindex-lastinde.cpp)
+- [binary-search-leftmost-rightmost.cpp](./algorithms/binary-search-leftmost-rightmost.cpp)
+- [bst-to-doubly-link-list.cpp](./algorithms/bst-to-doubly-link-list.cpp)
+- [bubblesort.cpp](./algorithms/bubblesort.cpp)
+- [dp-max-weight-grid.cpp](./algorithms/dp-max-weight-grid.cpp)
+- [dp-maximium-subsequence.cpp](./algorithms/dp-maximium-subsequence.cpp)
+- [dp-ways-of-coins.cpp](./algorithms/dp-ways-of-coins.cpp)
+- [fenwick-tree.cpp](./algorithms/fenwick-tree.cpp)
+- [fibonacci.cpp](./algorithms/fibonacci.cpp)
+- [floyd-warshell.cpp](./algorithms/floyd-warshell.cpp)
+- [kmp.cpp](./algorithms/kmp.cpp)
+- [max-subarray-sum-kadane.cpp](./algorithms/max-subarray-sum-kadane.cpp)
+- [minimum-coin.cpp](./algorithms/minimum-coin.cpp)
+- [morris-traversal.cpp](./algorithms/morris-traversal.cpp)
+- [nearest-smaller-element.cpp](./algorithms/nearest-smaller-element.cpp)
+- [nick-calculate.cpp](./algorithms/nick-calculate.cpp)
+- [permutation.cpp](./algorithms/permutation.cpp)
+- [prefix-sum-range-sum.cpp](./algorithms/prefix-sum-range-sum.cpp)
+- [prime-factorization.cpp](./algorithms/prime-factorization.cpp)
+- [rabin-carp.cpp](./algorithms/rabin-carp.cpp)
+- [rmq-k-length.cpp](./algorithms/rmq-k-length.cpp)
+- [segment-tree.cpp](./algorithms/segment-tree.cpp)
+- [sieve.cpp](./algorithms/sieve.cpp)
+- [sliding-window-minimum.cpp](./algorithms/sliding-window-minimum.cpp)
+- [sparse-table.cpp](./algorithms/sparse-table.cpp)
+- [subsequence.cpp](./algorithms/subsequence.cpp)
+- [subsequence_length_two.cpp](./algorithms/subsequence_length_two.cpp)
+- [sum-minimization.cpp](./algorithms/sum-minimization.cpp)
+- [tarzan-algorithm.cpp](./algorithms/tarzan-algorithm.cpp)
+- [threadpool.cpp](./algorithms/threadpool.cpp)
+- [topological.cpp](./algorithms/topological.cpp)
+- [union-find.cpp](./algorithms/union-find.cpp)
 
 ## Design Pattern <a name="design_pattern"></a>
 
@@ -1371,3 +1371,4 @@
 
 ## Others <a name="others"></a>
 - [Codeforces Solutions](./codeforces.com)
+- Leetcode solutions synced using https://github.com/QasimWani/LeetHub

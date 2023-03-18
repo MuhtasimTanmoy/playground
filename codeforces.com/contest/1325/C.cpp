@@ -11,9 +11,7 @@ using namespace std;
 
 const int N = 2e5 + 11;
 
-
-void solve()
-{
+void solve() {
 	int n;
 	cin>>n;
 
