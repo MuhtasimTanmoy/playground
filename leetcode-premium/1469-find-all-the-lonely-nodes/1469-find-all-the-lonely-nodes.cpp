@@ -10,25 +10,17 @@
  * };
  */
 class Solution {
-    vector<int> res;
-    void traverse(TreeNode* root) {
-        int count = 0;
-        TreeNode* alone;
-        if (root->left) { 
-            alone = root->left;
-            traverse(root->left); 
-            count++; 
-        }
-        if (root->right) { 
-            alone = root->right;
-            traverse(root->right); 
-            count++; 
-        }
-        if (count == 1) res.push_back(alone->val);
-    }
 public:
     vector<int> getLonelyNodes(TreeNode* root) {
-        if (root) traverse(root);
+        vector<int> res;
+        function<void(TreeNode*)> go = [&](auto node) {
+            if (!node) return;
+            if (node->left && !node->right) res.push_back(node->left->val);
+            if (!node->left && node->right) res.push_back(node->right->val);  
+            go(node->left);
+            go(node->right);
+        };
+        go(root);
         return res;
     }
 };
