@@ -11,24 +11,17 @@
 class Solution {
 public:
     vector<int> nextLargerNodes(ListNode* head) {
-        vector<int> res;
-        auto itr = head;
-        while (itr) {
-            res.push_back(itr->val);
-            itr = itr->next;
-        }
-        
-        vector<int> suff;
-        for (int i = res.size() - 1; i >= 0; i--)
-            if (suff.empty()) {
-                suff.push_back(res[i]);
-                res[i] = 0;
-            } else {
-                while (suff.size() && suff.back() <= res[i]) suff.pop_back();
-                auto cache = res[i];
-                res[i] = suff.size() ? suff.back() : 0;
-                suff.push_back(cache);
+        vector<int> p;
+        for (auto itr = head; itr; itr = itr->next) p.push_back(itr->val);
+        vector<int> res(p.size()), stk;
+        for (auto i = 0; i < p.size(); i++) {
+            while (stk.size() && p[i] > p[stk.back()]) {
+                auto index = stk.back();
+                res[index] = p[i];
+                stk.pop_back();
             }
+            stk.push_back(i);
+        }
         return res;
     }
 };
