@@ -16,4 +16,4 @@ with open(os.path.join(directory, "README.md"), "w") as readme_file:
     
     # Write the list of directories
     for d in directories:
-        readme_file.write(f"- {d}\n")
+        readme_file.write(f"- [{d}](./leetcode/{d})\n")
