@@ -1,13 +1,14 @@
 class Solution {
 public:
     vector<int> finalPrices(vector<int>& prices) {
-        stack<int> stk;
-        for (int i = prices.size() - 1; i >= 0; i--) {
-            while (stk.size() &&  prices[i] < stk.top()) stk.pop();
-            auto cache = prices[i];
-            if (stk.size()) prices[i] -= stk.top();
-            stk.push(cache);
+        vector<int> res(prices.begin(), prices.end()), stk;
+        for (int i = 0; i < prices.size(); i++) {
+            while (stk.size() && prices[i] <= prices[stk.back()]) {
+                auto target_index = stk.back(); stk.pop_back();
+                res[target_index] -= prices[i];
+            }
+            stk.push_back(i);
         }
-        return prices;
+        return res;
     }
 };
