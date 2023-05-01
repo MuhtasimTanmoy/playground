@@ -1,54 +1,15 @@
-// Quick find
-class UnionFind {
-public:
-    UnionFind(int sz) : root(sz) {
-        for (int i = 0; i < sz; i++) root[i] = i;
-    }
-
-    int find(int x) { return root[x]; }
-
-    void unionSet(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY)
-            for (int i = 0; i < root.size(); i++) 
-                if (root[i] == rootY) 
-                    root[i] = rootX;
-    }
-
-    bool connected(int x, int y) {
-        return find(x) == find(y);
-    }
-
-private:
-    vector<int> root;
-};
-
-// Quick union
+// Quick Union
 class UnionFind {
 public:
     UnionFind(int sz) : root(sz), rank(sz) {
-        for (int i = 0; i < sz; i++) root[i] = i;
+        for (int i = 0; i < sz; i++) root[i] = i, rank[i] = 1;
     }
-
-    // normal
-    // int find(int x) {
-    //     while (x != root[x]) x = root[x];
-    //     return x;
-    // }
 
     // path compression
     int find(int x) {
         if (x == root[x]) return x;
         return root[x] = find(root[x]);
     }
-
-    // normal
-    // void unionSet(int x, int y) {
-    //     int rootX = find(x);
-    //     int rootY = find(y);
-    //     if (rootX != rootY) root[rootY] = rootX;
-    // }
 
     // rank based
     void unionSetRankBased(int x, int y) {
@@ -91,37 +52,3 @@ int main() {
     cout << uf.connected(4, 9) << endl; // true
     return 0;
 }
-
-class UnionFind {
-private:
-    vector<int> root;
-    vector<int> rank;
-public:
-    UnionFind(int sz) : root(sz), rank(sz) {
-        for (int i = 0; i < sz; i++) {
-            root[i] = i;
-            rank[i] = 1;
-        }
-    }
-    
-    int find(int x) {
-        if (x == root[x]) 
-            return x;
-        return root[x] = find(root[x]);
-    }
-
-    // Perform the union of two components
-    void unionSet(int x, int y) {
-        int rootX = find(x);
-        int rootY = find(y);
-        if (rootX != rootY) {
-            if (rank[rootX] >= rank[rootY]) {
-                root[rootY] = rootX;
-                rank[rootX] += rank[rootY];
-            } else {
-                root[rootX] = rootY;
-                rank[rootY] += rank[rootX];
-            }
-        }
-    }
-};
