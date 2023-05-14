@@ -1,3 +1,32 @@
+// class Solution {
+// public:
+//     vector<int> getOrder(vector<vector<int>>& t, vector<int> res = {}) {
+        
+//         for (int i = 0; i < t.size(); i++) t[i].push_back(i);
+//         sort(t.begin(), t.end(), [](auto l, auto r) {
+//             return l[0] < r[0];
+//         });
+
+//         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<>> pq;
+        
+//         for (long long i = 0, to = 0; i < t.size() || pq.size(); ) {
+//             while (i < t.size() && t[i][0] <= to) {
+//                 auto duration = t[i][1], idx = t[i][2];
+//                 pq.push({duration, idx});
+//                 i++;
+//             }
+//             if (pq.empty()) to = t[i][0];
+//             else {
+//                 auto up = pq.top(); pq.pop();
+//                 res.push_back(up.second);
+//                 to += up.first;
+//             }
+//         }
+//         return res;
+//     }
+// };
+
+
 class Solution {
 public:
     vector<int> getOrder(vector<vector<int>>& tasks) {
