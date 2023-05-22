@@ -54,18 +54,18 @@ class Type: public Filter {
 
 class FindFiles {
   public:
-    void searchFilesDFS(File f, vector < Filter > filters, vector < File * > & output) {
-      if (f -> children.empty()) {
+    void searchFilesDFS(File *f, vector < Filter > filters, vector < File * > & output) {
+      if (f->children.empty()) {
         return;
       }
 
-      for (auto file: f -> children) {
+      for (auto file: f->children) {
         bool flag = true;
         if (file -> isDirectory) {
           searchFilesDFS(file, filters, output);
         } else {
           for (auto it: filters) {
-            if (it -> apply(file) == false) {
+            if (it.apply(file) == false) {
               flag = false;
               break;
             }

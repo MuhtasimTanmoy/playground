@@ -1,11 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Unix File Search API
+
+// Design Unix File Search API to search file with different arguments as "extension", "name", "size" ...
+// The design should be maintainable to add new contraints.
+
 enum FileType {
-    DIR = 0,
-    XML,
-    TXT,
-    COUNT
+    DIR = 0, XML, TXT, COUNT
 };
 
 class File {
@@ -131,7 +133,8 @@ class TypeSameRule : public Rule {
 private:
     FileType target_type_ = FileType::COUNT;
 public:
-    TypeSameRule(FileType type) : target_type_(type){}
+    TypeSameRule(FileType type) : target_type_(type){ }
+
     bool checkRulePassed(File* file) const override{
         return file->getType() == target_type_;
     }
@@ -143,7 +146,6 @@ public:
 
 
 int main() {
-
     Directory cur_dir{"test_dir"};
     for(size_t i = 0; i < 10; i++) {
         File* cur_file = new File("test_file" + to_string(i), i * 100, FileType(i % FileType::COUNT));
@@ -161,7 +163,6 @@ int main() {
 
     vector<File*> flitering_res = cur_filter.find_filter(cur_dir);
     cout << "Filtering results:\n";
-    for(auto f : flitering_res)
-        f->printInfo();
+    for(auto f : flitering_res) f->printInfo();
     return 0;
 }
