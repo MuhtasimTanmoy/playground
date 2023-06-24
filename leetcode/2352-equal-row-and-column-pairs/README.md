@@ -1,9 +1,9 @@
-<h2><a href="https://leetcode.com/problems/equal-row-and-column-pairs/">2352. Equal Row and Column Pairs</a></h2><h3>Medium</h3><hr><div><p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(R<sub>i</sub>, C<sub>j</sub>)</code><em> such that row </em><code>R<sub>i</sub></code><em> and column </em><code>C<sub>j</sub></code><em> are equal</em>.</p>
+<h2><a href="https://leetcode.com/problems/equal-row-and-column-pairs/">2352. Equal Row and Column Pairs</a></h2><h3>Medium</h3><hr><div><p>Given a <strong>0-indexed</strong> <code>n x n</code> integer matrix <code>grid</code>, <em>return the number of pairs </em><code>(r<sub>i</sub>, c<sub>j</sub>)</code><em> such that row </em><code>r<sub>i</sub></code><em> and column </em><code>c<sub>j</sub></code><em> are equal</em>.</p>
 
-<p>A row and column pair is considered equal if they contain the same elements in the same order (i.e. an equal array).</p>
+<p>A row and column pair is considered equal if they contain the same elements in the same order (i.e., an equal array).</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/06/01/ex1.jpg" style="width: 150px; height: 153px;">
 <pre><strong>Input:</strong> grid = [[3,2,1],[1,7,6],[2,7,7]]
 <strong>Output:</strong> 1
@@ -11,7 +11,7 @@
 - (Row 2, Column 1): [2,7,7]
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/06/01/ex2.jpg" style="width: 200px; height: 209px;">
 <pre><strong>Input:</strong> grid = [[3,1,2,2],[1,4,4,5],[2,4,2,2],[2,4,2,2]]
 <strong>Output:</strong> 3

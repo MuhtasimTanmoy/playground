@@ -12,22 +12,22 @@
 class Solution {
 public:
     int maxLevelSum(TreeNode* root) {
-        vector<TreeNode*> q {root};
-        int maxSum = INT_MIN, minLevel = 0, currLevel = 0;
+        vector<TreeNode*> q{root};
+        int max_sum = INT_MIN, level = 1, curr_level = 1;
         while (q.size()) {
-            vector<TreeNode*> local;
-            int sum = 0; currLevel++;
-            for (auto i: q) {
-                sum += i->val;
-                if (i->left) local.push_back(i->left);
-                if (i->right) local.push_back(i->right);
-            }            
-            if (sum > maxSum) {
-                maxSum = sum;
-                minLevel = currLevel;
+            int n = q.size(), sum = 0;
+            vector<TreeNode*> temp;
+            for (int i = 0; i < n; i++) {
+                auto elem = q.back(); q.pop_back();
+                sum += elem->val;
+                if (elem->left) temp.push_back(elem->left);
+                if (elem->right) temp.push_back(elem->right);
             }
-            swap(q, local);
+            if (sum > max_sum) 
+                level = curr_level, max_sum = sum;
+            swap(temp, q);
+            curr_level++;
         }
-        return minLevel;
+        return level;
     }
 };

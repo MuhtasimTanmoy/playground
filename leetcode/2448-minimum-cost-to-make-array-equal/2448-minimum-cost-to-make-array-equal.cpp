@@ -1,3 +1,31 @@
+// class Solution {
+// public:
+//     long long minCost(vector<int>& nums, vector<int>& cost) {
+        
+//         int up = 1000000, down = 1;
+//         // for (auto num: nums)
+//         //     up = max(up, num), down = min(down, num);
+        
+//         auto get_cost = [&](int target) {
+//             int diff = 0;
+//             for (int i = 0; i < nums.size(); i++) 
+//                 diff += abs(nums[i] - target) * cost[i];
+//             return diff / nums.size();
+//         };
+        
+//         int res = INT_MAX;
+//         while (down < up) {
+//             auto m = (down + up) / 2;
+//             auto l = get_cost(m), r = get_cost(m + 1);
+//             res = min(l, r);
+//             if (l < r) up = m; else down = m + 1;
+//         }
+        
+//         return res;
+//     }
+// };
+
+
 class Solution {
 public:
     long long minCost(vector<int>& A, vector<int>& cost) {

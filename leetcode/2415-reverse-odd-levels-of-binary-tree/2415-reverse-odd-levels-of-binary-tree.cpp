@@ -10,51 +10,29 @@
  * };
  */
 class Solution {
-    void reverse(vector<TreeNode*> &li) {
-        int left = 0, right = size(li) - 1;
-        while (left < right) {
-            auto cache = li[left]->val;
-            li[left]->val = li[right]->val;
-            li[right]->val = cache;
-            left++; right--;
-        }
-    }
-    
-    void traverse(TreeNode* root) {
-        if (!root) return;
-        queue<TreeNode*> q; q.push(root);
-        bool isOdd = false;
-        while (q.size()) {
-            auto sz = q.size();
-            vector<TreeNode*> li;
-            for (int i = 0; i < sz; i++) {
-                auto elem = q.front(); q.pop();
-                if (isOdd) li.push_back(elem);
-                if (elem->left) q.push(elem->left);
-                if (elem->right) q.push(elem->right);
-            }
-            if (isOdd) reverse(li);
-            isOdd = !isOdd;
-        }
-    }
 public:
     TreeNode* reverseOddLevels(TreeNode* root) {
-        traverse(root);
+        queue<TreeNode*> q;
+        q.push(root);
+        bool isOdd = false;
+        while (q.size()) {
+            queue<TreeNode*> temp;
+            vector<TreeNode*> store;
+            auto n = q.size();
+            for (int i = 0; i < n; i++) {
+                auto n = q.front(); q.pop();
+                if (isOdd) store.push_back(n);
+                if (n->left)
+                    temp.push(n->left);
+                if (n->right) 
+                    temp.push(n->right);
+            }
+            if (isOdd)
+                for (int i = 0; i < n / 2; i++)
+                    swap(store[i]->val, store[n - 1 - i]->val);
+            swap(q, temp);
+            isOdd = !isOdd;
+        }
         return root;
     }
 };
-
-// TreeNode* reverseOddLevels(TreeNode* root) {
-//     int level = 0;
-//     vector<TreeNode*> q{root};    
-//     while (!q.empty() && q[0]->left != nullptr) {
-//         vector<TreeNode*> q1;
-//         for (auto n : q)
-//             q1.insert(end(q1), {n->left, n->right});
-//         if (++level % 2)
-//             for (int i = 0, j = q1.size() - 1; i < j; ++i, --j)
-//                 swap(q1[i]->val, q1[j]->val);
-//         swap(q, q1);
-//     }
-//     return root;
-// }

@@ -9,32 +9,12 @@
  * };
  */
 class Solution {
-    
-    // void swap(ListNode* a, ListNode* b) {
-    //     auto temp = a;
-    //     a = b;
-    //     b = temp;
-    // }
-    
-    //         while (slow) {
-    //             auto slow_next = slow->next;
-    //             cout<<slow->val<<endl;
-    //             slow = slow_next;
-    //         }
-
-    //          while (back) {
-    //             auto slow_next = back->next;
-    //             cout<<back->val<<endl;
-    //             back = slow_next;
-    //         }
-    
-    ListNode* reverse(ListNode* head) {
-        ListNode* itr = head, *prev = NULL;
-        while (itr) {
-            swap(itr->next, prev);
-            swap(prev, itr);
-        }
-        return prev;
+    ListNode* reverse(ListNode* itr) {
+        ListNode* n = itr, *now = NULL;
+        while (n) 
+            swap(now, n->next),
+            swap(n, now);
+        return now;
     }
 public:
     void reorderList(ListNode* head) {
@@ -43,18 +23,18 @@ public:
             slow = slow->next,
             fast = fast->next->next;
         
-        auto back = reverse(slow->next);
+        auto r = reverse(slow->next);
         slow->next = NULL;
         slow = head;
         
-        while (slow && back) {
-            auto slow_next = slow->next, back_next = back->next;
+        while (r && slow) {
+            auto next = slow->next, r_next = r->next;
             
-            slow->next = back;
-            back->next = slow_next;
+            slow->next = r;
+            r->next = next;
             
-            back = back_next;
-            slow = slow_next;
+            slow = next;
+            r = r_next;
         }
     }
 };

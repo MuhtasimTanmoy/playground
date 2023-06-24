@@ -11,7 +11,7 @@
 <p>The <strong>level</strong> of a node is the number of edges along the path between it and the root node.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/07/28/first_case1.png" style="width: 626px; height: 191px;">
 <pre><strong>Input:</strong> root = [2,3,5,8,13,21,34]
 <strong>Output:</strong> [2,5,3,8,13,21,34]
@@ -20,7 +20,7 @@ The tree has only one odd level.
 The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/07/28/second_case3.png" style="width: 591px; height: 111px;">
 <pre><strong>Input:</strong> root = [7,13,11]
 <strong>Output:</strong> [7,11,13]
@@ -28,7 +28,7 @@ The nodes at level 1 are 3, 5 respectively, which are reversed and become 5, 3.
 The nodes at level 1 are 13, 11, which are reversed and become 11, 13.
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre><strong>Input:</strong> root = [0,1,2,0,0,0,0,1,1,1,1,2,2,2,2]
 <strong>Output:</strong> [0,2,1,0,0,0,0,2,2,2,2,1,1,1,1]
