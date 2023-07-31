@@ -1,34 +1,3 @@
-// class Solution {
-// public:
-//     long long totalCost(vector<int>& costs, int k, int candidates, long long res = 0) {
-//         int left = candidates, right = costs.size() - candidates;
-//         cout<<left<<" - "<<right<<endl;
-//         if (left >= right) {
-//             cout<<"go"<<endl;
-//             sort(costs.begin(), costs.end());
-//             return accumulate(costs.begin(), costs.begin() + k, 0);
-//         }
-        
-//         priority_queue<int, vector<int>, greater<int>> 
-//             lq(costs.begin(), costs.begin() + left), 
-//             rq(costs.begin() + right, costs.end());
-        
-//         while (k--) {
-//             auto minFromLeft = lq.top(), minFromRight = rq.top();
-//             if (minFromLeft <= minFromRight) {
-//                 res += minFromLeft;
-//                 lq.pop();
-//                 if (left <= right) lq.push(costs[left++]);
-//             } else {
-//                 res += minFromRight;
-//                 rq.pop();
-//                 if (left <= right) rq.push(costs[right--]);
-//             }
-//         }
-//         return res;
-//     }
-// };
-
 typedef pair<int,int> idxnum;
 class Solution {
 public:

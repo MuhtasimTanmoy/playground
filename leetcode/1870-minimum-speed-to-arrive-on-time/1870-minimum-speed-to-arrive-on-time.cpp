@@ -1,18 +1,21 @@
 class Solution {
 public:
-    int minSpeedOnTime(vector<int>& d, double hour) {
-        int lo = 1, hi = 10000001;
-        auto calc = [&](int p, double r = 0) {
-            for (int i = 0; i < d.size() - 1; i++) 
-                r += (int) (d[i] + p - 1) / p;
-            r += (double) d.back() / p;
-            return r;
+    int minSpeedOnTime(vector<int>& dist, double hour) {
+        auto l = 1, r = 10000001;
+        
+        auto calc = [&](double target) {
+            double res = 0, n = dist.size();
+            for (auto i = 0; i < n - 1; i++) res += ceil(1.0 * dist[i] / target);
+            res += dist[n - 1] / target;
+            return res;
         };
-        while (lo < hi) {
-            auto m = lo + (hi - lo) / 2;
-            auto p = calc(m);
-            if (p > hour) lo = m + 1; else hi = m;
+        
+        double time_taken = 0;
+        while (l < r) {
+            auto m = l + (r - l) / 2;
+            time_taken = calc(m);
+            if (time_taken <= hour) r = m; else l = m + 1;
         }
-        return lo == 10000001 ? -1: lo;
+        return l == 10000001 ? -1 : l;
     }
 };

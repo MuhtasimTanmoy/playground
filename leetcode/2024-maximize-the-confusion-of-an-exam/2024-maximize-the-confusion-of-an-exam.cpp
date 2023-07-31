@@ -1,15 +1,13 @@
 class Solution {
 public:
-    int maxConsecutiveAnswers(string answerKey, int k) {
-        function<int(char)> traverse = [&](char key) -> int {
-            int maxOccur = 0;
-            int j = 0;
-            for (int i = 0 ; i < answerKey.size(); i++) {
-                maxOccur += answerKey[i] == key;
-                if (maxOccur > k) maxOccur -= answerKey[j++] == key;
-            }
-            return answerKey.size() - j;
+    int maxConsecutiveAnswers(string ans, int k) {
+        function<int(char)> go = [&](auto to) {
+            int l = 0;
+            for (int i = 0, max_occur = 0; i < ans.size(); i++) 
+                max_occur += ans[i] == to,
+                max_occur -= max_occur > k ? ans[l++] == to: 0;
+            return ans.size() - l;
         };
-        return max(traverse('T'), traverse('F'));
+        return max(go('T'), go('F'));
     }
 };
