@@ -1,11 +1,14 @@
 class Solution {
 public:
     long long appealSum(string s) {
-        long long res = 0, cur = 0, prev[26] = {};
-        for (int i = 0; i < s.size(); ++i) 
-            cur += i + 1 - prev[s[i] - 'a'],
-            prev[s[i] - 'a'] = i + 1,
-            res += cur;
+        vector<int> last(26, 0);
+        long long res = 0;
+        for (int i = 0, curr = 0; i < s.size(); i++) {
+            auto idx = s[i] - 'a';
+            curr += i + 1 - last[idx];
+            last[idx] = i + 1;
+            res += curr;
+        }
         return res;
     }
 };

@@ -1,25 +1,30 @@
 // class Solution {
 // public:
-//     int longestValidSubstring(string word, vector<string>& bans) {
-//         auto is_in = [&](string& s) {
-//             for (auto ban: bans) if (s.find(ban) != string::npos) return true;
-//             return false;
-//         };
-//         int res = 0, len = word.size();
-//         for (int i = 0; i < len; i++) {
-//             string temp = word.substr(i, len - i);
-//             auto sub_len = len - i;
-//             while (sub_len--) {
-//                 if (!is_in(temp)) {
-//                     res = max(res, (int) temp.size());
+//     int longestValidSubstring(string word, vector<string>& forbidden) {
+//         unordered_set<string> bag;
+        
+//         int for_len = 0;
+//         for (auto token: forbidden) 
+//             bag.insert(token), for_len = max(for_len, (int) token.size());
+        
+//         int len = word.size(), res = 0;
+//         for (auto i = len - 1, right = len; i >= 0; i--) {
+//             string temp = "";
+//             int j = 0;
+//             for (j = i; j < right && j - i <= len; j++) {
+//                 temp.push_back(word[j]);
+//                 if (bag.count(temp)) {
+//                     right = j;
 //                     break;
 //                 }
-//                 temp.pop_back();
 //             }
+//             res = max(res, j - i);
 //         }
-//         return res;      
+        
+//         return res;
 //     }
 // };
+
 
 class Solution {
 public:

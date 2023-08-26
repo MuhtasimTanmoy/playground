@@ -1,54 +1,22 @@
-/*
 class Solution {
 public:
     bool validPartition(vector<int>& nums) {
-        auto len = nums.size();
+        int n = nums.size();
         unordered_map<int, bool> dp;
-        
-        auto two = [&](int i) {
-            return i + 1 < len && nums[i] == nums[i+1];
-        };
-        auto three = [&](int i) {
-            if (i + 2 >= len) return false;
-            auto eq = two(i) && nums[i+1] == nums[i+2];
-            auto incr = (nums[i] + 1) == nums[i+1] && (nums[i+1] + 1) == nums[i+2];
-            return eq || incr;
-        };
-        
         function<bool(int)> go = [&](auto i) {
-            if (i == len) return true;
+            if (i == n) return true;
             if (dp.count(i)) return dp[i];
-            
-            bool can = false;
-            if (two(i)) can |= go(i + 2);
-            if (three(i)) can |= go(i + 3);
-            return dp[i] = can;
+                
+            bool is_possible = false;
+            if (i + 1 < n && nums[i] == nums[i + 1]) is_possible |= go(i + 2);
+            if (i + 2 < n) {
+                 auto three_same = nums[i] == nums[i + 1] && nums[i] == nums[i + 2];
+                 auto three_cons = (nums[i] == nums[i + 1] - 1) 
+                                && (nums[i + 1] == nums[i + 2] - 1);
+                 if (three_same || three_cons) is_possible |= go(i + 3);
+             }
+            return dp[i] = is_possible;
         };
         return go(0);
-    }
-};
-*/
-
-class Solution {
-public:
-    bool validPartition(vector<int>& nums) {
-        int len = nums.size();
-        auto two = [&](int i) {
-            return i + 1 < len && nums[i] == nums[i+1];
-        };
-        auto three = [&](int i) {
-            if (i + 2 >= len) return false;
-            auto eq = two(i) && nums[i+1] == nums[i+2];
-            auto incr = (nums[i] + 1) == nums[i+1] && (nums[i+1] + 1) == nums[i+2];
-            return eq || incr;
-        };
-        
-        vector<int> dp(len + 1); dp[0] = 1;
-        for (auto i = 0; i < len; ++i) {
-            if (!dp[i]) continue;
-            if (two(i)) dp[i + 2] = 1;
-            if (three(i)) dp[i + 3] = 1;
-        }
-        return dp[len];
     }
 };

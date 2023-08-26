@@ -1,47 +1,37 @@
-/*
 class Solution {
 public:
+//     bool wordBreak(string s, vector<string>& dict) {
+//         unordered_set<string> bag(dict.begin(), dict.end());
+//         unordered_map<int, bool> um;
+//         function<bool(int)> go = [&](auto i) {
+//             if (i == s.size()) return true;
+//             if (um.count(i)) return um[i];       
+//             string builder = "";
+//             bool is_pos = false;
+//             for (auto j = i; j < s.size(); j++) {
+//                 builder += s[j];
+//                 if (bag.count(builder)) is_pos |= go(j + 1);
+//             }
+//             return um[i] = is_pos;
+//         };
+//         return go(0);
+//     }
+    
     bool wordBreak(string s, vector<string>& dict) {
         unordered_set<string> bag(dict.begin(), dict.end());
-        unordered_map<int, bool> cache;
-        function<bool(int)> go = [&](auto start) {
-            if (start == s.size()) return true;
-            if (cache.count(start)) return cache[start];
-            
-            bool is_possible = false;
-            string builder = "";
-            for (int i = start; i < s.size(); i++) {
-                builder += s[i];
-                if (bag.count(builder)) is_possible |= go(i + 1);
-            }
-            return cache[start] = is_possible;
-        };
-        return go(0);
-    }
-};
-*/
-
-class Solution {
-public:
-    bool wordBreak(string s, vector<string>& dict) {
-        unordered_set<string> bag(dict.begin(), dict.end());
-        vector<bool> dp(s.size() + 1, false);
-        dp[0] = true;
-        
+        int n = s.size();
+        vector<bool> dp(n + 1); dp[0] = 1;
         queue<int> q; q.push(0);
         while (q.size()) {
-            auto start = q.front(); q.pop();
-            if (start == s.size()) continue;
-            
+            auto from = q.front(); q.pop();
             string builder = "";
-            for (int i = start; i < s.size(); i++) {
+            for (int i = from; i < n; i++) {
                 builder += s[i];
-                if (bag.count(builder) && dp[start] && !dp[i + 1]) {
+                if (bag.count(builder) && dp[from] && !dp[i + 1])
+                    dp[i + 1] = dp[from],
                     q.push(i + 1);
-                    dp[i + 1] = true;
-                }
             }
         }
-        return dp[s.size()];
+        return dp[n];
     }
 };
