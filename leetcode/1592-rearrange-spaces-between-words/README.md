@@ -5,14 +5,14 @@
 <p>Return <em>the string after rearranging the spaces</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> text = "  this   is  a sentence "
 <strong>Output:</strong> "this   is   a   sentence"
 <strong>Explanation:</strong> There are a total of 9 spaces and 4 words. We can evenly divide the 9 spaces between the words: 9 / (4-1) = 3 spaces.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> text = " practice   makes   perfect"
 <strong>Output:</strong> "practice   makes   perfect "
