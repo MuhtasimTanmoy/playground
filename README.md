@@ -3,13 +3,13 @@
 > In this repository, you can find a collection of templates, problem solutions, algorithms, and data structures that have been implemented and gathered during solving problems.
 
 # Table of Contents
-1. [Leetcode Premium Solutions](#leetcode_premium_solutions)
+1. [Leetcode Solutions (Premium)](#leetcode_premium_solutions)
 2. [Leetcode Solutions](#leetcode_solutions)
 3. [Algorithms](#algorithms)
 4. [HackerEarth](#hackerearth)
 5. [Design Patterns](#design_pattern)
 6. [Random Practice](#random_practice)
-7. [Other](#other)
+7. [Other](#others)
 
 
 
