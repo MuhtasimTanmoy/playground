@@ -1,18 +1,14 @@
 class Solution {
 public:
     int minDeletions(string s) {
-        vector<int> charMap(26, 0);
-        for(auto c: s) charMap[c - 'a']++;
+        vector<int> freq(26, 0);
+        for (auto c: s) freq[c - 'a']++;
         
         int res = 0;
-        unordered_set<int> count;
-        for(auto &charCount: charMap) {
-            while (count.count(charCount)) {
-                charCount--;
-                if(!charCount) count.erase(charCount);
-                res++;
-            }
-            if (charCount) count.insert(charCount);
+        unordered_set<int> bag;
+        for (auto c: freq) {
+            while (c && bag.count(c)) c--, res++;
+            if (c) bag.insert(c);
         }
         return res;
     }

@@ -1,11 +1,10 @@
 class Solution {
 public:
-    string mergeAlternately(string word1, string word2) {
-        int maxLen = max(word1.size(), word2.size());
+    string mergeAlternately(string l, string r) {
         string res = "";
-        for (int i = 0; i < maxLen; i++) {
-            if (i < word1.size()) res += word1[i];
-            if (i < word2.size()) res += word2[i];
+        for (auto i = 0; i < max(l.size(), r.size()); i++) {
+            if (i < l.size()) res += l[i];
+            if (i < r.size()) res += r[i];
         }
         return res;
     }

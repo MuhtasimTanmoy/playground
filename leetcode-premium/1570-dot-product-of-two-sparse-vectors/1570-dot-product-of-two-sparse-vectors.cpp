@@ -1,31 +1,21 @@
-// class SparseVector {
-// public:
-//     vector<int> list;
-//     SparseVector(vector<int> &nums) {
-//         list = nums;
-//     }
-    
-//     int dotProduct(SparseVector& vec) {
-//         int res = 0;
-//         for (int i = 0; i < vec.list.size(); i++) {
-//             if (!list[i] || !vec.list[i]) continue;
-//             res += list[i] * vec.list[i];
-//         }
-//         return res;
-//     }    
-// };
-
 class SparseVector {
+    vector<int> store;
 public:
-    unordered_map<int, int> m;
-    SparseVector(vector<int>& A) {
-        for (auto i{ 0 }; i < A.size(); ++i)
-            if (A[i]) m[i] = A[i];
+    SparseVector(vector<int> &nums) {
+        store = nums;
     }
-    int dotProduct(SparseVector& other) {
-        auto sum{ 0 };
-        for (auto [i, x]: m)
-            sum += x * other.m[i];
-        return sum;
+    
+    int dotProduct(SparseVector& vec) {
+        int res = 0;
+        for (int i = 0; i < vec.len(); i++) res += store[i] * vec.get(i);
+        return res;
+    }
+    
+    int get(int i) {
+        return store[i];
+    }
+    
+    int len() {
+        return store.size();
     }
 };

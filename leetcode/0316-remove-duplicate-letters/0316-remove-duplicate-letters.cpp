@@ -1,17 +1,19 @@
 class Solution {
 public:
-    string removeDuplicateLetters(string s, string res = "") {
-      int cnt[26] = {}, used[26] = {};
-      for (auto ch : s) ++cnt[ch - 'a'];
-      for (auto ch : s) {
-        --cnt[ch - 'a'];
-        if (used[ch - 'a']++ > 0) continue;
-        while (!res.empty() && res.back() > ch && cnt[res.back() - 'a'] > 0) {
-          used[res.back() - 'a'] = 0;
-          res.pop_back();
+    string removeDuplicateLetters(string s) {
+        vector<int> cnt(26, 0); vector<bool> seen(26, false);
+        for (auto c: s) cnt[c - 'a']++;
+        string res = "";
+        for (auto c: s) {
+            cnt[c - 'a']--;
+            if (seen[c - 'a']) continue;
+            while (res.size() && res.back() > c && cnt[res.back() - 'a'] > 0)
+                seen[res.back() - 'a'] = false,
+                res.pop_back();
+            seen[c - 'a'] = true;
+            res.push_back(c);
         }
-        res.push_back(ch);
-      }
-      return res;
+        return res;
     }
 };
+

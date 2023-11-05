@@ -19,11 +19,9 @@ public:
 */
 
 class Solution {
-    unordered_map<Node*, Node*> um;
 public:
     Node* cloneTree(Node* root) {
         if (!root) return NULL;
-        if (um.count(root)) return um[root];
         
         auto n = new Node(root->val);
         vector<Node*> children;

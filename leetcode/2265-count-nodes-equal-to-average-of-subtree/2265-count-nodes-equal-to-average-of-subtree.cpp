@@ -10,25 +10,20 @@
  * };
  */
 class Solution {
-    // sum, count, res
-    array<int, 3> go(TreeNode* root) {
-        if (!root) return {0, 0, 0};
+    int res = 0;
+    
+    pair<int, int> go(TreeNode* root) {
+        if (!root) return {0, 0};
+        auto [l_sum, l_count] = go(root->left);
+        auto [r_sum, r_count] = go(root->right);
         
-        if (root->left == NULL && root->right == NULL) 
-            return {root->val, 1, 1};
-        
-        auto l_meta = go(root->left),
-             r_meta = go(root->right);
-        
-        int sum = l_meta[0] + r_meta[0] + root->val,
-            count = l_meta[1] + r_meta[1] + 1,
-            is_match = (sum / count) == root->val,
-            res = l_meta[2] + r_meta[2] + is_match;
-        
-        return {sum, count, res};
+        pair<int, int> now = {l_sum + r_sum + root->val, l_count + r_count + 1};
+        if ((now.first / now.second == root->val)) res++;
+        return now;
     }
 public:
     int averageOfSubtree(TreeNode* root) {
-        return go(root)[2];
+        go(root);
+        return res;
     }
 };

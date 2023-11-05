@@ -1,7 +1,8 @@
 class Solution {
 public:
-    vector<int> findArray(vector<int>& pref) {
-        for (auto i = pref.size() - 1; i > 0; i--) pref[i] ^= pref[i-1];
-        return pref;
+    vector<int> findArray(vector<int>& pre) {
+        for (auto i = pre.size() - 1; i > 0; i--)
+            pre[i] ^= pre[i - 1];
+        return pre;
     }
 };
