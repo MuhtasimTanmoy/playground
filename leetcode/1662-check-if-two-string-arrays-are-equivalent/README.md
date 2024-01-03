@@ -3,7 +3,7 @@
 <p>A string is <strong>represented</strong> by an array if the array elements concatenated <strong>in order</strong> forms the string.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> word1 = ["ab", "c"], word2 = ["a", "bc"]
 <strong>Output:</strong> true
@@ -12,13 +12,13 @@ word1 represents string "ab" + "c" -&gt; "abc"
 word2 represents string "a" + "bc" -&gt; "abc"
 The strings are the same, so return true.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> word1 = ["a", "cb"], word2 = ["ab", "c"]
 <strong>Output:</strong> false
 </pre>
 
-<p><strong>Example 3:</strong></p>
+<p><strong class="example">Example 3:</strong></p>
 
 <pre><strong>Input:</strong> word1  = ["abc", "d", "defg"], word2 = ["abcddefg"]
 <strong>Output:</strong> true

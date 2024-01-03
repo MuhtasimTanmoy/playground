@@ -1,12 +1,13 @@
 class Solution {
-    int mod = 1e9 + 7;
+    const int MOD = 1e9 + 7;
 public:
     int countHomogenous(string s) {
-        int count = 1;
-        int res = 1;
-        for(int i = 1; i < size(s); i++) {
-            res = (s[i] == s[i-1] ? res + 1 : 1);
-            count = ( count + res ) % mod;
+        auto count = 0;
+        char prev = ' '; 
+        for (auto i = 0, local = 0; i < s.size(); i++) {
+            local = s[i] == prev ? local + 1: 1;
+            count = (count + local) % MOD;
+            prev = s[i];
         }
         return count;
     }

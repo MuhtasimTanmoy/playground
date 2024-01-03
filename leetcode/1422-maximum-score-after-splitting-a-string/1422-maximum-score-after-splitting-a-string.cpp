@@ -1,14 +1,14 @@
 class Solution {
 public:
     int maxScore(string s) {
-        int totalzeroCount = 0;
-        for (auto c: s) 
-            if (c == '0') totalzeroCount++;
-        int res = 0, currZero = 0, currentOne = 0;
-        for (int i = 0; i < s.size() - 1; i++) {
-            if (s[i] == '0') currZero++; else currentOne++;
-            int total = currZero + (s.size() - totalzeroCount - currentOne);
-            res = max(res, total);
+        int n = s.size(), res = 0;
+        vector<int> zero_count(n);
+        for (auto i = 0, zero = 0; i < n; i++) 
+            zero += s[i] == '0',
+            zero_count[i] = zero;
+        for (auto i = 0; i < n - 1; i++) {
+            auto right_one = (n - i - 1) - (zero_count.back() - zero_count[i]);
+            res = max(res, zero_count[i] + right_one);
         }
         return res;
     }

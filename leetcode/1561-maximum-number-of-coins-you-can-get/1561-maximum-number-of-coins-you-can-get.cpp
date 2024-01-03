@@ -1,9 +1,10 @@
 class Solution {
 public:
-    int maxCoins(vector<int>& p, int res = 0) {
-        sort(p.begin(), p.end());
-        auto cnt = p.size() / 3, itr = p.size() - 2;
-        while (cnt--) res += p[itr], itr = itr - 2;
+    int maxCoins(vector<int>& piles) {
+        sort(piles.begin(), piles.end());
+        int n = piles.size(), res = 0;
+        for (int i = n - 2, cnt = n / 3; cnt > 0; cnt--, i -= 2) 
+            res += piles[i];
         return res;
     }
 };

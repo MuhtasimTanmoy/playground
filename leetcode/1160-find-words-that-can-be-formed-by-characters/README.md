@@ -5,14 +5,14 @@
 <p>Return <em>the sum of lengths of all good strings in words</em>.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 
 <pre><strong>Input:</strong> words = ["cat","bt","hat","tree"], chars = "atach"
 <strong>Output:</strong> 6
 <strong>Explanation:</strong> The strings that can be formed are "cat" and "hat" so the answer is 3 + 3 = 6.
 </pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> words = ["hello","world","leetcode"], chars = "welldonehoneyr"
 <strong>Output:</strong> 10
