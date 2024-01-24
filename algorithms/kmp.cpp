@@ -3,27 +3,26 @@
 using namespace std;
 
 // AAACAAAAAC
-vector<int> pre_kmp(string pattern) {
+vector<int> pre_kmp(string pat) {
 	// k means the pattern in this case C the lst 3 no while dont match
-	int size = pattern.size();
-	vector<int> suffixPrefixLen(size, 0);
-	for (int i = 1, upto = 0; i < size; i++) {
-		while (upto && pattern[upto] != pattern[i]) upto = suffixPrefixLen[upto - 1];
-		if (pattern[upto] == pattern[i]) upto++;
-		suffixPrefixLen[i] = upto;
+	int size = pat.size();
+	vector<int> sp(size, 0);
+	for (int l = 0, r = 1; r < size; r++) {
+		while (l && pat[l] != pat[r]) l = sp[l - 1];
+		if (pat[l] == pat[r]) l++;
+		sp[r] = l;
 	}
-	return suffixPrefixLen;
+	return sp;
 }
 
 void kmp(string text, string pattern) {
-	auto suffixPrefixLen = pre_kmp(pattern);
-	int upto = 0;
-	for (int i = 0; i < text.length(); i++) {
-		while (upto && pattern[upto] != text[i]) upto = suffixPrefixLen[upto - 1];
-		if (pattern[upto] == text[i]) upto++;
-		if (upto == pattern.length()) {
+	auto sp = pre_kmp(pattern);
+	for (int l = 0, i = 0; i < text.length(); i++) {
+		while (l && pattern[l] != text[i]) l = sp[l - 1];
+		if (pattern[l] == text[i]) l++;
+		if (l == pattern.length()) {
 			cout << "Pattern occurs with shift " << i - (pattern.length() - 1)<<"\n";
-			upto = suffixPrefixLen[upto - 1];
+			l = sp[l - 1];
 		}
 	}
 }
@@ -47,3 +46,38 @@ int main() {
 	solve();
 	return 0;
 }
+
+
+
+/// leetcode
+
+string removeOccurrences(string a, string b) {
+    vector<int> kmp(b.size() + 1), idx(a.size()), st;
+    for (int i = 1, j = 0; i < b.size();)
+        if (b[i] == b[j]) 
+            kmp[++i] = ++j;
+        else {
+            i += j == 0;
+            j = kmp[j];
+        }
+    int d = 0;
+    for (auto i = 0, j = 0; i < a.size(); ++i) {
+        a[i - d] = a[i];
+        if (a[i - d] == b[j]) {
+            idx[i - d] = ++j;
+            if (j == b.size()) {
+                d += b.size();
+                j = i >= d ? idx[i - d] : 0;
+            }
+        }
+        else {
+            if (j != 0) {
+                j = kmp[j];
+                --i;
+            }
+        }
+    }
+    return a.substr(0, a.size() - d);
+}
+
+https://leetcode.com/problems/remove-all-occurrences-of-a-substring/discuss/1299275/True-O(n-%2B-m)-KMP
