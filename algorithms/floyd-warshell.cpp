@@ -63,10 +63,6 @@ void dijkstra(int graph[9][9], int src)
 int main() {fio;
 	freopen("input.txt", "r", stdin);
 
-
-	
-
-
 	int graph[9][9] = {{0, 4, 0, 0, 0, 0, 0, 8, 0}, 
                       {4, 0, 8, 0, 0, 0, 0, 11, 0}, 
                       {0, 8, 0, 7, 0, 4, 0, 0, 2}, 

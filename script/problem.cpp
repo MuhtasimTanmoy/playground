@@ -3,13 +3,6 @@
 using namespace std;
 
 void execute() {
-	int n; cin >> n;
-	vector<pair<int, int>> edges;
-	for (int i = 0, from = 0, to = 0; i < n; i++) {
-		cin>>from>>to;
-		edges.emplace_back(from, to);
-	}
-	// cout<<res<<endl;
 }
 
 int main() {
