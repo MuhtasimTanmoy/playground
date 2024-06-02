@@ -11,29 +11,20 @@
 class Solution {
 public:
     ListNode* doubleIt(ListNode* head) {
-        auto reverse = [](ListNode* head) {
-            ListNode* now = head, *prev = NULL;
-            while (now) 
-                swap(now->next, prev),
-                swap(now, prev);
+        auto rev = [](ListNode* now) {
+            ListNode *prev = NULL;
+            while (now) swap(prev, now->next), swap(prev, now);
             return prev;
         };
-        
-        head = reverse(head);
-        
-        int residue = 0;
-        for (ListNode* it = head, *prev = NULL; it || residue; it = it->next) {
-            if (!it) {
-                prev->next = new ListNode(residue, NULL);
-                break;
-            }
-            
-            auto val = it->val * 2 + residue;
-            it->val = val % 10;
-            residue = val / 10;
-            
-            prev = it;
+        ListNode *now = rev(head), *ret = now, *prev = NULL; auto residue = 0;
+        while (now) {
+            auto val = now->val * 2 + residue;
+            now->val = val % 10;
+            residue = val > 9 ? 1 : 0;
+            prev = now;
+            now = now->next;
         }
-        return reverse(head);
+        if (residue) prev->next = new ListNode(residue);
+        return rev(ret);
     }
 };

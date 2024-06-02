@@ -1,22 +1,43 @@
 class Solution {
 public:
-    int dfs(vector<string>& ws, vector<int> &cnt, vector<int> &score, int i) {
-        if (i >= ws.size()) return 0;
-        auto skipGain = dfs(ws, cnt, score, i + 1), gain = 0, formed = 1;
+    int maxScoreWords(vector<string>& words, vector<char>& letters, vector<int>& score) {
+        vector<int> count(26, 0);
+        for (auto letter: letters) count[letter - 'a']++;
+        int n = words.size();
         
-        vector<int> cnt1(begin(cnt), end(cnt));
-        for (auto ch : ws[i]) {
-            if (--cnt1[ch - 'a'] < 0) formed = 0;
-            gain += score[ch - 'a'];
-        }
-        return max(skipGain, formed ? gain + dfs(ws, cnt1, score, i + 1) : 0);
-    }
-    
-    int maxScoreWords(vector<string>& words,
-                      vector<char>& letters, 
-                      vector<int>& score) {
-        vector<int> cnt(26);
-        for (auto ch : letters) ++cnt[ch - 'a'];
-        return dfs(words, cnt, score, 0);
+        auto can_take = [&](string& now) {
+            vector<int> local(26, 0);
+            for (auto c:  now) local[c - 'a']++;
+            for (auto i = 0; i < local.size(); i++)
+                if (local[i] > count[i])
+                    return false;
+            return true;
+        };
+        
+        auto extract_score = [&score, &count](string& now, int calc = 0) {
+            for (auto c: now) 
+                calc += score[c - 'a'],
+                count[c - 'a']--;
+            return calc;
+        };
+        
+        auto reset = [&count](string& now){
+            for (auto c: now) count[c - 'a']++;
+        };
+        
+        function<int(int)> go = [&](auto i) {
+            if (i == n) return 0;
+            auto without = go(i + 1);
+            
+            auto now = words[i];
+            if (can_take(now)) {
+                auto scr = extract_score(now);
+                without = max(without, scr + go(i + 1));
+                reset(now);
+            }
+            return without;
+        };
+        
+        return go(0);
     }
 };

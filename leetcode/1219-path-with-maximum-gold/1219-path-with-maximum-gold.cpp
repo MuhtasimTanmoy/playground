@@ -16,7 +16,9 @@ public:
             auto cache = grid[x][y];
             grid[x][y] = 0;
             
-            vector<pair<int, int>> toGo {{x + 1, y}, {x, y + 1}, {x - 1, y}, {x, y - 1}};
+            vector<pair<int, int>> toGo {{x + 1, y}, {x, y + 1}, 
+                                         {x - 1, y}, {x, y - 1}};
+            
             for (auto dir: toGo) traverse(dir.first, dir.second, addedGold);
             grid[x][y] = cache;
         };

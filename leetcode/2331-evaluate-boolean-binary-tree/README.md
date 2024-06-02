@@ -19,7 +19,7 @@
 <p>A <strong>leaf node</strong> is a node that has zero children.</p>
 
 <p>&nbsp;</p>
-<p><strong>Example 1:</strong></p>
+<p><strong class="example">Example 1:</strong></p>
 <img alt="" src="https://assets.leetcode.com/uploads/2022/05/16/example1drawio1.png" style="width: 700px; height: 252px;">
 <pre><strong>Input:</strong> root = [2,1,3,null,null,0,1]
 <strong>Output:</strong> true
@@ -28,7 +28,7 @@ The AND node evaluates to False AND True = False.
 The OR node evaluates to True OR False = True.
 The root node evaluates to True, so we return true.</pre>
 
-<p><strong>Example 2:</strong></p>
+<p><strong class="example">Example 2:</strong></p>
 
 <pre><strong>Input:</strong> root = [0]
 <strong>Output:</strong> false

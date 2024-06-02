@@ -11,16 +11,11 @@
  */
 class Solution {
 public:
-    bool evaluateTree(TreeNode* root) {
-        if (!root) return false;
-        
-        if (root->val == 0) return false;
-        if (root->val == 1) return true;
-        
-        auto left = evaluateTree(root->left);
-        auto right = evaluateTree(root->right);
-        
-        if (root->val == 2) return left || right;
-        else return left && right;
+    bool evaluateTree(TreeNode* r) {
+        if (!r) return false;
+        if (r->val == 0 || r->val == 1) return r->val;
+        if (r->val == 2) return evaluateTree(r->left) || evaluateTree(r->right);
+        if (r->val == 3) return evaluateTree(r->left) && evaluateTree(r->right);
+        throw "error";
     }
 };

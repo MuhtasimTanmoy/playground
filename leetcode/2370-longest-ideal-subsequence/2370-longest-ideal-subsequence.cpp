@@ -2,16 +2,11 @@ class Solution {
 public:
 //     int longestIdealString(string s, int k) {
 //         unordered_map<string, int> cache;
-        
-//         auto key = [](int a, char b) {
-//             return to_string(a) + "-" + b;
-//         };
-        
+//         auto key = [](int a, char b) { return to_string(a) + "-" + b; };
 //         function<int(int, char)> go = [&](auto i, auto prev) {
 //             if (i == s.size()) return 0;
 //             auto ke = key(i, prev);
 //             if (cache.count(ke)) return cache[ke];
-            
 //             int pick = 0;
 //             if (abs(s[i] - prev) <= k || prev == '#') 
 //                 pick = 1 + go(i + 1, s[i]);
