@@ -10,18 +10,14 @@
  * };
  */
 class Solution {
-    int sum = 0;
-    void traverse(TreeNode* root) {
-        if (!root) return;
-        
-        traverse(root->right);
-        sum += root->val;
-        root->val = sum;
-        traverse(root->left);
-    }
 public:
-    TreeNode* bstToGst(TreeNode* root) {
-        traverse(root);
-        return root;
+    int accumulator = 0;
+    TreeNode* bstToGst(TreeNode* r) {
+        if ( !r ) return nullptr;
+        bstToGst(r->right);
+        r->val += accumulator;
+        accumulator = r->val;
+        bstToGst(r->left);
+        return r;
     }
 };

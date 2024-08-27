@@ -1,12 +1,14 @@
 class Solution {
 public:
     int findCenter(vector<vector<int>>& edges) {
-        unordered_map<int, int> counter;
+        int n = edges.size();
+        unordered_map<int, int> C;
         for (auto edge: edges) {
-            auto from = edge[0], to = edge[1];
-            if (++counter[from] > 1) return from;
-            if (++counter[to] > 1) return to;
+            auto from = edge.front(), back = edge.back();
+            C[from]++, C[back]++;
+            if (C[from] == n) return from;
+            if (C[back] == n) return back;
         }
-        throw "INVALID_INPUT";
+        throw "error";
     }
 };

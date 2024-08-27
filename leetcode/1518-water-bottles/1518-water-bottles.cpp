@@ -1,15 +1,8 @@
 class Solution {
 public:
-    int numWaterBottles(int numBottles, int numExchange) {
-        int ans = numBottles;
-        while (numBottles) {
-            auto renew = numBottles / numExchange;
-            if (!renew) break;
-            
-            auto rest = numBottles % numExchange;
-            ans += renew;
-            numBottles = rest + renew;
-        }
-        return ans;
+    int numWaterBottles(int have, int exchange_rate) {
+        if (have < exchange_rate) return have;
+        auto left = have % exchange_rate, consume = have - left;
+        return consume + numWaterBottles(consume / exchange_rate +  left, exchange_rate);
     }
 };
