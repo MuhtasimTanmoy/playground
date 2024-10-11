@@ -36,6 +36,7 @@ public:
 
 // https://leetcode.com/problems/maximum-width-ramp/discuss/208348/JavaC%2B%2BPython-O(N)-Using-Stack
 
+
 class Solution {
 public:
     int maxWidthRamp(vector<int>& nums) {

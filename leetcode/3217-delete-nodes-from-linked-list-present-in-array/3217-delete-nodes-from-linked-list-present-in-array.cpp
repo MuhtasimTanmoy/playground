@@ -11,13 +11,14 @@
 class Solution {
 public:
     ListNode* modifiedList(vector<int>& nums, ListNode* head) {
-        auto has = unordered_set<int>(nums.begin(), nums.end());
-        auto cache = new ListNode(0, head);
-        for (auto now = head, prev = cache; now; now = now->next) {
-            if (has.count(now->val))
-                prev->next = now->next;
-            else prev = now;
+        unordered_set<int> bag(nums.begin(), nums.end());
+        ListNode *n = new ListNode(), *traverse = n;
+        for (auto now = head; now; now = now->next) {
+            if (bag.count(now->val)) continue;
+            traverse->next = now;
+            traverse = traverse->next;
         }
-        return cache->next;
+        traverse->next = NULL;
+        return n->next;
     }
 };
