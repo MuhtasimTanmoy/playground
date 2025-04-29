@@ -1,7 +1,6 @@
 class Solution {
 public:
     vector<int> findDiagonalOrder(vector<vector<int>>& mat) {
-        
         vector<pair<int, int>> idx;
         for (int i = 0; i < mat.size(); i++)
             for (int j = 0; j < mat[i].size(); j++)

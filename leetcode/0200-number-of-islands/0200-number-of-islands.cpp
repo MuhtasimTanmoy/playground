@@ -1,7 +1,6 @@
 class Solution {
 public:
     int numIslands(vector<vector<char>>& grid) {
-        int numIslands = 0;
         function<void(int, int)> traverse = [&](int x, int y) {
             if (x < 0 || x >= grid.size() 
                 || y < 0 || y >= grid[0].size()) return;
@@ -16,6 +15,7 @@ public:
                 traverse(direction[0], direction[1]);
         };
         
+        int numIslands = 0;
         for (int i = 0; i < grid.size(); i++)
             for (int j = 0; j < grid[i].size(); j++)
                 if (grid[i][j] == '1') 

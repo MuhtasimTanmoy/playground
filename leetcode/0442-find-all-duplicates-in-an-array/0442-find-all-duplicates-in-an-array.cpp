@@ -1,19 +1,12 @@
 class Solution {
 public:
-    vector<int> findDuplicates(vector<int>& nums) {
-        set<int> res;
-        for (auto i = 0; i < nums.size(); i++) {
-            auto index = abs(nums[i]);
-            if (!index) continue;
-            
-            index--;
-            
-            if (nums[index] < 0) {
-                if (res.count(nums[index])) 
-                    nums[index] = 0, res.erase(index + 1);
-                else res.insert(index + 1);
-            } else nums[index] = -nums[index];
+    vector<int> findDuplicates(vector<int>& N) {
+        vector<int> res;
+        for (auto i = 0; i < N.size(); i++) {
+            auto idx = abs(N[i]) - 1;
+            if (N[idx] < 0) res.push_back(idx + 1);
+            N[idx] = -(abs(N[idx]));
         }
-        return vector<int>(res.begin(), res.end());
+        return res;
     }
 };

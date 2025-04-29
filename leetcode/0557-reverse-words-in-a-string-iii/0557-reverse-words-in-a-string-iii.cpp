@@ -2,10 +2,10 @@ class Solution {
 public:
     string reverseWords(string s) {
         stringstream ss(s);
-        string res = "", token;
-        while (ss >> token) 
-            reverse(token.begin(), token.end()),
-            res += token,
+        string word, res = "";
+        while (ss >> word)
+            reverse(word.begin(), word.end()),
+            res += word,
             res += " ";
         res.pop_back();
         return res;

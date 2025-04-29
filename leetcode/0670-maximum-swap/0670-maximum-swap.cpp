@@ -1,23 +1,16 @@
 class Solution {
 public:
     int maximumSwap(int num) {
-        auto n_str = to_string(num);
-        int n = n_str.size();
-        
-        vector<int> right(n, 0);
-        right[n - 1] = n - 1;
-        
-        for (int i = n_str.size() - 2; i >= 0; i--) 
-            right[i] = n_str[right[i + 1]] >= n_str[i] ? right[i + 1]: i;
-        
-        // for (auto val: right) cout<<val<<endl;
-        
-        for (int i = 0; i < n_str.size(); i++) 
-            if (n_str[i] < n_str[right[i]]) {
-                swap(n_str[i], n_str[right[i]]);
-                break;
-            }
-        
-        return stoi(n_str);
+        auto num_str = to_string(num);
+        pair<int, int> keep;
+        for (int i = num_str.size() - 1, max_so_far = -1, m_index = -1; i >= 0; i--) {
+            auto now = num_str[i] - '0';
+            if (max_so_far < now)
+                max_so_far = now, m_index = i;
+            else if (now < max_so_far)
+                    keep = {m_index, i};
+        }
+        swap(num_str[keep.first], num_str[keep.second]);
+        return stoi(num_str);
     }
 };
