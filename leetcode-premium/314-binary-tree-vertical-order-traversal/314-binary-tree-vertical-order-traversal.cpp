@@ -175,33 +175,34 @@
 class Solution {
 public:
     vector<vector<int>> verticalOrder(TreeNode* root) {
-        if (!root) {
-            return {};
-        }
-        vector<vector<int>> res;
+        if (!root) return {};
+
         queue<pair<TreeNode *, int>> que;
         que.push({root, 0});
+
         unordered_map<int, vector<int>> map;
         int minx = 0, maxx = 0;
+
         while (que.size()) {
             auto qsize = que.size();
+
             while (qsize--) {
-                auto now = que.front();
+                auto now = que.front(); que.pop();
                 minx = min(minx, now.second);
                 maxx = max(maxx, now.second);
-                que.pop();
+
                 map[now.second].push_back(now.first->val);
-                if (now.first->left) {
-                    que.push({now.first->left, now.second-1});
-                }
-                if (now.first->right) {
-                    que.push({now.first->right, now.second+1});
-                }
+
+                if (now.first->left)
+                    que.push({now.first->left, now.second - 1});
+                
+                if (now.first->right)
+                    que.push({now.first->right, now.second + 1});
             }
         }
-        for (int i = minx; i <= maxx; ++i) {
-            res.push_back(map[i]);
-        }
+
+        vector<vector<int>> res;
+        for (int i = minx; i <= maxx; ++i) res.push_back(map[i]);
         return res;
     }
 };
